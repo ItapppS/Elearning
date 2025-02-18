@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Hero Section Wrapper -->
+  <div class="hero-wrapper">
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Projects</h2>
+        <ul>
+          <li><a href="#">Bionic Hand</a></li>
+          <li><a href="#">Aster Robot</a></li>
+          <li><a href="#">Dobot</a></li>
+        </ul>
+      </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{% static 'images/hero1.jpg' %}" alt="Robotics Kit 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'images/hero2.webp' %}" alt="Robotics Kit 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'images/hero3.webp' %}" alt="Robotics Kit 3">
+          </div>
+        </div>
+        <!-- Pagination Bullets -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1>Welcome to PHN Robotics</h1>
+        <p>Explore cutting-edge robotic kits to bring your projects to life!</p>
+        <a href="#" class="cta-button">Get Started</a>
+      </div>
+    </section>
+
+  </div>
+{% endblock %}

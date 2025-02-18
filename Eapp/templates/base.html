@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Website{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Swiper CSS -->
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header {
+  width: 100%;
+  background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+    }
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #2f6fed;
+    }
+    .search-bar {
+      flex: 1;
+      text-align: center;
+    }
+    .search-bar input {
+      width: 50%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .right-nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 10px;
+    }
+    .nav-left a {
+      text-decoration: none;
+      color: #2f6fed;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .cart-container {
+      display: flex;
+      align-items: center;
+    }
+    .cart-logo {
+      font-size: 24px;
+      color: #2f6fed;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+      padding: 0;
+      position: relative;
+      z-index: 100;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      margin: 0 15px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .dropdown {
+      position: relative;
+      margin: 0 15px;
+    }
+    .dropdown > a i {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+    .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000; /* Increase this value */
+}
+    .dropdown-content a {
+      display: block;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #2f6fed;
+      font-weight: normal;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nested-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  background-color: #fff;
+  width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000; /* Increase this value */
+}
+    .nested-dropdown a {
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #2f6eed;
+      font-weight: normal;
+    }
+    .nested-dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown-content .project:hover .nested-dropdown {
+      display: block;
+    }
+    .dropdown-content .product:hover .nested-dropdown {
+      display: block;
+    }
+
+    /* Home */
+
+/* Wrapper for Sidebar & Hero Section */
+.hero-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background:  #001f3f;
+  padding: 19px;
+  height: 64vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #2f6fed;
+  padding-bottom: 5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #2f6fed;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: calc(100% - 220px); /* Sidebar width hataya */
+  height: 70vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+/* Swiper Container */
+.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Swiper Slides */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #2f6fed;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #1a4bb2;
+}
+
+/* Swiper Pagination Bullets */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2f6fed;
+  opacity: 1;
+}
+
+
+  </style>
+  {% block css %}{% endblock %}
+</head>
+<body>
+  <header class="header">
+    <div class="top-nav">
+      <div class="logo">PHN</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="right-nav">
+        <div class="nav-left">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+        <div class="cart-container">
+          <i class="fa-solid fa-shopping-cart cart-logo"></i>
+        </div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <!-- Products Dropdown -->
+      <div class="dropdown">
+        <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+            <a href="#" style="background-color: blue; color: white;">Products</a>
+            <div class="product">
+            <a href="#">Microcontroller <strong>></strong></a>
+            <div class="nested-dropdown">
+                <a href="#" style="background-color: blue;; color: white;">Arduino</a>
+                <a href="#">Arduino Uno</a>
+                <a href="#">Arduino Nano</a>
+                <a href="#">Arduino Mega</a>
+                <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
+                <a href="#">Raspberry Pi 4</a>
+                <a href="#">Raspberry Pi 3B+</a>
+                <a href="#">Raspberry Pi Pico</a>
+                <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
+                <a href="#">ESP32 DevKit V1</a>
+                <a href="#">ESP8266 NodeMCU</a>
+              </div>
+            </div>
+            <div class="product">
+                <a href="#">Motor Drivers <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">L298N Motor Driver Module</a>
+                    <a href="#">L293D Motor Driver</a>
+                    <a href="#">TB6612FNG Motor Driver</a>
+                    <a href="#">DRV8833 Motor Driver</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Motors <strong>></strong></a>
+                <div class="nested-dropdown">
+                <a href="#" style="background-color: blue; color: white;">DC Motors</a>
+                    <a href="#">5V DC Motor</a>
+                    <a href="#">12V DC Motor</a>
+                    <a href="#">High Torque DC Motor</a>
+                <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
+                    <a href="#">SG90 (9g Servo Motor)</a>
+                    <a href="#">MG996R (High Torque Servo)</a>
+                    <a href="#">MG90S (Micro Servo)</a>
+                
+                <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
+                    <a href="#">NEMA 17 Stepper Motor</a>
+                    <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Sensors <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">Details 1</a>
+                    <a href="#">Details 2</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Power Supply <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">Details 1</a>
+                    <a href="#">Details 2</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Mechanical Parts <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">Details 1</a>
+                    <a href="#">Details 2</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Breadboard <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">Details 1</a>
+                    <a href="#">Details 2</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="#">Electronic Components <strong>></strong></a>
+                <div class="nested-dropdown">
+                    <a href="#">Details 1</a>
+                    <a href="#">Details 2</a>
+                </div>
+            </div>
+        </div>
+
+       </div>
+
+      <!-- Projects Dropdown -->
+      <div class="dropdown">
+        <a href="#">Projects <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#" style="background-color: blue; color: white;">Projects</a>
+          <!-- Project links with nested dropdowns -->
+          <div class="project">
+            <a href="#">Bionic Hand <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">SCARA Robot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">Dobot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">Aster Robot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">Line Following Robot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">Voice Controlled Robot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+          <div class="project">
+            <a href="#">Self-Balancing Robot <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHN Labs Dropdown -->
+      <div class="dropdown">
+        <a href="#">PHN Labs <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">Lab 1</a>
+          <a href="#">Lab 2</a>
+          <a href="#">Lab 2</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+ <!-- Swiper JS -->
+ <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,  // Bullets clickable honge
+      },
+    });
+  </script>
+  
+
+  
+</body>
+</html>
+
+  
