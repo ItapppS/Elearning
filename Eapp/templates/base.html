@@ -21,20 +21,20 @@
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
 
- <!-- End  -->
+<!-- End  -->
   <style>
     body {
       background-color: white;
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family:  sans-serif;
     }
     .header {
-  width: 100%;
-  background: linear-gradient(to right, #ffffff, #0074D9,#001f3f);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 100;
-  }
+    width: 100%;
+    background: linear-gradient(to right, #ffffff, #0074D9,#001f3f);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+    }
 
     .top-nav {
       display: flex;
@@ -228,10 +228,64 @@
 }
 
 /* Swiper Slides */
+.swiper-slide {
+  position: relative;
+}
+
 .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Shadow Box (For Background Shadow Effect) */
+.shadow-box {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  width: 370px;
+  height: 370px;
+  background: rgba(255, 253, 253, 0.9);  
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay Box (Main Content Box) */
+/* Overlay Box (Main Content Box) */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  background: rgba(52, 65, 253, 0.9);
+  width: 400px;
+  height: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center horizontally */
+  justify-content: flex-start;  /* Content को top पर push किया */
+  text-align: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Title at the Very Top */
+.overlay h2 {
+  font-size: 1.5rem;
+  margin-top: 5px;  /* थोड़ा space दिया */
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: 'Times New Roman';
+  color: white;
+}
+
+/* Paragraph Below h2 */
+.overlay p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
 }
 
 /* Hero Content */
@@ -254,21 +308,6 @@
   margin-bottom: 20px;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 12px 30px;
-  font-size: 18px;
-  background-color: #2f6fed;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #1a4bb2;
-}
-
 /* Swiper Pagination Bullets */
 .swiper-pagination-bullet {
   width: 10px;
@@ -281,6 +320,11 @@
   background-color: #2f6fed;
   opacity: 1;
 }
+
+
+
+
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -292,6 +336,8 @@
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust min width here */
   gap: 1.5rem;
 }
+
+/* robotics.html page*/
 
 .course-card {
     background-color: white;
@@ -354,19 +400,31 @@
 .product-card {
     background-color: white;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
     text-align: center;
-
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+.product-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
+}
 
 .product-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 15px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+
 .categories {
     margin: 20px;
 }
@@ -381,8 +439,15 @@
     background-color: white;
     padding: 20px;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.category-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
 }
 
 .category-card img {
@@ -390,6 +455,84 @@
     height: 150px;
     object-fit: cover;
     margin-bottom: 10px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.kit-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa; /* Adjust to match your theme */
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Adjust based on your theme */
+}
+
+.kit-section {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 40px;
+}
+
+.kit-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    max-width: 3000px;
+    margin: auto;
+}
+
+.kit-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 8px;
+    border-color: 0 2px 4px rgba(62, 74, 230, 0.466);;
+    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    padding: 20px;
+    width: 30%;
+    transition: transform 0.2s;
+}
+
+.kit-card:hover {
+    transform: translateY(-5px);
+}
+
+.kit-text {
+    text-align: left;
+}
+
+.kit-text h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.kit-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.kit-text li {
+    font-size: 17px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.kit-text :hover{
+  color: blueviolet;
+}
+.kit-image img {
+    width: 200px; /* Adjust based on your icons */
+    height: auto;
+    border-radius: 10px;
 }
 
 /* Footer Styling */
@@ -600,7 +743,7 @@ footer {
             </div>
         </div>
 
-       </div>
+      </div>
 
       <!-- Projects Dropdown -->
       <div class="dropdown">
@@ -731,8 +874,8 @@ footer {
 
 </footer>
 
- <!-- Swiper JS -->
- <script>
+<!-- Swiper JS -->
+<script>
     var swiper = new Swiper(".mySwiper", {
       loop: true,
       autoplay: {
