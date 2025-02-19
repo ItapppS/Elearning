@@ -117,7 +117,7 @@
         .model-buttons button {
             padding: 10px;
             border: none;
-            background: #0077ff;
+            background:rgb(84, 78, 78);
             color: white;
             cursor: pointer;
             border-radius: 5px;
@@ -185,29 +185,7 @@
     margin-bottom: 10px;
 }
 
-/* Unlock Button Styling */
-.unlock-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: #ff5722;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease;
-}
 
-.unlock-btn:hover {
-    background: #e64a19;
-}
-
-.image-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-}
 
 
 
@@ -303,67 +281,124 @@
         <div class="ad-placement ad-right">Ad Placement</div>
 
 
-        <section class="content-box">
-            <h2 class="section-title">Otto Video Lecture</h2>
-            <div class="video-container">
-                <iframe id="videoIframe" src="https://drive.google.com/file/d/17qe7c9zbNkcvHWnQPXCcB179ZeqUeUDg/preview" 
-                        width="100%" height="400" allow="autoplay" id="videoPlayer"></iframe>
+        <!-- Otto Video Lecture Section -->
+<section class="content-box">
+    <h2 class="section-title">Otto Video Lecture</h2>
 
-                <!-- Blur Overlay with Lock Icon -->
-                <div class="blur-overlay" id="blurOverlay4">
-                    <p class="locked-text">Unlock Full Video</p>
-                    <button class="unlock-btn" onclick="unlockVideo()">Unlock</button>
-                </div>
-            </div>
-        </section>
+    <!-- Button to View Video on Google Drive -->
+    <div class="video-button-container">
+        <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
+            <button class="video-view-button">Click here to watch Otto Video Lecture</button>
+        </a>
+    </div>
+</section>
+
+<style>
+    .video-button-container {
+        margin-top: 15px;
+        text-align: left; /* Aligns the button to the left */
+    }
+
+    .video-view-button {
+        width: 350px;
+        padding: 15px;
+        font-size: 16px;
+        background-color: white; /* White background */
+        color: black; /* Black text for contrast */
+        border: 2px solid rgb(200, 200, 200); /* Subtle border */
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .video-view-button:hover {
+        background-color: rgb(245, 245, 245); /* Light gray on hover */
+        transform: scale(1.02); /* Slight zoom effect */
+    }
+</style>
+
         
 
         
 
 
         <!-- Comprehensive Guide Section -->
-        <section class="content-box">
-            <h2 class="section-title">Comprehensive Guide</h2>
-            <p style="color: antiquewhite;">
-                This guide covers the step-by-step process to build, assemble, and program Otto. 
-                It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
-            </p>
-        
-            <div class="pdf-container">
-                <!-- PDF Embed -->
-                <iframe id="pdfViewer" src="{% static 'images/OTTO-Robot-A-Comprehensive-Guide.pdf' %}#page=1" 
-                        style="width: 100%; height: 100%; border: none;">
-                </iframe>
-        
-                <!-- Blur Overlay with Lock Icon -->
-                <div class="blur-overlay" id="blurOverlay">
-                    <p class="locked-text">🔒 Content Locked!</p>
-                    <p>To access this section, simply buy our robotic kit and unlock advanced details!</p>
-                    <button class="unlock-btn" onclick="unlockPDF()">Unlock</button>
-                </div>
-            </div>
-        </section>
-        
+<section class="content-box">
+    <h2 class="section-title">Comprehensive Guide</h2>
+    <p style="color: antiquewhite;">
+        This guide covers the step-by-step process to build, assemble, and program Otto. 
+        It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
+    </p>
 
-        <!-- Otto Report Section -->
-        <section class="content-box">
-            <h2 class="section-title">Otto Robot Report</h2>
-        
-            <div class="pdf-container">
-                <!-- PDF Embed -->
-                <iframe id="pdfViewer2" src="{% static 'images/OTTO ROBOT REPORT.pdf' %}#page=1" 
-                        style="width: 100%; height: 100%; border: none;">
-                </iframe>
-        
-                <!-- Blur Overlay with Lock Icon -->
-                <div class="blur-overlay" id="blurOverlay2">
-                    <p class="locked-text">🔒 Content Locked!</p>
-                    <p>To access this section, simply buy our robotic kit and unlock advanced details!</p>
-                    <button class="unlock-btn" onclick="unlockReport()">Unlock</button>
-                </div>
-            </div>
-        </section>
-        
+    <!-- Button to View PPT in Google Drive -->
+    <div class="ppt-button-container">
+        <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
+            <button class="ppt-view-button">Click here to view OTTO Robot A Comprehensive Guide</button>
+        </a>
+    </div>
+</section>
+
+<style>
+    .ppt-button-container {
+        margin-top: 15px;
+        text-align: left; /* Aligns the button to the left */
+    }
+
+    .ppt-view-button {
+        width: 350px;
+        padding: 15px;
+        font-size: 16px;
+        background-color: white; /* White background */
+        color: black; /* Black text for contrast */
+        border: 2px solid rgb(200, 200, 200); /* Subtle border */
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .ppt-view-button:hover {
+        background-color: rgb(245, 245, 245); /* Light gray on hover */
+        transform: scale(1.02); /* Slight zoom effect */
+    }
+</style>
+
+
+<!-- Otto Report Section -->
+<section class="content-box">
+    <h2 class="section-title">Otto Robot Report</h2>
+
+    <!-- Button to View Report in Google Drive -->
+    <div class="pdf-button-container">
+        <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
+            <button class="pdf-view-button">Click here to view OTTO Robot Report</button>
+        </a>
+    </div>
+</section>
+
+<style>
+    .pdf-button-container {
+        margin-top: 15px;
+        text-align: left; /* Aligns the button to the left */
+    }
+
+    .pdf-view-button {
+        width: 350px;
+        padding: 15px;
+        font-size: 16px;
+        background-color: white; /* White background */
+        color: black; /* Black text for contrast */
+        border: 2px solid rgb(200, 200, 200); /* Subtle border */
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .pdf-view-button:hover {
+        background-color: rgb(245, 245, 245); /* Light gray on hover */
+        transform: scale(1.02); /* Slight zoom effect */
+    }
+</style>
+
 
         <!-- Otto Interface Diagram Section -->
         <section class="content-box">
@@ -373,141 +408,372 @@
                 <!-- Image Display -->
                 <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="ottoImage" 
                     style="max-width: 100%; height: auto; align-items: center;">
-        
-                <!-- Blur Overlay with Lock Icon -->
-                <div class="blur-overlay" id="blurOverlay3">
-                    <p class="locked-text">🔒 Content Locked!</p>
-                    <p>To access this section, simply buy our robotic kit and unlock advanced details!</p>                    <button class="unlock-btn" onclick="unlockImage()">Unlock</button>
-                </div>
             </div>
         </section>
         
 
         <!-- 3D Model Viewer Section -->
-        <section class="content-box">
-            <h2 class="section-title">3D Model Viewer</h2>
-            <p style="color: antiquewhite;">Explore the 3D printable components of Otto Robot.</p>
-            <div class="model-buttons">
-                <button onclick="loadModel('Head')">Head</button>
-                <button onclick="loadModel('Body')">Body</button>
-                <button onclick="loadModel('Left_Foot')">Left Foot</button>
-                <button onclick="loadModel('Right_Foot')">Right Foot</button>
-                <button onclick="loadModel('Leg')">Leg</button>
+<section class="content-box">
+    <h2 class="section-title">3D Model Viewer</h2>
+    <p style="color: antiquewhite;">Explore the 3D printable components of Otto Robot.</p>
+    <div class="model-buttons">
+        <a href="https://drive.google.com/file/d/1bVrAiP7W5oJ2_WA8KgbkxzhxjEunxegG/view?usp=drive_link" target="_blank">
+            <button class="view-button">Click here to view Head</button>
+        </a>
+        <a href="https://drive.google.com/file/d/1ic-pnyAI9pVF-sFc03ZsawCdxtjqRA5Q/view?usp=drive_link" target="_blank">
+            <button class="view-button">Click here to view Body</button>
+        </a>
+        <a href="https://drive.google.com/file/d/18cACp8Tf_q2WFVfO1AQL7OHjyTL47qv0/view?usp=drive_link" target="_blank">
+            <button class="view-button">Click here to view Left Foot</button>
+        </a>
+        <a href="https://drive.google.com/file/d/1AFLRL-0K0hknXsDuJ7ta8J9k4kdfanC4/view?usp=sharing" target="_blank">
+            <button class="view-button">Click here to view Right Foot</button>
+        </a>
+        <a href="https://drive.google.com/file/d/1pPjsx62rzg7f9DZYlij0XhUFK3YmRX5w/view?usp=drive_link" target="_blank">
+            <button class="view-button">Click here to view Leg</button>
+        </a>
+    </div>
+</section>
+
+<!-- Mini E-Commerce Store Section -->
+<section class="content-box">
+    <h2 class="section-title">Otto Robot Components Store</h2>
+
+    <div class="store-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Color</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 3D Printed Parts (with Color Options) -->
+                <tr>
+                    <td>3D Printed Parts</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="Red">Red</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Green">Green</option>
+                            <option value="Black">Black</option>
+                        </select>
+                    </td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('printed', -1)">-</button>
+                        <span id="printed-qty">1</span>
+                        <button onclick="updateQuantity('printed', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="printed-price">10</span></td>
+                </tr>
+
+                <!-- Ultrasonic Sensor -->
+                <tr>
+                    <td>Ultrasonic Sensor</td>
+                    <td>-</td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('sensor', -1)">-</button>
+                        <span id="sensor-qty">1</span>
+                        <button onclick="updateQuantity('sensor', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="sensor-price">5</span></td>
+                </tr>
+
+                <!-- Arduino Nano -->
+                <tr>
+                    <td>Arduino Nano</td>
+                    <td>-</td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('nano', -1)">-</button>
+                        <span id="nano-qty">1</span>
+                        <button onclick="updateQuantity('nano', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="nano-price">15</span></td>
+                </tr>
+
+                <!-- Expansion Board -->
+                <tr>
+                    <td>Expansion Board</td>
+                    <td>-</td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('expansion', -1)">-</button>
+                        <span id="expansion-qty">1</span>
+                        <button onclick="updateQuantity('expansion', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="expansion-price">8</span></td>
+                </tr>
+
+                <!-- Servo Motors (Required 4) -->
+                <tr>
+                    <td>Servo Motors (4 Required)</td>
+                    <td>-</td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('servo', -1)">-</button>
+                        <span id="servo-qty">4</span>
+                        <button onclick="updateQuantity('servo', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="servo-price">20</span></td>
+                </tr>
+
+                <!-- Battery 9V -->
+                <tr>
+                    <td>Battery 9V</td>
+                    <td>-</td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('battery', -1)">-</button>
+                        <span id="battery-qty">1</span>
+                        <button onclick="updateQuantity('battery', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="battery-price">3</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Total Price -->
+        <div class="total">
+            <h3>Total: $<span id="total-price">61</span></h3>
+        </div>
+    </div>
+</section>
+
+<!-- Robotics Related Projects Section -->
+<section class="content-box">
+    <h2 class="section-title">Related Robotics Projects</h2>
+
+    <div class="slider-container" onmouseover="pauseScroll()" onmouseout="startScroll()">
+        <div class="project-slider" id="projectSlider">
+            <div class="project" onclick="redirectTo('bionic-hand')">
+                <img src="{% static 'images/bionichand.jpeg' %}" alt="Bionic Hand">
+                <p class="project-title">Bionic Hand</p>
             </div>
-            <div id="stl-viewer"></div>
-        </section>
+
+            <div class="project" onclick="redirectTo('asterbot')">
+                <img src="{% static 'images/asterbot.webp' %}" alt="Asterbot">
+                <p class="project-title">Asterbot</p>
+            </div>
+
+            <div class="project" onclick="redirectTo('robotic-arm')">
+                <img src="{% static 'images/roboticarm.webp' %}" alt="Robotic Arm">
+                <p class="project-title">Robotic Arm</p>
+            </div>
+
+            <div class="project" onclick="redirectTo('self-balancing-robot')">
+                <img src="{% static 'images/selfbalancing.webp' %}" alt="Self-Balancing Robot">
+                <p class="project-title">Self-Balancing Robot</p>
+            </div>
+
+            <div class="project" onclick="redirectTo('quadruped-robot')">
+                <img src="{% static 'images/quadrobot.webp' %}" alt="Quadruped Robot">
+                <p class="project-title">Quadruped Robot</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .slider-container {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        padding: 10px;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .project-slider {
+        display: flex;
+        gap: 20px;
+        animation: scrollProjects 10s linear infinite;
+    }
+
+    .project {
+        flex: 0 0 auto;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+        transform: scale(1.1);
+    }
+
+    .project img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-title {
+        margin-top: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        background: linear-gradient(to right, #007BFF, #00C6FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes scrollProjects {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<script>
+    let scrolling = true;
+    const projectSlider = document.getElementById("projectSlider");
+
+    function pauseScroll() {
+        scrolling = false;
+        projectSlider.style.animationPlayState = "paused";
+    }
+
+    function startScroll() {
+        scrolling = true;
+        projectSlider.style.animationPlayState = "running";
+    }
+
+    function redirectTo(projectName) {
+        window.location.href = "/" + projectName;
+    }
+</script>
+
+
+<style>
+    .store-container {
+        max-width: 600px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        margin: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .quantity-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .quantity-column button {
+        padding: 5px 10px;
+        border: none;
+        background: #ddd;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .price-column {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .total {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .color-select {
+        padding: 5px;
+    }
+</style>
+
+<script>
+    let prices = {
+        printed: 10,
+        sensor: 5,
+        nano: 15,
+        expansion: 8,
+        servo: 20,
+        battery: 3
+    };
+
+    let quantities = {
+        printed: 1,
+        sensor: 1,
+        nano: 1,
+        expansion: 1,
+        servo: 4,
+        battery: 1
+    };
+
+    function updateQuantity(component, change) {
+        if (quantities[component] + change >= 0) {
+            quantities[component] += change;
+            document.getElementById(`${component}-qty`).innerText = quantities[component];
+
+            let newPrice = quantities[component] * prices[component];
+            document.getElementById(`${component}-price`).innerText = newPrice;
+
+            updateTotal();
+        }
+    }
+
+    function updateTotal() {
+        let total = 0;
+        for (let key in prices) {
+            total += prices[key] * quantities[key];
+        }
+        document.getElementById("total-price").innerText = total;
+    }
+</script>
+
+
+<style>
+    .model-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Adds spacing between buttons */
+        align-items: flex-start; /* Aligns buttons to the left */
+    }
+
+    .view-button {
+        width: 300px; /* Adjust width as needed */
+        padding: 20px;
+        font-size: 16px;
+        background-color: white; /* Button color changed to white */
+        color: black; /* Text color changed to black for contrast */
+        border: 2px solid rgb(200, 200, 200); /* Adds a subtle border */
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .view-button:hover {
+        background-color: rgb(245, 245, 245); /* Light gray on hover */
+        transform: scale(1.02); /* Slight zoom effect */
+    }
+</style>
+
     </div>
 
     <footer>
         <p>&copy; 2023 PHN Technology. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const modelUrls = {
-    "Head": "https://raw.githubusercontent.com/TusharChede/3dmodels/main/Head.stl",
-    "Body": "https://raw.githubusercontent.com/TusharChede/3dmodels/main/Body.stl",
-    "Left_Foot": "https://raw.githubusercontent.com/TusharChede/3dmodels/main/Left_Foot.stl",
-    "Right_Foot": "https://raw.githubusercontent.com/TusharChede/3dmodels/main/Right_Foot.stl",
-    "Leg": "https://raw.githubusercontent.com/TusharChede/3dmodels/main/Leg.stl"
-};
 
-
-            const container = document.getElementById("stl-viewer");
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(renderer.domElement);
-
-            const light = new THREE.DirectionalLight(0xffffff, 1);
-            light.position.set(1, 1, 1).normalize();
-            scene.add(light);
-
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.minDistance = 1;
-            controls.maxDistance = 20;
-
-            const loader = new THREE.STLLoader();
-            let currentMesh = null;
-
-            function loadModel(part) {
-                if (currentMesh) {
-                    scene.remove(currentMesh);
-                }
-                loader.load(modelUrls[part], function (geometry) {
-                    const material = new THREE.MeshStandardMaterial({ color: 0x0077ff, metalness: 0.3, roughness: 0.6 });
-                    currentMesh = new THREE.Mesh(geometry, material);
-                    scene.add(currentMesh);
-
-                    const center = new THREE.Box3().setFromObject(currentMesh).getCenter(new THREE.Vector3());
-                    currentMesh.position.sub(center);
-                    camera.position.set(0, 0, 5);
-                });
-            }
-
-            function animate() {
-                requestAnimationFrame(animate);
-                controls.update();
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener("resize", function () {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
-            });
-
-            // Load the default model (Head) on page load
-            loadModel("Head");
-        });
-
-        function unlockPDF() {
-    document.getElementById("blurOverlay").style.display = "none"; // Hide blur & lock
-}
-
-function unlockReport() {
-    document.getElementById("blurOverlay2").style.display = "none"; // Hide blur & lock
-}
-
-function unlockImage() {
-    document.getElementById("blurOverlay3").style.display = "none"; // Hide blur & lock
-}
-
-
-
-// Play video initially
-// Function to play video initially and lock after 10 seconds
-window.onload = function() {
-    var iframe = document.getElementById("videoIframe");
-    var blurOverlay = document.getElementById("blurOverlay4");
-
-    // Initially, blur effect and lock are hidden
-    blurOverlay.style.display = "none";
-
-    // Set timeout to lock the video after 10 seconds
-    setTimeout(function() {
-        blurOverlay.style.display = "flex"; // Show lock overlay
-        iframe.src = iframe.src; // Reload iframe to pause the video
-    }, 10000); // 10 seconds delay before lock
-};
-
-// Unlock the video when the button is clicked
-function unlockVideo() {
-    var iframe = document.getElementById("videoIframe");
-    var blurOverlay = document.getElementById("blurOverlay4");
-
-    blurOverlay.style.display = "none"; // Hide blur overlay
-
-    // Restart the video by resetting the iframe source
-    iframe.src = iframe.src;
-}
-
-
-
-    </script>
 </body>
 </html>
