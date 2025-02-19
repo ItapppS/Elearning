@@ -42,8 +42,59 @@
     </section>
 
   </div>
+  <!-- Kit, Services and content cards-->
+  <section class="kit-section">
+    <div class="kit-container">
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>KITS</h3>
+                <ul>
+                    <li><a href = "#">Starter Kits</a></li>
+                    <li><a href = "#">Development Boards</a></li>
+                    <li><a href = "#">Sensor Modules</a></li>
+                    <li><a href = "#">DIY Projects</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+              <img src="{% static 'images/kit.png' %}" alt="Robotics Kit 3">
+            </div>
+        </div>
+
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href = "#">Custom PCB Design</a></li>
+                    <li><a href = "#">Prototyping Kits</a></li>
+                    <li><a href = "#">Consulting Services</a></li>
+                    <li><a href = "#">Technical Support</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+                <img src="services.png" alt="Services Image">
+            </div>
+        </div>
+
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>CONTENT</h3>
+                <ul>
+                    <li><a href = "#">Documentation</a></li>
+                    <li><a href = "#">Video Tutorials</a></li>
+                    <li><a href = "#">Tech Articles</a></li>
+                    <li><a href = "#">Community Forum</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+                <img src="content.png" alt="Content Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- Technology Domains-->
   <section class="categories" id="categories">
-    <h2 style = "font-size: xx-large;">Browse by Category</h2>
+    <h2 style = "font-size: xx-large;">Technology Domains</h2>
     <div class="category-grid">
         <div class="category-card">
             <h3 style = "font-size:x-large;">Robotics</h3>
@@ -76,10 +127,10 @@
 
 <!-- Featured Products -->
 <section class="featured-products">
-    <h2>&nbsp;&nbsp;&nbsp;Featured Guides</h2>
+  <h2 style = "font-size: xx-large;">&nbsp;&nbsp;&nbsp;Featured Guides</h2>
     <div class="product-grid">
         <div class="product-card">
-            <a href = "otto.html"><img src="{% static 'images/product1.jpg' %}" alt="Ottobot"></a>
+            <a href = "../templates/otto.html"><img src="{% static 'images/product1.jpg' %}" alt="Ottobot"></a>
             <h3>Ottobot</h3>
         </div>
         <div class="product-card">
@@ -88,12 +139,12 @@
             
         </div>
         <div class="product-card">
-            <img src="{% static 'images/product3.jpg'}" alt="Product 3">
+            <img src="{% static 'images/product3.jpg' %}" alt="Product 3">
             <h3>Solar detector</h3>
             
         </div>
         <div class="product-card">
-            <img src="{% static 'images/product4.jpg'}" alt="Product 4">
+            <img src="{% static 'images/product4.jpg' %}" alt="Product 4">
             <h3>Asterbot</h3>
             
         </div>
