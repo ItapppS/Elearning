@@ -30,22 +30,27 @@
     }
     .header {
   width: 100%;
-  background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+  background: linear-gradient(to right, #ffffff, #0074D9,#001f3f);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 100;
-}
+  }
 
     .top-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 14px;
+      height: 70px;
     }
     .logo {
-      font-size: 30px;
-      font-weight: bold;
-      color: #2f6fed;
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+    .logo img{
+      height: 150px;
+      width: auto;
+      margin-top: 33px;
     }
     .search-bar {
       flex: 1;
@@ -72,7 +77,7 @@
       color: #2f6fed;
       font-weight: bold;
       margin-bottom: 5px;
-    }
+    } 
     .cart-container {
       display: flex;
       align-items: center;
@@ -84,7 +89,7 @@
     .nav-links {
       display: flex;
       justify-content: center;
-      background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+      background: linear-gradient(to right,  #ffffff, #0074D9,#001f3f);
       padding: 0;
       position: relative;
       z-index: 100;
@@ -393,7 +398,9 @@
 <body>
   <header class="header">
     <div class="top-nav">
-      <div class="logo">PHN</div>
+      <div class="logo">
+        <img src="{% static 'images/phnlogo.jpg' %}" alt="Health">
+      </div>
       <div class="search-bar">
         <input type="text" placeholder="Search...">
       </div>
