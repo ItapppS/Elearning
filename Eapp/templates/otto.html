@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,13 +82,7 @@
             border-radius: 8px;
         }
 
-        .video-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Ensures content inside stays within the bounds */
-}
+
 
         iframe {
             width: 100%;
@@ -264,13 +259,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Buy Now Button -->
-    <a href="https://www.phntechnology.com/" target="_blank" class="buy-button">
-        Buy Now 🚀
-    </a>
-
-
 
 
         </section>
@@ -511,7 +499,7 @@
                     <td>-</td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('servo', -1)">-</button>
-                        <span id="servo-qty">4</span>
+                        <span id="servo-qty">1</span>
                         <button onclick="updateQuantity('servo', 1)">+</button>
                     </td>
                     <td class="price-column">$<span id="servo-price">20</span></td>
@@ -533,10 +521,65 @@
 
         <!-- Total Price -->
         <div class="total">
-            <h3>Total: $<span id="total-price">61</span></h3>
+            <h3>Total: $<span id="total-price">121</span></h3>
         </div>
     </div>
+
+    <!-- Buy Now Button -->
+    <a id="buy-button" href="https://www.phntechnology.com/" target="_blank" class="buy-button">
+        Proceed to Buy  🚀
+    </a>
 </section>
+
+<!-- Styles -->
+<style>
+    .buy-button {
+        display: block;
+        text-align: center;
+        background: #28a745;
+        color: white;
+        font-size: 18px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .buy-button:hover {
+        background: #218838;
+        transform: scale(1.05);
+    }
+</style>
+
+<!-- JavaScript to Update Button Text Dynamically -->
+<script>
+    function updateQuantity(item, change) {
+        let qtyElement = document.getElementById(`${item}-qty`);
+        let priceElement = document.getElementById(`${item}-price`);
+        let totalPriceElement = document.getElementById("total-price");
+        let buyButton = document.getElementById("buy-button");
+
+        let qty = parseInt(qtyElement.innerText);
+        let unitPrice = parseInt(priceElement.innerText) / qty; 
+
+        let newQty = Math.max(1, qty + change); 
+        qtyElement.innerText = newQty;
+
+        let newTotal = 0;
+        document.querySelectorAll(".price-column span").forEach(priceSpan => {
+            let rowQty = parseInt(priceSpan.parentElement.previousElementSibling.children[1].innerText);
+            let rowPrice = parseInt(priceSpan.innerText) / rowQty;
+            priceSpan.innerText = (rowPrice * rowQty).toFixed(2);
+            newTotal += rowPrice * rowQty;
+        });
+
+        totalPriceElement.innerText = newTotal.toFixed(2);
+        buyButton.innerText = `Proceed to Buy - Total: $${newTotal.toFixed(2)} 🚀`;
+    }
+</script>
+
 
 <!-- Robotics Related Projects Section -->
 <section class="content-box">
