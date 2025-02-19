@@ -30,17 +30,18 @@
     }
     .header {
   width: 100%;
-  background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+  background: linear-gradient(to right, #ffffff, #0074D9,#001f3f);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 100;
-}
+  }
 
     .top-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 14px;
+      height: 70px;
     }
     .logo {
       margin-right: 20px;
@@ -49,6 +50,7 @@
     .logo img{
       height: 150px;
       width: auto;
+      margin-top: 33px;
     }
     .search-bar {
       flex: 1;
@@ -75,7 +77,7 @@
       color: #2f6fed;
       font-weight: bold;
       margin-bottom: 5px;
-    }
+    } 
     .cart-container {
       display: flex;
       align-items: center;
@@ -87,7 +89,7 @@
     .nav-links {
       display: flex;
       justify-content: center;
-      background: linear-gradient(to right, #001f3f, #0074D9, #ffffff);
+      background: linear-gradient(to right,  #ffffff, #0074D9,#001f3f);
       padding: 0;
       position: relative;
       z-index: 100;
@@ -473,6 +475,107 @@
     border-radius: 10px;
 }
 
+/* Footer Styling */
+footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+          display: flex;
+    align-items: center;
+    gap: 10px; /* Icon और Text के बीच 10px space */
+        }
+
+        .footer-logo {
+            flex: 1;
+        }
+
+        .footer-logo img {
+          width: auto;
+          height: 198px;
+          margin-left: 44px;
+        }
+
+        .footer-logo h2, .footer-logo h3 {
+            margin: -9px 25px;
+        }
+
+        .footer-labs, .footer-company, .footer-contact {
+            flex: 1;
+            margin-left: 30px;
+        }
+
+        .footer-labs h4, .footer-company h4, .footer-contact h4 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .footer-labs ul, .footer-company ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .footer-labs li, .footer-company li {
+            margin: 5px 0;
+        }
+
+        .footer-company li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-company li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-contact .contact-info {
+            margin-top: 10px;
+        }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px; /* Icon और Text के बीच 10px space */
+        }
+
+        .footer-contact .contact-item img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .footer-contact p {
+            margin: 0;
+        }
+
+        /*footer social*/
+        .footer-social {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-social h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white; /* Heading color white */
+}
+
+.footer-social a {
+    color: white; /* Icons white color */
+    font-size: 30px; /* Increase icon size */
+    margin: 0 10px; /* Space between icons */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2); /* Slightly increase size on hover */
+    color: #f4c542; /* Change color on hover (Yellow) #f4c542 */
+}
+
+
   </style>
   {% block css %}{% endblock %}
 </head>
@@ -651,8 +754,65 @@
       </div>
     </div>
   </header>
-
   {% block content %}{% endblock %}
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="{% static 'images/phnlogo.jpg' %}" alt="PHN Robotics Logo" class="phn-logo">
+        </div>
+        <div class="footer-labs">
+            <h4>STEM Make In India</h4>
+            <h4>PHN Labs</h4>
+            <ul>
+                <li>Center of Excellence Lab</li>
+                <li>Entrepreneurship Lab</li>
+                <li>Prototype & Innovation Lab</li>
+                <li>Foundation Lab</li>
+                <li>Media</li>
+            </ul>
+        </div>
+        <div class="footer-company">
+            <h4>Our Company</h4>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#advisory-board">Advisory Board</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact Info</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-phone"></i> 
+                <p> +91 9226056402</p>
+            </div>
+
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <p> info@phntechnology.com</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Solitaire Business Hub E Wing 5010, F wing 5010 & 5020, 5th Floor, Viman Nagar, Pune, Maharashtra 411014</p>
+        </div>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://www.linkedin.com/company/phn-technology" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/phn_technology/ target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/phntechnology" target="_blank"><i class="fab fa-facebook"></i></a>
+        <!-- <a href="https://www.threads.net/@phntechnology" target="_blank"><i class="fab fa-threads"></i></a> -->
+        <a href="https://www.youtube.com/channel/UCCoKsPs0lsyr383TIZOoRUg" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+</footer>
 
  <!-- Swiper JS -->
  <script>
