@@ -43,9 +43,12 @@
       padding: 10px 14px;
     }
     .logo {
-      font-size: 30px;
-      font-weight: bold;
-      color: #2f6fed;
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+    .logo img{
+      height: 150px;
+      width: auto;
     }
     .search-bar {
       flex: 1;
@@ -393,7 +396,9 @@
 <body>
   <header class="header">
     <div class="top-nav">
-      <div class="logo">PHN</div>
+      <div class="logo">
+        <img src="{% static 'images/phnlogo.jpg' %}" alt="Health">
+      </div>
       <div class="search-bar">
         <input type="text" placeholder="Search...">
       </div>
