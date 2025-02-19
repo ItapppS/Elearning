@@ -150,18 +150,22 @@
 /* Wrapper for Sidebar & Hero Section */
 .hero-wrapper {
   display: flex;
+  align-items: stretch; /* Dono ko same height mile */
   width: 100%;
+  height: 70vh; /* Hero Section aur Sidebar ki height fix */
+  overflow: hidden;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
-  background:  #001f3f;
-  padding: 19px;
-  height: 64vh;
+  background: #1a1a1a;
+  padding: 20px;
+  height: 70vh; /* Hero Section jitni hi height milegi */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* Content top se shuru hoga */
 }
+
 
 .sidebar h2 {
   color: white;
@@ -196,7 +200,7 @@
 /* Hero Section */
 .hero-section {
   position: relative;
-  width: calc(100% - 220px); /* Sidebar width hataya */
+  width: calc(100% - 220px);
   height: 70vh;
   overflow: hidden;
   background-color: black;
@@ -277,6 +281,7 @@
     text-align: center;
 }
 
+<<<<<<< HEAD
 .product-card img {
     width: 100%;
     height: 200px;
@@ -307,6 +312,9 @@
     object-fit: cover;
     margin-bottom: 10px;
 }
+=======
+
+>>>>>>> 25a901325f9df1c8a7c481841b53ec5cd8bc5650
   </style>
   {% block css %}{% endblock %}
 </head>
