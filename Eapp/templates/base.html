@@ -237,20 +237,6 @@
   height: 100%;
   object-fit: cover;
 }
-
-/* Shadow Box (For Background Shadow Effect) */
-.shadow-box {
-  position: absolute;
-  top: 50%;
-  left: 4%;
-  transform: translateY(-50%);
-  width: 370px;
-  height: 370px;
-  background: rgba(255, 253, 253, 0.9);  
-  border-radius: 15px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-}
-
 /* Overlay Box (Main Content Box) */
 /* Overlay Box (Main Content Box) */
 .overlay {
@@ -258,18 +244,20 @@
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
-  background: rgba(52, 65, 253, 0.9);
+  background: rgba(17, 0, 112, 0.616);
   width: 400px;
   height: 350px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Center horizontally */
-  justify-content: flex-start;  /* Content को top पर push किया */
+  align-items: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 10px;
   z-index: 1;
+  box-shadow: 20px 20px 40px rgb(0, 217, 255);
 }
+
 
 /* Title at the Very Top */
 .overlay h2 {
@@ -278,7 +266,7 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-family: 'Times New Roman';
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* Paragraph Below h2 */
