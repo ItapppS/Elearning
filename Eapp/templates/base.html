@@ -450,7 +450,6 @@
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
                 box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-    max-width: 100%;
 }
 
 .category-card:hover {
@@ -559,6 +558,69 @@
     height: auto;
     border-radius: 10px;
 }
+
+
+/*Ad placement*/
+
+.ad-container {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        padding: 10px;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .ad-slider {
+        display: flex;
+        gap: 20px;
+        animation: scrollProjects 10s linear infinite;
+    }
+
+    .ad {
+        flex: 0 0 auto;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .ad:hover {
+        transform: scale(1.1);
+    }
+
+    .ad img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .ad-title {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #007BFF; /* Fallback color for non-webkit browsers */
+}
+
+    @keyframes scrollProjects {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+
+
+
 
 /* Footer Styling */
 footer {
@@ -912,6 +974,17 @@ footer {
         clickable: true,  // Bullets clickable honge
       },
     });
+
+
+    // Ad placement
+
+    let scrolling = true;
+    const projectSlider = document.getElementById("projectSlider");
+
+    function startScroll() {
+        scrolling = true;
+        projectSlider.style.animationPlayState = "running";
+    }
   </script>
 </body>
 </html>
