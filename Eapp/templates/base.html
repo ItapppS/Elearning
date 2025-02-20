@@ -57,13 +57,11 @@
       text-align: center;
     }
     .search-bar input {
-  width: 50%;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 5px 30px rgb(0, 26, 255); /* Adds a subtle shadow */
-}
-
+      width: 50%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
     .right-nav {
       display: flex;
       align-items: center;
@@ -93,14 +91,14 @@
     .nav-links {
       display: flex;
       justify-content: center;
-      background: #ffffff00;
+      background: linear-gradient(to right,  #ffffff, #0074D9,#001f3f);
       padding: 0;
       position: relative;
       z-index: 100;
     }
     .nav-links a {
       text-decoration: none;
-      color: #3700ff;
+      color: #ffffff;
       font-weight: bold;
       margin: 0 15px;
       display: inline-flex;
@@ -179,21 +177,17 @@
 
 .sidebar {
   width: 220px;
-    background: #ffffff;
-    padding: 20px;
-    height: 70vh;
-    display: flex;
-    border-radius: 10px;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 26px;
-    border-color: black;
-    border-right: 10px;
+  background: #040a64;
+  padding: 20px;
+  height: 70vh; /* Hero Section jitni hi height milegi */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Content top se shuru hoga */
 }
 
 
 .sidebar h2 {
-  color: rgb(0, 17, 255);
+  color: white;
   font-size: 22px;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -212,7 +206,7 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: rgb(68, 0, 255);
+  color: white;
   font-size: 18px;
   display: block;
   transition: 0.3s;
