@@ -325,6 +325,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+    margin: auto;
 }
 .grid {
   display: grid;
@@ -392,6 +393,13 @@
     right: 0; /* Stick to the right */
     top: 30%;
 }
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .product-card {
     background-color: white;
     padding: 20px;
@@ -400,6 +408,7 @@
     text-align: center;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
                 box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    max-width: 100%; /* Ensuring it doesn’t overflow */
 }
 
 .product-card:hover {
@@ -409,7 +418,9 @@
 
 .product-card img {
     width: 100%;
-    height: 200px;
+    max-width: 100%; /* Ensures image adapts to container */
+    height: auto; /* Keeps aspect ratio */
+    max-height: 200px; /* Prevents excessive scaling */
     object-fit: cover;
     margin-bottom: 15px;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -419,15 +430,16 @@
     transform: scale(1.1);
 }
 
-
 .categories {
     margin: 20px;
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts dynamically */
     gap: 20px;
+    width: 100%;
+    margin: auto; /* Centers the grid */
 }
 
 .category-card {
@@ -437,7 +449,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
-    box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .category-card:hover {
@@ -447,7 +459,9 @@
 
 .category-card img {
     width: 100%;
-    height: 150px;
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
     object-fit: cover;
     margin-bottom: 10px;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -455,6 +469,21 @@
 
 .category-card:hover img {
     transform: scale(1.1);
+}
+
+/* Ensure proper scaling for smaller screens */
+@media (max-width: 768px) {
+    .product-card, .category-card {
+        padding: 15px;
+    }
+
+    .product-card img {
+        max-height: 180px;
+    }
+
+    .category-card img {
+        max-height: 130px;
+    }
 }
 
 .kit-section {
