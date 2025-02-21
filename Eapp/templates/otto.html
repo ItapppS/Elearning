@@ -253,17 +253,17 @@ h1 {
 
 /* Related Projects Slider Styles */
 .slider-container {
-    overflow-x: auto;
+    overflow-x: hidden;
     white-space: nowrap;
     margin-top: 20px;
-    scroll-behavior: smooth;
     padding-left: 20px; /* Add left padding for margin */
 }
 
 .project-slider {
     display: flex;
-    animation: scroll 20s linear infinite;
-    margin-left: -20px; /* Remove the padding from the slider itself */
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap;
 }
 
 @keyframes scroll {
@@ -272,16 +272,16 @@ h1 {
 }
 
 .project {
-    width: 250px;
-    margin-right: 20px;
-    cursor: pointer; /* Make projects clickable */
+    flex: 0 0 auto;
+    text-align: center;
+    margin: 10px;
 }
 
 .project img {
-    width: 100%; /* Make image fill the project container */
-    height: auto;
-    display: block; /* Prevent image spacing issues */
-    border-radius: 8px; /* Optional: Rounded corners for images */
+    width: 200px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Ensures uniform sizing without distortion */
+    border-radius: 10px; /* Optional: Adds rounded corners */
 }
 
 .project-title { /* Style for the project title */
@@ -446,12 +446,14 @@ h1 {
 
                 <!-- Arduino Nano -->
                 <tr>
-                    <td>Arduino Nano</td>
+                    <td>Micro Controller</td>
                     <td>
                         <select class="color-select">
-                            <option value="Arduino Nano Every">Arduino Nano Every</option>
+                            <option value="Arduino Nano ">Arduino Nano</option>
                             <option value="ATmega328P – Old Bootloader">ATmega328P – Old Bootloader</option>
                             <option value="ATmega328P – New Bootloader">ATmega328P – New Bootloader</option>
+                            <option value="Arduino Uno ">Arduino Uno</option>
+                            <option value="ESP 8266">ESP 8266</option>
                         </select>
                     </td>
                     <td class="quantity-column">
@@ -493,7 +495,7 @@ h1 {
 
                 <!-- Battery 9V -->
                 <tr>
-                    <td>Battery</td>
+                    <td>Power Supply</td>
                     <td>
                         <select class="color-select">
                             <option value="9V 1A">9V 1A</option>
@@ -559,28 +561,28 @@ h1 {
     <div class="slider-container" onmouseover="pauseScroll()" onmouseout="startScroll()">
         <div class="project-slider" id="projectSlider">
             <div class="project" onclick="redirectTo('bionic-hand')">
-                <img src="{% static 'images/bionichand.jpeg' %}" alt="Bionic Hand">
+                <img src="{% static 'images/IMG_3541-Photoroom.png' %}" alt="Bionic Hand">
                 <p class="project-title">Bionic Hand</p>
             </div>
 
-            <div class="project" onclick="redirectTo('asterbot')">
-                <img src="{% static 'images/asterbot.webp' %}" alt="Asterbot">
-                <p class="project-title">Asterbot</p>
+            <div class="project" onclick="redirectTo('humanoid-robot')">
+                <img src="{% static 'images/IMG_3539-Photoroom.png' %}" alt="Humanoid Robot">
+                <p class="project-title">Humanoid Robot</p>
             </div>
 
-            <div class="project" onclick="redirectTo('robotic-arm')">
-                <img src="{% static 'images/roboticarm.webp' %}" alt="Robotic Arm">
-                <p class="project-title">Robotic Arm</p>
+            <div class="project" onclick="redirectTo('home-automation')">
+                <img src="{% static 'images/soil moisture detection.png' %}" alt="Home Automation">
+                <p class="project-title">Home Automation</p>
             </div>
 
-            <div class="project" onclick="redirectTo('self-balancing-robot')">
-                <img src="{% static 'images/selfbalancing.webp' %}" alt="Self-Balancing Robot">
-                <p class="project-title">Self-Balancing Robot</p>
+            <div class="project" onclick="redirectTo('solar-tracking')">
+                <img src="{% static 'images/solar tracking.png' %}" alt="Solar Tracking">
+                <p class="project-title">Solar Tracking</p>
             </div>
 
-            <div class="project" onclick="redirectTo('quadruped-robot')">
-                <img src="{% static 'images/quadrobot.webp' %}" alt="Quadruped Robot">
-                <p class="project-title">Quadruped Robot</p>
+            <div class="project" onclick="redirectTo('obstraction-avoiding-car')">
+                <img src="{% static 'images/Obstraction Avoiding Car.png' %}" alt="Obstraction Avoiding Car">
+                <p class="project-title">Obstraction Avoiding Car</p>
             </div>
         </div>
     </div>
