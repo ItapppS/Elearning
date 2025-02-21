@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   {% load static %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Website{% endblock %}</title>
@@ -19,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
 
 <!-- End  -->
@@ -26,7 +30,7 @@
     body {
       background-color: #e3e3e3;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "work";
     }
     .header {
       width: 100%;
@@ -336,6 +340,41 @@
   gap: 1.5rem;
 }
 
+/* robotics.html page*/
+
+.course-card {
+    background-color: white;
+    border: 2px solid #007bff; /* Blue outline */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    min-height: 200px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures spacing inside the card */
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Subtle blue glow */
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #007bff; /* Blue text */
+}
+
+.course-description {
+    color: #555;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
 .ad-placement {
     position: fixed;
@@ -398,30 +437,48 @@
     transform: scale(1.1);
 }
 
-
-
 .categories {
     margin: 20px;
 }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts dynamically */
-    gap: 20px;
-    width: 100%;
-    margin: auto; /* Centers the grid */
+.slider-wrapper {
+    position: relative;
+    max-width: 3000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
 }
 
 .category-card {
-    background-color: white;
+    background: white;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    flex: 1;
+    margin: 10px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-
+.category-card h3{
+  font-size: 25px;
+  font-family:'Times New Roman', Times, serif;
+  margin-bottom: 5px;
+  font-weight:500;
+}
+.category-card p{
+  font-size: 15px;
+  margin-top: 10px;
+}
 .category-card:hover {
     transform: scale(1.07);
     box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
@@ -440,6 +497,21 @@
 .category-card:hover img {
     transform: scale(1.1);
 }
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 
 /* Ensure proper scaling for smaller screens */
 @media (max-width: 768px) {
@@ -526,59 +598,6 @@
     height: auto;
     border-radius: 10px;
 }
-
-
-/*Ad placement*/
-
-.ad-container {
-        width: 100%;
-        height: 250px;
-        overflow: hidden;
-        padding: 10px;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .ad-slider {
-        display: flex;
-        gap: 20px;
-        animation: scrollProjects 10s linear infinite;
-    }
-
-    .ad {
-    flex: 0 0 auto;
-    width: 523px; /* Thoda chhota kiya */
-    height: 230px; /* Ad container se thoda kam */
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.ad img {
-    width: 100%; /* Full width */
-    height: 100%; /* Ad ke container ke andar fit karega */
-    object-fit: cover; /* Image stretch na ho, properly fit ho */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-    @keyframes scrollProjects {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-100%);
-        }
-    }
-
-
-
-
-
 /* Footer Styling */
 footer {
             background-color: #333;
@@ -678,52 +697,70 @@ footer {
     transform: scale(1.2); /* Slightly increase size on hover */
     color: #f4c542; /* Change color on hover (Yellow) #f4c542 */
 }
-
-
-
-/* robotics.html page*/
-
-.course-card {
-    background-color: white;
-    border: 2px solid #007bff; /* Blue outline */
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    min-height: 200px; /* Adjust the height as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures spacing inside the card */
+.theme-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s ease-in-out;
 }
 
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Subtle blue glow */
+.theme-button:hover {
+  transform: scale(1.1);
 }
 
-.course-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #007bff; /* Blue text */
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
 }
 
-.course-description {
-    color: #555;
+.dark-mode .header {
+  background: #1e1e1e;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-.course-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+.dark-mode .nav-links a,
+.dark-mode .dropdown-content a {
+  color: #ffffff;
 }
 
+.dark-mode .dropdown-content {
+  background-color: #333;
+}
 
+.dark-mode .dropdown-content a:hover {
+  background-color: #444;
+}
+.dark-mode .sidebar{
+  background-color: #222;
+}
+.dark-mode .kit-card{
+  background-color: #222;
+}
+.dark-mode .kit-text h3{
+  color: white;
+}
+.dark-mode .kit-text li{
+  color: white;
+}
+.dark-mode .category-card{
+  background-color: #222;
+}
+.dark-mode .product-card{
+  background-color: #222;
+}
+.dark-mode .nested-dropdown{
+  background-color: #222;
+}
 
 
   </style>
   {% block css %}{% endblock %}
 </head>
 <body>
+  <body>
   <header class="header">
     <div class="top-nav">
       <div class="logo">
@@ -740,6 +777,8 @@ footer {
         <div class="cart-container">
           <i class="fa-solid fa-shopping-cart cart-logo"></i>
         </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="theme-button">🌙</button>
       </div>
     </div>
     <div class="nav-links">
@@ -747,86 +786,88 @@ footer {
       <div class="dropdown">
         <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-            <a href="#" style="background-color: blue; color: white;">Products</a>
-            <div class="product">
+          <a href="#" style="background-color: blue; color: white;">Products</a>
+          <div class="product">
             <a href="#">Microcontroller <strong>></strong></a>
             <div class="nested-dropdown">
-                <a href="#" style="background-color: blue;; color: white;">Arduino</a>
-                <a href="#">Arduino Uno</a>
-                <a href="#">Arduino Nano</a>
-                <a href="#">Arduino Mega</a>
-                <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
-                <a href="#">Raspberry Pi 4</a>
-                <a href="#">Raspberry Pi 3B+</a>
-                <a href="#">Raspberry Pi Pico</a>
-                <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
-                <a href="#">ESP32 DevKit V1</a>
-                <a href="#">ESP8266 NodeMCU</a>
-              </div>
+              <a href="#" style="background-color: blue; color: white;">Arduino</a>
+              <a href="#">Arduino Uno</a>
+              <a href="#">Arduino Nano</a>
+              <a href="#">Arduino Mega</a>
+              <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
+              <a href="#">Raspberry Pi 4</a>
+              <a href="#">Raspberry Pi 3B+</a>
+              <a href="#">Raspberry Pi Pico</a>
+              <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
+              <a href="#">ESP32 DevKit V1</a>
+              <a href="#">ESP8266 NodeMCU</a>
             </div>
-            <div class="product">
-                <a href="#">Motor Drivers <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">L298N Motor Driver Module</a>
-                    <a href="#">L293D Motor Driver</a>
-                    <a href="#">TB6612FNG Motor Driver</a>
-                    <a href="#">DRV8833 Motor Driver</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Motor Drivers <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">L298N Motor Driver Module</a>
+              <a href="#">L293D Motor Driver</a>
+              <a href="#">TB6612FNG Motor Driver</a>
+              <a href="#">DRV8833 Motor Driver</a>
             </div>
-            <div class="product">
-                <a href="#">Motors <strong>></strong></a>
-                <div class="nested-dropdown">
-                <a href="#" style="background-color: blue; color: white;">DC Motors</a>
-                    <a href="#">5V DC Motor</a>
-                    <a href="#">12V DC Motor</a>
-                    <a href="#">High Torque DC Motor</a>
-                <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
-                    <a href="#">SG90 (9g Servo Motor)</a>
-                    <a href="#">MG996R (High Torque Servo)</a>
-                    <a href="#">MG90S (Micro Servo)</a>
-                
-                <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
-                    <a href="#">NEMA 17 Stepper Motor</a>
-                    <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Motors <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#" style="background-color: blue; color: white;">DC Motors</a>
+              <a href="#">5V DC Motor</a>
+              <a href="#">12V DC Motor</a>
+              <a href="#">High Torque DC Motor</a>
+              <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
+              <a href="#">SG90 (9g Servo Motor)</a>
+              <a href="#">MG996R (High Torque Servo)</a>
+              <a href="#">MG90S (Micro Servo)</a>
+              <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
+              <a href="#">NEMA 17 Stepper Motor</a>
+              <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
             </div>
-            <div class="product">
-                <a href="#">Sensors <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Sensors <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Power Supply <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Power Supply <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Mechanical Parts <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Mechanical Parts <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Breadboard <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Breadboard <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 3</a>
             </div>
-            <div class="product">
-                <a href="#">Electronic Components <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Electronic Components <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 3</a>
+              <a href="#">Details 4</a>
             </div>
+          </div>
         </div>
-
       </div>
 
       <!-- Projects Dropdown -->
@@ -898,6 +939,34 @@ footer {
       </div>
     </div>
   </header>
+
+  <!-- JavaScript for toggling dark mode -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeButton = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Check if dark mode was previously enabled
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        themeButton.textContent = "☀️"; // Sun icon for switching back to light mode
+      }
+
+      themeButton.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+          themeButton.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeButton.textContent = "🌙";
+        }
+      });
+    });
+  </script>
+</body>
+
   {% block content %}{% endblock %}
   <!-- Footer Section -->
   <footer>
