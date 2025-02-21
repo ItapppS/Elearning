@@ -18,173 +18,294 @@
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
     <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
-    
-    <style>
-        
-        
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px 0;
-        }
-        
-        .content-box {
-            background:rgb(66, 157, 206);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            font-family: Arial, sans-serif; /* Change to any font */
-        }
-        .section-title {
-            color: #fdfdfd;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        .otto-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .otto-info img {
-            width: 300px;
-            border-radius: 8px;
-        }
-        .circuit-bg {
-            background-color: white;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
 
+   <style> /* General Styles */
 
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        footer {
-            background: #222;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-        #stl-viewer {
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-        }
-        .model-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .model-buttons button {
-            padding: 10px;
-            border: none;
-            background:rgb(84, 78, 78);
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .model-buttons button:hover {
-            background: #005bb5;
-        }
-        .ad-placement {
-            position: fixed;
-            width: 15vw;
-            height: 60vh;
-            background-color: rgba(31, 41, 55, 0.9);
-            backdrop-filter: blur(10px);
-            border: 2px solid #374151;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            transition: transform 0.2s ease-out;
-        }
-        
-        .ad-left {
-            left: 0;  /* Stick to the left */
-            top: 30%;
-            
-        }
-        
-        .ad-right {
-            right: 0; /* Stick to the right */
-            top: 30%;
-        }
-    .pdf-container {
-    position: relative;
-    width: 100%;
-    height: 800px;
-    overflow: hidden;
-}
-
-/* Blur Effect & Lock Overlay */
-.blur-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 20px;
+h1 {
     font-weight: bold;
-    text-align: center;
+    font-size: 32px;
+    margin: 0;
+    color: white;
 }
 
-/* CSS-Only Lock Icon */
-.blur-overlay::before {
-    content: "🔒";  /* Unicode Lock Icon */
-    font-size: 50px;
-    margin-bottom: 10px;
+.container {
+    max-width: 1200px;  /* Adjust container width as needed */
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.content-box {
+    background-color: #f8f8f8; /* Semi-transparent white background */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    overflow: hidden; /* Prevents image from overflowing */
+}
+
+.section-title {
+    color: black; /* White title */
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444; /* Subtle line under title */
+    padding-bottom: 10px;
+}
+
+/* Otto Specific Styles */
+.otto-info {
+    display: flex;
+    align-items: flex-start; /* Align image and text to the top */
+}
+
+.otto-info img {
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.otto-info ul {
+    list-style-type: disc;
+    margin-left: 20px; /* Adjust spacing as needed */
+}
+
+.tab-container { /* Style for tabs if you implement them */
+    margin-top: 20px;
+}
+
+/* Button Styles */
+.video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
+    background-color: #1766b6; /* Blue button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-top: 10px; /* Add some spacing above the button */
+    display: block; /* Make buttons take full width */
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
+    background-color: #135290; /* Darker blue on hover */
+}
+
+/* Image Styles */
+.image-container {
+    text-align: center; /* Center the image */
+    margin-top: 20px;
+}
+
+#ottoImage {
+    max-width: 80%; /* Limit image width to 80% of container */
+    height: auto;
+    display: block; /* Prevents extra space below image */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* 3D Model Viewer Styles */
+.model-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.view-button {
+    background-color: #1766b6; /* Blue button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Store Styles */
+.store-container {
+    overflow-x: auto; /* Enable horizontal scrolling if table is too wide */
+    margin-top: 20px;
+}
+
+.store-container table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
+    margin-bottom: 20px;
+    table-layout: auto;
+    border: 1px solid #ddd; /* Add a border to the table itself */
+}
+
+.store-container th, .store-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Borders between rows */
+    border-right: 1px solid #ddd; /* Borders between columns */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Remove right border from the last column */
+.store-container th:last-child, .store-container td:last-child {
+    border-right: none;
+}
+
+/* Optional: Add a border to the top of the table header */
+.store-container th {
+    border-top: 1px solid #ddd;
+}
+
+/* Optional: Improve table header styling */
+.store-container th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+
+}
+
+.color-select {
+    padding: 6px;
+    border: 1px solid #555; /* Darker border */
+    border-radius: 4px;
+    background-color: #fff; /* Darker background */
+    color: #333;
+    appearance: none; /* Remove default select arrow */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 14l-4-4h8z' fill='rgba(51,51,51,1)'/%3E%3C/svg%3E"); /* Add custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    padding-right: 25px; /* Adjust padding for the arrow */
+}
+
+.quantity-column {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center quantity buttons and number */
+    gap: 5px; /* Add some space between buttons and number */
+}
+
+.quantity-column button {
+    background-color: #333;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.quantity-column span {
+    padding: 0 8px;
+    font-size: 16px;
+}
+
+.price-column {
+    text-align: right;
+}
+
+.total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.total h3 {
+    color: #fff;
 }
 
 
+.buy-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #1766b6 ; /* Gradient Background */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    text-align: center; /* Center the text */
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
 
+.buy-button:hover {
+    background: linear-gradient(#1766b6); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
+.buy-button:active {
+    transform: scale(1); /* Reset zoom on click */
+}
 
-    </style>
+/* Related Projects Slider Styles */
+.slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 20px;
+    scroll-behavior: smooth;
+    padding-left: 20px; /* Add left padding for margin */
+}
+
+.project-slider {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    margin-left: -20px; /* Remove the padding from the slider itself */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-270px * 5)); } /* Adjusted width */
+}
+
+.project {
+    width: 250px;
+    margin-right: 20px;
+    cursor: pointer; /* Make projects clickable */
+}
+
+.project img {
+    width: 100%; /* Make image fill the project container */
+    height: auto;
+    display: block; /* Prevent image spacing issues */
+    border-radius: 8px; /* Optional: Rounded corners for images */
+}
+
+.project-title { /* Style for the project title */
+    margin-top: 10px;
+    text-align: center; /* Center the title */
+    color: #333; /* Darker title text */
+}
+</style>
 </head>
 <body>
     <header style="background-color: #1766b6; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
         <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Otto - DIY Robot</h1>
     </header>
     
-    <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 min-h-screen">
+    <body class="bg-white">
         <div class="circuit-bg">
     <div class="container">
+        
         <!-- Otto Introduction Section -->
         <section class="content-box">
             <h2 class="section-title">Meet Otto - Your DIY Robot</h2>
             <div class="otto-info">
                 <img src="{% static 'images/Otto.png' %}" alt="Otto Robot">
-                <ul style="color: antiquewhite; padding-left: 20px;">
+                <ul style="color: black; padding-left: 20px;">
                     <li>🤖  <strong>Build It Yourself:</strong> Otto is a DIY (Do-It-Yourself) robot that you can assemble step by step.</li>
                     <li>🤖  <strong>Customizable Design:</strong> You can 3D print Otto’s parts in different colors and shapes.</li>
                     <li>🤖  <strong>Easy to Code:</strong> Otto can be programmed using simple block-based coding (Scratch) or text-based coding (Arduino).</li>
@@ -200,195 +321,60 @@
     
 </div>
 <title>Creative Buy Now Button</title>
-    <style>
-        .buy-button {
-            display: inline-block;
-            padding: 25px 90px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(90deg,rgb(0, 20, 90),rgb(0, 90, 106));
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .buy-button:hover {
-            background: linear-gradient(90deg,rgb(10, 28, 75),rgb(0, 111, 171));
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.7);
-        }
-
-        /* Glowing Animation */
-        .buy-button::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(rectangle, rgba(35, 14, 139, 0.2) 10%, transparent 80%);
-            transform: rotate(25deg);
-            transition: all 0.5s;
-        }
-
-        .buy-button:hover::before {
-            top: -30%;
-            left: -30%;
-        }
-    </style>
-</head>
-<body>
 
 
         </section>
-        <!-- Left Ad Placement -->
-        <div class="ad-placement ad-left">Ad Placement</div>
 
         <!-- Right Ad Placement -->
         <div class="ad-placement ad-right">Ad Placement</div>
 
 
-        <!-- Otto Video Lecture Section -->
-<section class="content-box">
-    <h2 class="section-title">Otto Video Lecture</h2>
+<div class="container">  <section class="content-box">
+        <h2 class="section-title">Otto Video Lecture</h2>
+        <div class="video-button-container">
+            <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
+                <button class="video-view-button">Click here</button>
+            </a>
+        </div>
+    </section>
 
-    <!-- Button to View Video on Google Drive -->
-    <div class="video-button-container">
-        <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
-            <button class="video-view-button">Click here to watch Otto Video Lecture</button>
-        </a>
-    </div>
-</section>
+    <section class="content-box">
+        <h2 class="section-title">Comprehensive Guide</h2>
+        <p style="color: black;">
+            This guide covers the step-by-step process to build, assemble, and program Otto.
+            It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
+        </p>
+        <div class="ppt-button-container">
+            <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
+                <button class="ppt-view-button">Click here</button>
+            </a>
+        </div>
+    </section>
 
-<style>
-    .video-button-container {
-        margin-top: 15px;
-        text-align: left; /* Aligns the button to the left */
-    }
+    <section class="content-box">
+        <h2 class="section-title">Otto Robot Report</h2>
+        <div class="pdf-button-container">
+            <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
+                <button class="pdf-view-button">Click here</button>
+            </a>
+        </div>
+    </section>
 
-    .video-view-button {
-        width: 350px;
-        padding: 15px;
-        font-size: 16px;
-        background-color: white; /* White background */
-        color: black; /* Black text for contrast */
-        border: 2px solid rgb(200, 200, 200); /* Subtle border */
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
+    <section class="content-box">
+        <h2 class="section-title">Otto Interfacing Diagram</h2>
+        <div class="image-container">
+            <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="ottoImage"
+                 style="max-width: 100%; height: auto; align-items: center;">
+        </div>
+    </section>
 
-    .video-view-button:hover {
-        background-color: rgb(245, 245, 245); /* Light gray on hover */
-        transform: scale(1.02); /* Slight zoom effect */
-    }
-</style>
-
-        
-
-        
-
-
-        <!-- Comprehensive Guide Section -->
-<section class="content-box">
-    <h2 class="section-title">Comprehensive Guide</h2>
-    <p style="color: antiquewhite;">
-        This guide covers the step-by-step process to build, assemble, and program Otto. 
-        It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
-    </p>
-
-    <!-- Button to View PPT in Google Drive -->
-    <div class="ppt-button-container">
-        <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
-            <button class="ppt-view-button">Click here to view OTTO Robot A Comprehensive Guide</button>
-        </a>
-    </div>
-</section>
-
-<style>
-    .ppt-button-container {
-        margin-top: 15px;
-        text-align: left; /* Aligns the button to the left */
-    }
-
-    .ppt-view-button {
-        width: 350px;
-        padding: 15px;
-        font-size: 16px;
-        background-color: white; /* White background */
-        color: black; /* Black text for contrast */
-        border: 2px solid rgb(200, 200, 200); /* Subtle border */
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .ppt-view-button:hover {
-        background-color: rgb(245, 245, 245); /* Light gray on hover */
-        transform: scale(1.02); /* Slight zoom effect */
-    }
-</style>
-
-
-<!-- Otto Report Section -->
-<section class="content-box">
-    <h2 class="section-title">Otto Robot Report</h2>
-
-    <!-- Button to View Report in Google Drive -->
-    <div class="pdf-button-container">
-        <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
-            <button class="pdf-view-button">Click here to view OTTO Robot Report</button>
-        </a>
-    </div>
-</section>
-
-<style>
-    .pdf-button-container {
-        margin-top: 15px;
-        text-align: left; /* Aligns the button to the left */
-    }
-
-    .pdf-view-button {
-        width: 350px;
-        padding: 15px;
-        font-size: 16px;
-        background-color: white; /* White background */
-        color: black; /* Black text for contrast */
-        border: 2px solid rgb(200, 200, 200); /* Subtle border */
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .pdf-view-button:hover {
-        background-color: rgb(245, 245, 245); /* Light gray on hover */
-        transform: scale(1.02); /* Slight zoom effect */
-    }
-</style>
-
-
-        <!-- Otto Interface Diagram Section -->
-        <section class="content-box">
-            <h2 class="section-title">Otto Interfacing Diagram</h2>
-        
-            <div class="image-container">
-                <!-- Image Display -->
-                <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="ottoImage" 
-                    style="max-width: 100%; height: auto; align-items: center;">
-            </div>
-        </section>
+</div>
         
 
         <!-- 3D Model Viewer Section -->
 <section class="content-box">
     <h2 class="section-title">3D Model Viewer</h2>
-    <p style="color: antiquewhite;">Explore the 3D printable components of Otto Robot.</p>
+    <p style="color: black;">Explore the 3D printable components of Otto Robot.</p>
     <div class="model-buttons">
         <a href="https://drive.google.com/file/d/1bVrAiP7W5oJ2_WA8KgbkxzhxjEunxegG/view?usp=drive_link" target="_blank">
             <button class="view-button">Click here to view Head</button>
@@ -417,7 +403,7 @@
             <thead>
                 <tr>
                     <th>Component</th>
-                    <th>Color</th>
+                    <th>Customize</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
@@ -428,10 +414,10 @@
                     <td>3D Printed Parts</td>
                     <td>
                         <select class="color-select">
+                            <option value="Black">Black</option>
                             <option value="Red">Red</option>
                             <option value="Blue">Blue</option>
                             <option value="Green">Green</option>
-                            <option value="Black">Black</option>
                         </select>
                     </td>
                     <td class="quantity-column">
@@ -445,7 +431,11 @@
                 <!-- Ultrasonic Sensor -->
                 <tr>
                     <td>Ultrasonic Sensor</td>
-                    <td>-</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="HC-SR04">HC-SR04</option>
+                        </select>
+                    </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('sensor', -1)">-</button>
                         <span id="sensor-qty">1</span>
@@ -457,7 +447,13 @@
                 <!-- Arduino Nano -->
                 <tr>
                     <td>Arduino Nano</td>
-                    <td>-</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="Arduino Nano Every">Arduino Nano Every</option>
+                            <option value="ATmega328P – Old Bootloader">ATmega328P – Old Bootloader</option>
+                            <option value="ATmega328P – New Bootloader">ATmega328P – New Bootloader</option>
+                        </select>
+                    </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('nano', -1)">-</button>
                         <span id="nano-qty">1</span>
@@ -481,7 +477,12 @@
                 <!-- Servo Motors (Required 4) -->
                 <tr>
                     <td>Servo Motors (4 Required)</td>
-                    <td>-</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="SG90 (Plastic Gears)">SG90 (Plastic Gears)</option> 
+                            <option value="MG90S (Metal Gears)">MG90S (Metal Gears)</option> 
+                        </select>
+                    </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('servo', -1)">-</button>
                         <span id="servo-qty">1</span>
@@ -492,8 +493,15 @@
 
                 <!-- Battery 9V -->
                 <tr>
-                    <td>Battery 9V</td>
-                    <td>-</td>
+                    <td>Battery</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="9V 1A">9V 1A</option>
+                            <option value="9V 2A">9V 2A</option>
+                            <option value="5V 1A">5V 1A</option>
+                            <option value="5V 2A">5V 2A</option>
+                        </select>
+                    </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('battery', -1)">-</button>
                         <span id="battery-qty">1</span>
@@ -515,28 +523,6 @@
         Proceed to Buy  🚀
     </a>
 </section>
-
-<!-- Styles -->
-<style>
-    .buy-button {
-        display: block;
-        text-align: center;
-        background: #28a745;
-        color: white;
-        font-size: 18px;
-        padding: 12px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        margin-top: 15px;
-        transition: background 0.3s ease, transform 0.2s;
-    }
-
-    .buy-button:hover {
-        background: #218838;
-        transform: scale(1.05);
-    }
-</style>
 
 <!-- JavaScript to Update Button Text Dynamically -->
 <script>
@@ -600,61 +586,6 @@
     </div>
 </section>
 
-<style>
-    .slider-container {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 10px;
-        border: 2px solid #ccc;
-        padding: 10px;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .project-slider {
-        display: flex;
-        gap: 20px;
-        animation: scrollProjects 10s linear infinite;
-    }
-
-    .project {
-        flex: 0 0 auto;
-        width: 200px;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .project:hover {
-        transform: scale(1.1);
-    }
-
-    .project img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-title {
-        margin-top: 8px;
-        font-size: 16px;
-        font-weight: bold;
-        background: linear-gradient(to right, #007BFF, #00C6FF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    @keyframes scrollProjects {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-100%);
-        }
-    }
-</style>
 
 <script>
     let scrolling = true;
@@ -673,63 +604,7 @@
     function redirectTo(projectName) {
         window.location.href = "/" + projectName;
     }
-</script>
 
-
-<style>
-    .store-container {
-        max-width: 600px;
-        background: #f9f9f9;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        margin: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 15px;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .quantity-column {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .quantity-column button {
-        padding: 5px 10px;
-        border: none;
-        background: #ddd;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .price-column {
-        font-weight: bold;
-        color: #333;
-    }
-
-    .total {
-        text-align: right;
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .color-select {
-        padding: 5px;
-    }
-</style>
-
-<script>
     let prices = {
         printed: 10,
         sensor: 5,
@@ -769,38 +644,8 @@
     }
 </script>
 
-
-<style>
-    .model-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px; /* Adds spacing between buttons */
-        align-items: flex-start; /* Aligns buttons to the left */
-    }
-
-    .view-button {
-        width: 300px; /* Adjust width as needed */
-        padding: 20px;
-        font-size: 16px;
-        background-color: white; /* Button color changed to white */
-        color: black; /* Text color changed to black for contrast */
-        border: 2px solid rgb(200, 200, 200); /* Adds a subtle border */
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .view-button:hover {
-        background-color: rgb(245, 245, 245); /* Light gray on hover */
-        transform: scale(1.02); /* Slight zoom effect */
-    }
-</style>
-
     </div>
 
-    <footer>
-        <p>&copy; 2025 PHN Technology. All rights reserved.</p>
-    </footer>
 
     {% endblock %}
 </body>
