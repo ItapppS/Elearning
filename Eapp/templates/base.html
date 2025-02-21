@@ -190,7 +190,7 @@
     border-radius: 10px;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 63px;
+    margin-left: 26px;
     border-color: black;
     border-right: 10px;
 }
@@ -233,7 +233,7 @@
     height: 70vh;
     overflow: hidden;
     background-color: black;
-    margin-right: 75px;
+    margin-right: 20px;
     border-radius: 10px;
 }
 
@@ -473,6 +473,7 @@
   font-size: 25px;
   font-family:'Times New Roman', Times, serif;
   margin-bottom: 5px;
+  font-weight:500;
 }
 .category-card p{
   font-size: 15px;
@@ -696,12 +697,68 @@ footer {
     transform: scale(1.2); /* Slightly increase size on hover */
     color: #f4c542; /* Change color on hover (Yellow) #f4c542 */
 }
+.theme-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s ease-in-out;
+}
 
+.theme-button:hover {
+  transform: scale(1.1);
+}
 
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .header {
+  background: #1e1e1e;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav-links a,
+.dark-mode .dropdown-content a {
+  color: #ffffff;
+}
+
+.dark-mode .dropdown-content {
+  background-color: #333;
+}
+
+.dark-mode .dropdown-content a:hover {
+  background-color: #444;
+}
+.dark-mode .sidebar{
+  background-color: #222;
+}
+.dark-mode .kit-card{
+  background-color: #222;
+}
+.dark-mode .kit-text h3{
+  color: white;
+}
+.dark-mode .kit-text li{
+  color: white;
+}
+.dark-mode .category-card{
+  background-color: #222;
+}
+.dark-mode .product-card{
+  background-color: #222;
+}
+.dark-mode .nested-dropdown{
+  background-color: #222;
+}
   </style>
   {% block css %}{% endblock %}
 </head>
 <body>
+  <body>
   <header class="header">
     <div class="top-nav">
       <div class="logo">
@@ -718,6 +775,8 @@ footer {
         <div class="cart-container">
           <i class="fa-solid fa-shopping-cart cart-logo"></i>
         </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="theme-button">🌙</button>
       </div>
     </div>
     <div class="nav-links">
@@ -725,86 +784,88 @@ footer {
       <div class="dropdown">
         <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-            <a href="#" style="background-color: blue; color: white;">Products</a>
-            <div class="product">
+          <a href="#" style="background-color: blue; color: white;">Products</a>
+          <div class="product">
             <a href="#">Microcontroller <strong>></strong></a>
             <div class="nested-dropdown">
-                <a href="#" style="background-color: blue;; color: white;">Arduino</a>
-                <a href="#">Arduino Uno</a>
-                <a href="#">Arduino Nano</a>
-                <a href="#">Arduino Mega</a>
-                <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
-                <a href="#">Raspberry Pi 4</a>
-                <a href="#">Raspberry Pi 3B+</a>
-                <a href="#">Raspberry Pi Pico</a>
-                <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
-                <a href="#">ESP32 DevKit V1</a>
-                <a href="#">ESP8266 NodeMCU</a>
-              </div>
+              <a href="#" style="background-color: blue; color: white;">Arduino</a>
+              <a href="#">Arduino Uno</a>
+              <a href="#">Arduino Nano</a>
+              <a href="#">Arduino Mega</a>
+              <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
+              <a href="#">Raspberry Pi 4</a>
+              <a href="#">Raspberry Pi 3B+</a>
+              <a href="#">Raspberry Pi Pico</a>
+              <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
+              <a href="#">ESP32 DevKit V1</a>
+              <a href="#">ESP8266 NodeMCU</a>
             </div>
-            <div class="product">
-                <a href="#">Motor Drivers <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">L298N Motor Driver Module</a>
-                    <a href="#">L293D Motor Driver</a>
-                    <a href="#">TB6612FNG Motor Driver</a>
-                    <a href="#">DRV8833 Motor Driver</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Motor Drivers <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">L298N Motor Driver Module</a>
+              <a href="#">L293D Motor Driver</a>
+              <a href="#">TB6612FNG Motor Driver</a>
+              <a href="#">DRV8833 Motor Driver</a>
             </div>
-            <div class="product">
-                <a href="#">Motors <strong>></strong></a>
-                <div class="nested-dropdown">
-                <a href="#" style="background-color: blue; color: white;">DC Motors</a>
-                    <a href="#">5V DC Motor</a>
-                    <a href="#">12V DC Motor</a>
-                    <a href="#">High Torque DC Motor</a>
-                <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
-                    <a href="#">SG90 (9g Servo Motor)</a>
-                    <a href="#">MG996R (High Torque Servo)</a>
-                    <a href="#">MG90S (Micro Servo)</a>
-                
-                <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
-                    <a href="#">NEMA 17 Stepper Motor</a>
-                    <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Motors <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#" style="background-color: blue; color: white;">DC Motors</a>
+              <a href="#">5V DC Motor</a>
+              <a href="#">12V DC Motor</a>
+              <a href="#">High Torque DC Motor</a>
+              <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
+              <a href="#">SG90 (9g Servo Motor)</a>
+              <a href="#">MG996R (High Torque Servo)</a>
+              <a href="#">MG90S (Micro Servo)</a>
+              <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
+              <a href="#">NEMA 17 Stepper Motor</a>
+              <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
             </div>
-            <div class="product">
-                <a href="#">Sensors <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Sensors <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Power Supply <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Power Supply <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Mechanical Parts <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Mechanical Parts <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 2</a>
             </div>
-            <div class="product">
-                <a href="#">Breadboard <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Breadboard <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 3</a>
             </div>
-            <div class="product">
-                <a href="#">Electronic Components <strong>></strong></a>
-                <div class="nested-dropdown">
-                    <a href="#">Details 1</a>
-                    <a href="#">Details 2</a>
-                </div>
+          </div>
+          <div class="product">
+            <a href="#">Electronic Components <strong>></strong></a>
+            <div class="nested-dropdown">
+              <a href="#">Details 1</a>
+              <a href="#">Details 2</a>
+              <a href="#">Details 3</a>
+              <a href="#">Details 4</a>
             </div>
+          </div>
         </div>
-
       </div>
 
       <!-- Projects Dropdown -->
@@ -876,6 +937,34 @@ footer {
       </div>
     </div>
   </header>
+
+  <!-- JavaScript for toggling dark mode -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeButton = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Check if dark mode was previously enabled
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        themeButton.textContent = "☀️"; // Sun icon for switching back to light mode
+      }
+
+      themeButton.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+          themeButton.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeButton.textContent = "🌙";
+        }
+      });
+    });
+  </script>
+</body>
+
   {% block content %}{% endblock %}
   <!-- Footer Section -->
   <footer>
