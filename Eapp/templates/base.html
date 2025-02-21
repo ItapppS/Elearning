@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   {% load static %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Website{% endblock %}</title>
@@ -19,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
 
 <!-- End  -->
@@ -26,7 +30,7 @@
     body {
       background-color: #e3e3e3;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "work";
     }
     .header {
       width: 100%;
@@ -336,6 +340,41 @@
   gap: 1.5rem;
 }
 
+/* robotics.html page*/
+
+.course-card {
+    background-color: white;
+    border: 2px solid #007bff; /* Blue outline */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    min-height: 200px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures spacing inside the card */
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Subtle blue glow */
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #007bff; /* Blue text */
+}
+
+.course-description {
+    color: #555;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
 .ad-placement {
     position: fixed;
@@ -398,30 +437,47 @@
     transform: scale(1.1);
 }
 
-
-
 .categories {
     margin: 20px;
 }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts dynamically */
-    gap: 20px;
-    width: 100%;
-    margin: auto; /* Centers the grid */
+.slider-wrapper {
+    position: relative;
+    max-width: 3000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
 }
 
 .category-card {
-    background-color: white;
+    background: white;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    flex: 1;
+    margin: 10px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-
+.category-card h3{
+  font-size: 25px;
+  font-family:'Times New Roman', Times, serif;
+  margin-bottom: 5px;
+}
+.category-card p{
+  font-size: 15px;
+  margin-top: 10px;
+}
 .category-card:hover {
     transform: scale(1.07);
     box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
@@ -440,6 +496,21 @@
 .category-card:hover img {
     transform: scale(1.1);
 }
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 
 /* Ensure proper scaling for smaller screens */
 @media (max-width: 768px) {
@@ -526,59 +597,6 @@
     height: auto;
     border-radius: 10px;
 }
-
-
-/*Ad placement*/
-
-.ad-container {
-        width: 100%;
-        height: 250px;
-        overflow: hidden;
-        padding: 10px;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .ad-slider {
-        display: flex;
-        gap: 20px;
-        animation: scrollProjects 10s linear infinite;
-    }
-
-    .ad {
-    flex: 0 0 auto;
-    width: 523px; /* Thoda chhota kiya */
-    height: 230px; /* Ad container se thoda kam */
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.ad img {
-    width: 100%; /* Full width */
-    height: 100%; /* Ad ke container ke andar fit karega */
-    object-fit: cover; /* Image stretch na ho, properly fit ho */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-    @keyframes scrollProjects {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-100%);
-        }
-    }
-
-
-
-
-
 /* Footer Styling */
 footer {
             background-color: #333;
@@ -677,44 +695,6 @@ footer {
 .footer-social a:hover {
     transform: scale(1.2); /* Slightly increase size on hover */
     color: #f4c542; /* Change color on hover (Yellow) #f4c542 */
-}
-
-
-
-/* robotics.html page*/
-
-.course-card {
-    background-color: white;
-    border: 2px solid #007bff; /* Blue outline */
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    min-height: 200px; /* Adjust the height as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures spacing inside the card */
-}
-
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Subtle blue glow */
-}
-
-.course-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #007bff; /* Blue text */
-}
-
-.course-description {
-    color: #555;
-}
-
-.course-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
 }
 
 

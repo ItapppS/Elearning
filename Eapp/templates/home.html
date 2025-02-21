@@ -102,68 +102,101 @@
         </div>
     </div>
 </section>
-
-
-<!-- Ad placement -->
-<section class="content-box">
-  <div class="ad-container" onmouseout="startScroll()">
-      <div class="ad-slider" id="adSlider">
-          <div class="ad">
-              <img src="{% static 'images/ad1.webp' %}" alt="Bionic Hand">
-          </div>
-
-          <div class="ad">
-              <img src="{% static 'images/ad2.jpg' %}" alt="Asterbot">
-          </div>
-
-          <div class="ad">
-              <img src="{% static 'images/ad3.jpg' %}" alt="Robotic Arm">
-          </div>
-
-          <div class="ad">
-              <img src="{% static 'images/ad4.jpg' %}" alt="Self-Balancing Robot">
-          </div>
-
-          <div class="ad">
-              <img src="{% static 'images/ad1.webp' %}" alt="Quadruped Robot">
-          </div>
-      </div>
-  </div>
-</section>
-
-
   <!-- Technology Domains-->
   <section class="categories" id="categories">
-    <h2 style = "font-size: xx-large; margin-bottom: 10px; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Technology Domains</h2>
-    <div class="category-grid">
-        <div class="category-card">
-            <h3 style = "font-size:x-large; font-family:Verdana, Geneva, Tahoma, sans-serif;">Robotics</h3>
-            <img src="{% static 'images/Robotics.png' %}" alt="Electronics">
-            <p style = "font-size: 17px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-              Robotics projects involve creating robots with sensors, actuators, and controllers to complete tasks, from prototypes to industrial systems.
-            </p>
+    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Technology Domains</h2>
+    <div class="slider-wrapper">
+        <button class="prev-btn">&#10094;</button>
+        <div class="slider">
+            <div class="slide">
+                <div class="category-card">
+                    <h3>Robotics</h3>
+                    <img src="{% static 'images/Robotics.png' %}" alt="Electronics">
+                    <p>Robotics projects involve creating robots with sensors, actuators, and controllers.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Biotech</h3>
+                    <img src="{% static 'images/health.png' %}" alt="Health">
+                    <p>Biotechnology applies biological systems to develop innovations in health and industry.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Home Automation</h3>
+                    <img src="{% static 'images/home_auto.png' %}" alt="Home">
+                    <p>Home automation projects create systems to control lighting, temperature, and security.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Drones</h3>
+                    <img src="{% static 'images/drones.png' %}" alt="Drones">
+                    <p>Drone projects involve designing UAVs for surveillance, delivery, or mapping.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="category-card">
+                    <h3>IoT</h3>
+                    <img src="{% static 'images/iot.png' %}" alt="IoT">
+                    <p>IoT projects involve connecting devices to the internet for automation and monitoring.</p>
+                </div>
+                <div class="category-card">
+                    <h3>AI & ML</h3>
+                    <img src="{% static 'images/ai_ml.png' %}" alt="AI & ML">
+                    <p>AI & ML projects focus on developing intelligent systems using machine learning models.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Embedded Systems</h3>
+                    <img src="{% static 'images/embedded.png' %}" alt="Embedded Systems">
+                    <p>Embedded systems projects involve programming microcontrollers for specific applications.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Renewable Energy</h3>
+                    <img src="{% static 'images/Renewable.png' %}" alt="Renewable">
+                    <p>Renewable energy projects involve developing and implementing sustainable technologies that harness natural resources for power generation.</p>
+                </div>
+            </div>
         </div>
-        <div class="category-card">
-            <h3 style = "font-size:x-large;  font-family:Verdana, Geneva, Tahoma, sans-serif">Biotech</h3>
-            <img src="{% static 'images/health.png' %}" alt="Health">
-            <p style = "font-size: 17px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-              Biotechnology applies biological systems to develop innovations in health, agriculture, and industry, blending biology with genetics, biochemistry, and engineering.
-            </p>
-        </div>
-        <div class="category-card">
-            <h3 style = "font-size:x-large; font-family:Verdana, Geneva, Tahoma, sans-serif">Home Automation</h3>
-            <img src="{% static 'images/home_auto.png' %}" alt="Home">
-            <p style = "font-size: 17px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-              Home automation projects create systems to control lighting, temperature, security, and appliances remotely or automatically, enhancing convenience, efficiency, and security.
-            </p>
-        </div>
-        <div class="category-card">
-            <h3 style = "font-size:x-large">Drones</h3>
-            <img src="{% static 'images/drones.png' %}" alt="Books">
-            <p style = "font-size: 17px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">Drone projects involve designing and programming UAVs for tasks like surveillance, delivery, or mapping using hardware and software for autonomous or remote flight.</p>
-        </div>
+        <button class="next-btn">&#10095;</button>
     </div>
+    <script>
+      window.onload = function() {
+          let index = 0;
+          const slides = document.querySelectorAll(".slide");
+          const totalSlides = slides.length;
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          let autoSlide = setInterval(nextSlide, 5000);
+      
+          function nextSlide() {
+              index = (index + 1) % totalSlides;
+              updateSlide();
+          }
+      
+          function prevSlide() {
+              index = (index - 1 + totalSlides) % totalSlides;
+              updateSlide();
+          }
+      
+          function updateSlide() {
+              slider.style.transform = `translateX(${-index * 100}%)`;
+          }
+      
+          nextBtn.addEventListener("click", () => {
+              clearInterval(autoSlide);
+              nextSlide();
+              autoSlide = setInterval(nextSlide, 5000);
+          });
+      
+          prevBtn.addEventListener("click", () => {
+              clearInterval(autoSlide);
+              prevSlide();
+              autoSlide = setInterval(nextSlide, 5000);
+          });
+      
+          slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+          slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
+      };
+      </script>
 </section>
+
 
 <!-- Featured Products -->
 <section class="featured-products">
