@@ -15,4 +15,7 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
     path('base/', views.base, name='base'),
     path('demo/', views.demo, name='demo'),
+    path('bionic_hand/', views.bionic_hand, name='bionic_hand'),
+    path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
+    path('asterbot/', views.asterbot, name='asterbot'),
 ]
