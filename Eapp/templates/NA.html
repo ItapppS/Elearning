@@ -1,59 +1,315 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STL File Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/STLLoader.js"></script>
-    <style>
-        body { margin: 0; }
-        canvas { display: block; }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Hero Section Wrapper -->
+  <div class="hero-wrapper">
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Projects</h2>
+        <ul>
+          <li><a href="#">Bionic Hand</a></li>
+          <li><a href="#">Aster Robot</a></li>
+          <li><a href="#">Otto Robot</a></li>
+          <li><a href="#">Dog Head</a></li>
+          <li><a href="#">Home Automation</a></li>
+          <li><a href="#">Humonoid Robot</a></li>
+          <li><a href="#">Obstacle Avoidance Car</a></li>
+          <li><a href="#">Real Time Clock</a></li>
+        </ul>
+      </div>
+
+    <!-- Hero Section -->
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="{% static 'images/phnhero1.png' %}" alt="Robotics Kit 1">
+        <!-- <div class="shadow-box"></div>
+        <div class="overlay">
+          <h2>Seamless Connectivity, Anytime, Anywhere</h2>
+          <p>Extend your reach with our selection of</p>
+          <p>long-range wireless solutions</p>
+        </div> -->
+      </div>
+      <div class="swiper-slide">
+        <img src="{% static 'images/hero2.webp' %}" alt="Robotics Kit 2">
+        <!--<div class="overlay">
+          <h2>Its all in the timing</h2>
+          <p>Experience the future!</p>
+        </div>
+      -->
+      </div>
+      <div class="swiper-slide">
+        <img src="{% static 'images/hero3.webp' %}" alt="Robotics Kit 3">
+        <div class="shadow-box"></div>
+        <!--<div class="overlay">
+          <h2>DIY Robot Kit</h2>
+          <p>Build & code your robot!</p>
+        </div>-->
+      </div>
+    </div>
+    <!-- Pagination Bullets -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+  </div>
+  <!-- Kit, Services and content cards-->
+  <section class="kit-section">
+    <div class="kit-container">
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>KITS</h3>
+                <ul>
+                    <li><a href = "#">Starter Kits</a></li>
+                    <li><a href = "#">Development Boards</a></li>
+                    <li><a href = "#">Sensor Modules</a></li>
+                    <li><a href = "#">DIY Projects</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+              <img src="{% static 'images/kit.jpg' %}" alt="Robotics Kit 3">
+            </div>
+        </div>
+
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href = "#">Custom PCB Design</a></li>
+                    <li><a href = "#">Prototyping Kits</a></li>
+                    <li><a href = "#">Consulting Services</a></li>
+                    <li><a href = "#">Technical Support</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+              <img src="{% static 'images/services.jpg' %}" alt="Services">
+            </div>
+        </div>
+
+        <div class="kit-card">
+            <div class="kit-text">
+                <h3>CONTENT</h3>
+                <ul>
+                    <li><a href = "#">Documentation</a></li>
+                    <li><a href = "#">Video Tutorials</a></li>
+                    <li><a href = "#">Tech Articles</a></li>
+                    <li><a href = "#">Community Forum</a></li>
+                </ul>
+            </div>
+            <div class="kit-image">
+              <img src="{% static 'images/content.jpg' %}" alt="Services">
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- Technology Domains-->
+  <section class="categories" id="categories">
+    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Technology Domains</h2>
+    <div class="slider-wrapper">
+        <button class="prev-btn">&#10094;</button>
+        <div class="slider">
+            <div class="slide">
+                <div class="category-card">
+                    <h3>Robotics</h3>
+                    <img src="{% static 'images/Robotics.png' %}" alt="Electronics">
+                    <p>Robotics projects involve creating robots with sensors, actuators, and controllers.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Biotech</h3>
+                    <img src="{% static 'images/health.png' %}" alt="Health">
+                    <p>Biotechnology applies biological systems to develop innovations in health and industry.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Home Automation</h3>
+                    <img src="{% static 'images/home_auto.png' %}" alt="Home">
+                    <p>Home automation projects create systems to control lighting, temperature, and security.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Drones</h3>
+                    <img src="{% static 'images/drones.png' %}" alt="Drones">
+                    <p>Drone projects involve designing UAVs for surveillance, delivery, or mapping.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="category-card">
+                    <h3>IoT</h3>
+                    <img src="{% static 'images/iot.png' %}" alt="IoT">
+                    <p>IoT projects involve connecting devices to the internet for automation and monitoring.</p>
+                </div>
+                <div class="category-card">
+                    <h3>AI & ML</h3>
+                    <img src="{% static 'images/ai_ml.png' %}" alt="AI & ML">
+                    <p>AI & ML projects focus on developing intelligent systems using machine learning models.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Embedded Systems</h3>
+                    <img src="{% static 'images/embedded.png' %}" alt="Embedded Systems">
+                    <p>Embedded systems projects involve programming microcontrollers for specific applications.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Renewable Energy</h3>
+                    <img src="{% static 'images/Renewable.png' %}" alt="Renewable">
+                    <p>Renewable energy projects involve developing and implementing sustainable technologies that harness natural resources for power generation.</p>
+                </div>
+            </div>
+        </div>
+        <button class="next-btn">&#10095;</button>
+    </div>
     <script>
-        let scene, camera, renderer, loader, model;
+      window.onload = function() {
+          let index = 0;
+          const slides = document.querySelectorAll(".slide");
+          const totalSlides = slides.length;
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          let autoSlide = setInterval(nextSlide, 5000);
+      
+          function nextSlide() {
+              index = (index + 1) % totalSlides;
+              updateSlide();
+          }
+      
+          function prevSlide() {
+              index = (index - 1 + totalSlides) % totalSlides;
+              updateSlide();
+          }
+      
+          function updateSlide() {
+              slider.style.transform = `translateX(${-index * 100}%)`;
+          }
+      
+          nextBtn.addEventListener("click", () => {
+              clearInterval(autoSlide);
+              nextSlide();
+              autoSlide = setInterval(nextSlide, 5000);
+          });
+      
+          prevBtn.addEventListener("click", () => {
+              clearInterval(autoSlide);
+              prevSlide();
+              autoSlide = setInterval(nextSlide, 5000);
+          });
+      
+          slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+          slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
+      };
+      </script>
+</section>
 
-        function init() {
-            // Create scene
-            scene = new THREE.Scene();
 
-            // Create camera
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 0, 10);
+<!-- Featured Products -->
+<section class="featured-products">
+  <h2 style = "font-size: xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">&nbsp;&nbsp;&nbsp;Featured Guides</h2>
+  <div class="product-grid">
+    <div class="product-card">
+        <a href="/otto">
+            <img src="{% static 'images/product1.jpg' %}" alt="Ott Robot">
+        </a>
+        <h3>Ottobot</h3>
+    </div>
 
-            // Create renderer
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
+    <div class="product-card">
+        <a href="/bionic_hand">
+            <img src="{% static 'images/product2.jpg' %}" alt="Bionic Hand">
+        </a>
+        <h3>Bionic Hand</h3>
+    </div>
 
-            // Add light
-            const light = new THREE.DirectionalLight(0xffffff, 1);
-            light.position.set(5, 5, 5).normalize();
-            scene.add(light);
+    <div class="product-card">
+        <a href="/solar_tracking">
+            <img src="{% static 'images/product3.jpg' %}" alt="Solar Tracking">
+        </a>
+        <h3>Solar Tracking</h3>
+    </div>
 
-            // Load STL file
-            loader = new THREE.STLLoader();
-            loader.load('Body_Otto_Robot.stl', function (geometry) {
-                const material = new THREE.MeshStandardMaterial({ color: 0x00ff00, metalness: 0.3, roughness: 0.5 });
-                model = new THREE.Mesh(geometry, material);
-                scene.add(model);
-            });
+    <div class="product-card">
+        <a href="/asterbot">
+            <img src="{% static 'images/product4.jpg' %}" alt="Asterbot">
+        </a>
+        <h3>Asterbot</h3>
+    </div>
+</div>
 
-            // Start animation
-            animate();
-        }
+</section>
+{% endblock %}
 
-        function animate() {
-            requestAnimationFrame(animate);
-            if (model) {
-                model.rotation.y += 0.01; // Rotate model
-            }
-            renderer.render(scene, camera);
-        }
 
-        window.onload = init;
-    </script>
-</body>
-</html>
+
+URLS   
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('otto/', views.otto, name='otto'),
+    path('bionic-hand/', views.bionic_hand, name='bionic-hand'),
+    path('humanoid-robot/', views.humanoid_robot, name='humanoid-robot'),
+    path('home-automation/', views.home_automation, name='home-automation'),
+    path('solar-tracking/', views.solar_tracking, name='solar-tracking'),
+    path('obstraction-avoiding-car/', views.obstraction_avoiding_car, name='obstraction-avoiding-car'),
+    path('robotics/', views.robotics, name='robotics'),
+    path('profile/', views.profile, name='profile'),
+    path('cart/', views.cart, name='cart'),
+    path('base/', views.base, name='base'),
+    path('demo/', views.demo, name='demo'),
+    path('bionic_hand/', views.bionic_hand, name='bionic_hand'),
+    path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
+    path('asterbot/', views.asterbot, name='asterbot'),
+]
+
+
+VIEWS  
+
+from django.shortcuts import render
+
+# Create your views here.
+
+def demo(request):
+    return render(request, 'demo.html')
+
+def robotics(request): 
+    return render(request, 'robotics.html')
+
+def about(request): 
+    return render(request, 'about.html')
+
+def otto(request): 
+    return render(request, 'otto.html')
+
+def bionic_hand(request):
+    return render(request, 'bionic_hand.html')
+
+def humanoid_robot(request):
+    return render(request, 'humanoid_robot.html')
+
+def home_automation(request):
+    return render(request, 'home_automation.html')
+
+def solar_tracking(request):
+    return render(request, 'solar_tracking.html')
+
+def obstraction_avoiding_car(request):
+    return render(request, 'obstraction_avoiding_car.html')
+
+def profile(request): 
+    return render(request, 'profile.html')
+
+def cart(request): 
+    return render(request, 'cart.html')
+
+def base(request): 
+    return render(request, 'base.html')
+
+def home(request):
+    return render(request, 'home.html')
+
+def bionic_hand(request):
+    return render(request, 'bionic_hand.html')
+
+def asterbot(request):
+    return render(request, 'asterbot.html')

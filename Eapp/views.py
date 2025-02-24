@@ -40,3 +40,9 @@ def base(request):
 
 def home(request):
     return render(request, 'home.html')
+
+def bionic_hand(request):
+    return render(request, 'bionic_hand.html')
+
+def asterbot(request):
+    return render(request, 'asterbot.html')
