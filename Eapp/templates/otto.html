@@ -42,9 +42,15 @@
         margin: 0;
     }
 
+    .page-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%; /* Make sure it takes the whole width */
+    }
+    
     .container {
         max-width: 1200px;
-        margin: 20px auto;
+        margin: 20px 0; /* Remove auto margins to prevent centering */
         padding: 20px;
     }
 
@@ -268,7 +274,6 @@
                     <li>🤖 <strong>Moves Like a Human:</strong> Otto can walk, turn, dance, and even shake!</li>
                     <li>🤖  <strong>Makes Sounds & Shows Emotions:</strong> It has a speaker to play sounds and express feelings.</li>
                     <li>🤖  <strong>Wireless Control:</strong> You can control Otto with an app using Bluetooth.</li>
-                    <li>🤖  <strong>Rechargeable Battery:</strong> Otto runs on a small battery that you can recharge with a USB cable.</li>
                     <li>🤖  <strong>Great for Learning:</strong> Perfect for kids, beginners, and students to explore STEM (Science, Technology, Engineering, and Math) in a fun way!</li>
                 </ul>
                 </div>
@@ -282,7 +287,7 @@
         </section>
 
         <!-- Right Ad Placement -->
-        <div class="ad-placement ad-right">Ad Placement</div>
+        <div class="ad-placement ad-right" style="border: 1px solid #ccc; padding: 10px; text-align: center; margin-top: 20px;">Ad Placement</div>
 
 
 <div class="container">  <section class="content-box">
@@ -359,6 +364,7 @@
             <thead>
                 <tr>
                     <th>Component</th>
+                    <th>Recommended</th>
                     <th>Customize</th>
                     <th>Quantity</th>
                     <th>Price</th>
