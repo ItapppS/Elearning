@@ -251,10 +251,27 @@
         margin-top: 10px;
         color: #000;
     }
+
+    .video-button-container,
+.ppt-button-container,
+.pdf-button-container {
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center; /* Vertically center (optional) */
+    margin-left: 20px; /* Add left margin to shift the buttons */
+}
+
+.video-view-button,
+.ppt-view-button,
+.pdf-view-button {
+    text-align: left; /* Align text within the button to the left */
+}
+
+
 </style>
 </head>
 <body>
-    <header style="background-color: #1766b6; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
+    <header style="background-color: #fgfgfg; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
         <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Otto - DIY Robot</h1>
     </header>
     
@@ -290,11 +307,12 @@
         <div class="ad-placement ad-right" style="border: 1px solid #ccc; padding: 10px; text-align: center; margin-top: 20px;">Ad Placement</div>
 
 
-<div class="container">  <section class="content-box">
+<div class="container"> 
+     <section class="content-box">
         <h2 class="section-title">Otto Video Lecture</h2>
         <div class="video-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
-                <button class="video-view-button">Click here</button>
+                <button class="video-view-button" style="text-align: left;">Click here</button>
             </a>
         </div>
     </section>
@@ -307,7 +325,7 @@
         </p>
         <div class="ppt-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
-                <button class="ppt-view-button">Click here</button>
+                <button class="ppt-view-button" style="text-align: left;">Click here</button>
             </a>
         </div>
     </section>
@@ -316,7 +334,7 @@
         <h2 class="section-title">Otto Robot Report</h2>
         <div class="pdf-button-container">
             <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
-                <button class="pdf-view-button">Click here</button>
+                <button class="pdf-view-button" style="text-align: left;">Click here</button>
             </a>
         </div>
     </section>
@@ -374,6 +392,7 @@
                 <!-- 3D Printed Parts (with Color Options) -->
                 <tr>
                     <td>3D Printed Parts</td>
+                    <td>Black</td>
                     <td>
                         <select class="color-select">
                             <option value="Black">Black</option>
@@ -393,6 +412,7 @@
                 <!-- Ultrasonic Sensor -->
                 <tr>
                     <td>Ultrasonic Sensor</td>
+                    <td>HC-SR04</td>
                     <td>
                         <select class="color-select">
                             <option value="HC-SR04">HC-SR04</option>
@@ -409,6 +429,7 @@
                 <!-- Arduino Nano -->
                 <tr>
                     <td>Micro Controller</td>
+                    <td>Arduino Nano</td>
                     <td>
                         <select class="color-select">
                             <option value="Arduino Nano ">Arduino Nano</option>
@@ -430,6 +451,7 @@
                 <tr>
                     <td>Expansion Board</td>
                     <td>-</td>
+                    <td>-</td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('expansion', -1)">-</button>
                         <span id="expansion-qty">1</span>
@@ -441,6 +463,7 @@
                 <!-- Servo Motors (Required 4) -->
                 <tr>
                     <td>Servo Motors (4 Required)</td>
+                    <td>SG90 (Plastic Gears)</td>
                     <td>
                         <select class="color-select">
                             <option value="SG90 (Plastic Gears)">SG90 (Plastic Gears)</option> 
@@ -458,6 +481,7 @@
                 <!-- Battery 9V -->
                 <tr>
                     <td>Power Supply</td>
+                    <td>9V 1A</td>
                     <td>
                         <select class="color-select">
                             <option value="9V 1A">9V 1A</option>
