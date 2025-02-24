@@ -21,274 +21,230 @@
 
    <style> /* General Styles */
 
-h1 {
-    font-weight: bold;
-    font-size: 32px;
-    margin: 0;
-    color: white;
-}
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: #fff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
-.container {
-    max-width: 1200px;  /* Adjust container width as needed */
-    margin: 20px auto;
-    padding: 20px;
-}
+    header {
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
 
-.content-box {
-    background-color: #f8f8f8; /* Semi-transparent white background */
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    overflow: hidden; /* Prevents image from overflowing */
-}
+    h1 {
+        font-size: 28px;
+        margin: 0;
+    }
 
-.section-title {
-    color: black; /* White title */
-    font-size: 24px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #444; /* Subtle line under title */
-    padding-bottom: 10px;
-}
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+    }
 
-/* Otto Specific Styles */
-.otto-info {
-    display: flex;
-    align-items: flex-start; /* Align image and text to the top */
-}
+    .content-box {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-.otto-info img {
-    max-width: 300px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 8px; /* Rounded corners for the image */
-}
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        color: #000;
+    }
 
-.otto-info ul {
-    list-style-type: disc;
-    margin-left: 20px; /* Adjust spacing as needed */
-}
+    .otto-info {
+        display: flex;
+        align-items: flex-start;
+    }
 
-.tab-container { /* Style for tabs if you implement them */
-    margin-top: 20px;
-}
+    .otto-info img {
+        max-width: 250px;
+        height: auto;
+        margin-right: 20px;
+        border-radius: 6px;
+    }
 
-/* Button Styles */
-.video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
-    background-color: #1766b6; /* Blue button */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    margin-top: 10px; /* Add some spacing above the button */
-    display: block; /* Make buttons take full width */
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-}
+    .otto-info ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: #000;
+    }
 
-.video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
-    background-color: #135290; /* Darker blue on hover */
-}
+    .video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+    }
 
-/* Image Styles */
-.image-container {
-    text-align: center; /* Center the image */
-    margin-top: 20px;
-}
+    .video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
+        background-color: #555;
+    }
 
-#ottoImage {
-    max-width: 80%; /* Limit image width to 80% of container */
-    height: auto;
-    display: block; /* Prevents extra space below image */
-    margin: 0 auto; /* Center the image horizontally */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
+    .image-container {
+        text-align: center;
+        margin-top: 20px;
+    }
 
-/* 3D Model Viewer Styles */
-.model-buttons {
-    display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
-    justify-content: center; /* Center buttons horizontally */
-    gap: 10px;
-    margin-top: 20px;
-}
+    #ottoImage {
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-.view-button {
-    background-color: #1766b6; /* Blue button */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-}
+    .model-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
 
-/* Store Styles */
-.store-container {
-    overflow-x: auto; /* Enable horizontal scrolling if table is too wide */
-    margin-top: 20px;
-}
+    .store-container {
+        overflow-x: auto;
+        margin-top: 20px;
+    }
 
-.store-container table {
-    width: 100%;
-    border-collapse: collapse; /* Collapse borders for a cleaner look */
-    margin-bottom: 20px;
-    table-layout: auto;
-    border: 1px solid #ddd; /* Add a border to the table itself */
-}
+    .store-container table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
 
-.store-container th, .store-container td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd; /* Borders between rows */
-    border-right: 1px solid #ddd; /* Borders between columns */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    .store-container th, .store-container td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
 
-/* Remove right border from the last column */
-.store-container th:last-child, .store-container td:last-child {
-    border-right: none;
-}
+    .store-container th:last-child, .store-container td:last-child {
+        border-right: none;
+    }
 
-/* Optional: Add a border to the top of the table header */
-.store-container th {
-    border-top: 1px solid #ddd;
-}
+    .store-container th {
+        background-color: #eee;
+        font-weight: bold;
+    }
 
-/* Optional: Improve table header styling */
-.store-container th {
-    background-color: #f0f0f0;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-    padding: 10px;
+    .color-select {
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 14l-4-4h8z' fill='rgba(51,51,51,1)'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 5px center;
+        padding-right: 25px;
+    }
 
-}
+    .quantity-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
 
-.color-select {
-    padding: 6px;
-    border: 1px solid #555; /* Darker border */
-    border-radius: 4px;
-    background-color: #fff; /* Darker background */
-    color: #333;
-    appearance: none; /* Remove default select arrow */
-    -webkit-appearance: none; /* For Safari */
-    -moz-appearance: none; /* For Firefox */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 14l-4-4h8z' fill='rgba(51,51,51,1)'/%3E%3C/svg%3E"); /* Add custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 5px center;
-    padding-right: 25px; /* Adjust padding for the arrow */
-}
+    .quantity-column button {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
 
-.quantity-column {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center quantity buttons and number */
-    gap: 5px; /* Add some space between buttons and number */
-}
+    .quantity-column span {
+        padding: 0 8px;
+        font-size: 16px;
+    }
 
-.quantity-column button {
-    background-color: #333;
-    color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
+    .price-column {
+        text-align: right;
+    }
 
-.quantity-column span {
-    padding: 0 8px;
-    font-size: 16px;
-}
+    .total {
+        text-align: right;
+        margin-top: 20px;
+    }
 
-.price-column {
-    text-align: right;
-}
+    .total h3 {
+        color: #333;
+    }
 
-.total {
-    text-align: right;
-    margin-top: 20px;
-}
+    .buy-button {
+        display: block;
+        padding: 12px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin: 20px auto;
+        width: fit-content;
+        text-align: center;
+    }
 
-.total h3 {
-    color: #fff;
-}
+    .buy-button:hover {
+        background-color: #555;
+    }
 
+    .slider-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-top: 20px;
+    }
 
-.buy-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #1766b6 ; /* Gradient Background */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    text-align: center; /* Center the text */
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-}
+    .project-slider {
+        display: flex;
+    }
 
-.buy-button:hover {
-    background: linear-gradient(#1766b6); /* Reverse gradient on hover */
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
+    .project {
+        width: 250px;
+        margin-right: 20px;
+        text-align: center;
+    }
 
-.buy-button:active {
-    transform: scale(1); /* Reset zoom on click */
-}
+    .project img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-/* Related Projects Slider Styles */
-.slider-container {
-    overflow-x: hidden;
-    white-space: nowrap;
-    margin-top: 20px;
-    padding-left: 20px; /* Add left padding for margin */
-}
-
-.project-slider {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden; /* Prevent vertical scrolling */
-    white-space: nowrap;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-270px * 5)); } /* Adjusted width */
-}
-
-.project {
-    flex: 0 0 auto;
-    text-align: center;
-    margin: 10px;
-}
-
-.project img {
-    width: 200px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
-    object-fit: cover; /* Ensures uniform sizing without distortion */
-    border-radius: 10px; /* Optional: Adds rounded corners */
-}
-
-.project-title { /* Style for the project title */
-    margin-top: 10px;
-    text-align: center; /* Center the title */
-    color: #333; /* Darker title text */
-}
+    .project-title {
+        margin-top: 10px;
+        color: #000;
+    }
 </style>
 </head>
 <body>
@@ -561,12 +517,12 @@ h1 {
     <div class="slider-container" onmouseover="pauseScroll()" onmouseout="startScroll()">
         <div class="project-slider" id="projectSlider">
             <div class="project" onclick="redirectTo('bionic-hand')">
-                <img src="{% static 'images/IMG_3541-Photoroom.png' %}" alt="Bionic Hand">
+                <img src="{% static 'images/BionicHand.jpg' %}" alt="Bionic Hand">
                 <p class="project-title">Bionic Hand</p>
             </div>
 
             <div class="project" onclick="redirectTo('humanoid-robot')">
-                <img src="{% static 'images/IMG_3539-Photoroom.png' %}" alt="Humanoid Robot">
+                <img src="{% static 'images/Humanoid Robot.jpg' %}" alt="Humanoid Robot">
                 <p class="project-title">Humanoid Robot</p>
             </div>
 
