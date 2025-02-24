@@ -252,7 +252,7 @@
         color: #000;
     }
 
-    .video-button-container,
+.video-button-container,
 .ppt-button-container,
 .pdf-button-container {
     display: flex;
@@ -267,17 +267,131 @@
     text-align: left; /* Align text within the button to the left */
 }
 
+.dark-mode body {
+        background-color: black;
+        color: #eee; /* Light text on dark background */
+}
+
+.dark-mode header {
+    background-color: #333;
+    border-bottom: 1px solid #555;
+}
+
+.dark-mode .content-box {
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .section-title {
+    color: #eee;
+    border-bottom: 1px solid #555;
+}
+.dark-mode .video-button-container a button,
+.dark-mode .ppt-button-container a button,
+.dark-mode .pdf-button-container a button,
+.dark-mode .model-buttons a button {
+    background-color: #444; /* Darker button background */
+    color: #eee; /* Light text on button */
+    border: 1px solid #555; /* White border for buttons */
+}
+
+.dark-mode .model-buttons p {
+    color: #eee; /* Light text for paragraph */
+}
+
+.dark-mode .model-buttons a button:hover {
+    background-color: #555;
+}
+
+.dark-mode .model-buttons h2 {
+    color: #eee;
+}
+
+.dark-mode .model-buttons p {
+    color: #eee;
+}
+
+.dark-mode .otto-info ul li {
+    color: #eee; /* White text for list items in dark mode */
+}
+
+.dark-mode .otto-info strong {
+    color: #fff; /* White text for strong elements in dark mode */
+}
+
+.dark-mode .ppt-button-container p {
+    color: #eee; /* White text for the paragraph */
+}
+
+.dark-mode .store-container th {
+    background-color: #444;
+}
+
+.dark-mode .store-container th,
+.dark-mode .store-container td {
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+}
+
+.dark-mode .color-select {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+.dark-mode .quantity-column button {
+    background-color: #444;
+}
+
+.dark-mode .buy-button {
+    background-color: #444;
+}
+
+.dark-mode .buy-button:hover {
+    background-color: #555;
+}
+
+.dark-mode a {
+    color: lightblue;
+}
+
+.dark-mode a:hover {
+    color: skyblue;
+}
+
+.dark-mode .ppt-button-container a button,
+.dark-mode .model-buttons a button {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+.dark-mode .ppt-button-container a button:hover,
+.dark-mode .model-buttons a button:hover {
+    background-color: #555;
+}
+
+.dark-mode .model-buttons h2 {
+    color: #eee;
+}
+
+.dark-mode .image-container img {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* add a white shadow in dark mode */
+}
+
+.dark-mode .project-title {
+    color: #eee;
+}
 
 </style>
 </head>
-<body>
-    <header style="background-color: #fgfgfg; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
+<body class="bg-white;">
+    <header style="background-color: black; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
         <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Otto - DIY Robot</h1>
     </header>
     
-    <body class="bg-white">
-        <div class="circuit-bg">
-    <div class="container">
+    <div class="circuit-bg">
+        <div class="container">
         
         <!-- Otto Introduction Section -->
         <section class="content-box">
@@ -319,7 +433,7 @@
 
     <section class="content-box">
         <h2 class="section-title">Comprehensive Guide</h2>
-        <p style="color: black;">
+        <p style="color: black, .dark-mode color: white">
             This guide covers the step-by-step process to build, assemble, and program Otto.
             It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
         </p>
@@ -353,7 +467,7 @@
         <!-- 3D Model Viewer Section -->
 <section class="content-box">
     <h2 class="section-title">3D Model Viewer</h2>
-    <p style="color: black;">Explore the 3D printable components of Otto Robot.</p>
+    <p style="color: black, .dark-mode color:white;">Explore the 3D printable components of Otto Robot.</p>
     <div class="model-buttons">
         <a href="https://drive.google.com/file/d/1bVrAiP7W5oJ2_WA8KgbkxzhxjEunxegG/view?usp=drive_link" target="_blank">
             <button class="view-button">Click here to view Head</button>
@@ -704,6 +818,7 @@
         }
         document.getElementById("total-price").innerText = total;
     }
+    
 </script>
 
     </div>

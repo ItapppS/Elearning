@@ -68,7 +68,7 @@
   padding: 6px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 5px 30px rgb(0, 26, 255); /* Adds a subtle shadow */
+  box-shadow: 0px 5px 30px rgb(0, 0, 0); /* Adds a subtle shadow */
 }
 
     .right-nav {
@@ -84,7 +84,7 @@
     }
     .nav-left a {
       text-decoration: none;
-      color: #1900ff;
+      color: black;
       font-weight: bold;
       margin-bottom: 2px;
     } 
@@ -107,7 +107,7 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #3700ff;
+      color:rgb(0, 0, 0);
       font-weight: bold;
       margin: 0 15px;
       display: inline-flex;
@@ -136,7 +136,7 @@
       display: block;
       padding: 8px 12px;
       text-decoration: none;
-      color: #2f6fed;
+      color:rgb(0, 0, 0);
       font-weight: normal;
     }
     .dropdown-content a:hover {
@@ -158,7 +158,7 @@
     .nested-dropdown a {
       padding: 8px 12px;
       text-decoration: none;
-      color: #2f6eed;
+      color:rgb(0, 0, 0);
       font-weight: normal;
     }
     .nested-dropdown a:hover {
@@ -200,11 +200,11 @@
 
 
 .sidebar h2 {
-  color: rgb(0, 17, 255);
+  color: rgb(0, 0, 0);
   font-size: 22px;
   margin-bottom: 15px;
   text-transform: uppercase;
-  border-bottom: 2px solid #2f6fed;
+  border-bottom: 2px solid rgb(0, 0, 0);
   padding-bottom: 5px;
 }
 
@@ -219,7 +219,7 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: rgb(68, 0, 255);
+  color: rgb(0, 0, 0);
   font-size: 18px;
   display: block;
   transition: 0.3s;
@@ -729,7 +729,9 @@ footer {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-.dark-mode .nav-links a,
+.dark-mode .nav-links a{
+  color: #ffffff;
+}
 .dark-mode .dropdown-content a {
   color: #ffffff;
 }
@@ -762,6 +764,14 @@ footer {
 .dark-mode .nested-dropdown{
   background-color: #222;
 }
+
+.dark-mode .cart-logo {
+  color: white;
+}
+
+.dark-mode .nav-left a {
+  color: white;
+}
   </style>
   {% block css %}{% endblock %}
 </head>
@@ -792,19 +802,19 @@ footer {
       <div class="dropdown">
         <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-          <a href="#" style="background-color: blue; color: white;">Products</a>
+          <a href="#" style="background-color: black; color: white;">Products</a>
           <div class="product">
             <a href="#">Microcontroller <strong>></strong></a>
             <div class="nested-dropdown">
-              <a href="#" style="background-color: blue; color: white;">Arduino</a>
+              <a href="#" style="background-color: black; color: white;">Arduino</a>
               <a href="#">Arduino Uno</a>
               <a href="#">Arduino Nano</a>
               <a href="#">Arduino Mega</a>
-              <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
+              <a href="#" style="background-color: black; color: white;">Raspberry Pi</a>
               <a href="#">Raspberry Pi 4</a>
               <a href="#">Raspberry Pi 3B+</a>
               <a href="#">Raspberry Pi Pico</a>
-              <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
+              <a href="#" style="background-color: black; color: white;">ESP32/ESP8266</a>
               <a href="#">ESP32 DevKit V1</a>
               <a href="#">ESP8266 NodeMCU</a>
             </div>
@@ -821,15 +831,15 @@ footer {
           <div class="product">
             <a href="#">Motors <strong>></strong></a>
             <div class="nested-dropdown">
-              <a href="#" style="background-color: blue; color: white;">DC Motors</a>
+              <a href="#" style="background-color: black; color: white;">DC Motors</a>
               <a href="#">5V DC Motor</a>
               <a href="#">12V DC Motor</a>
               <a href="#">High Torque DC Motor</a>
-              <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
+              <a href="#" style="background-color: black; color: white;">Servo Motors</a>
               <a href="#">SG90 (9g Servo Motor)</a>
               <a href="#">MG996R (High Torque Servo)</a>
               <a href="#">MG90S (Micro Servo)</a>
-              <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
+              <a href="#" style="background-color: black; color: white;">Stepper Motors</a>
               <a href="#">NEMA 17 Stepper Motor</a>
               <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
             </div>
@@ -880,7 +890,7 @@ footer {
       <div class="dropdown">
         <a href="#">Projects <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-          <a href="#" style="background-color: blue; color: white;">Projects</a>
+          <a href="#" style="background-color: black; color: white;">Projects</a>
           <!-- Project links with nested dropdowns -->
           <div class="project">
             <a href="#">Bionic Hand <strong>></strong></a>
