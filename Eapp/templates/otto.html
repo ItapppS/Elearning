@@ -251,6 +251,52 @@
         margin-top: 10px;
         color: #000;
     }
+
+    .demo-button, .ok-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .demo-button:hover, .ok-button:hover {
+        background-color: #555;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .popup img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
 </style>
 </head>
 <body>
@@ -381,6 +427,8 @@
                             <option value="Blue">Blue</option>
                             <option value="Green">Green</option>
                         </select>
+                        <button class="demo-button" onclick="showDemo()">DEMO</button>
+                        <button class="ok-button">OK</button>
                     </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('printed', -1)">-</button>
@@ -513,6 +561,14 @@
         totalPriceElement.innerText = newTotal.toFixed(2);
         buyButton.innerText = `Proceed to Buy - Total: $${newTotal.toFixed(2)} 🚀`;
     }
+
+    function showDemo() {
+        document.getElementById('demoPopup').style.display = 'block';
+    }
+
+    function closeDemo() {
+        document.getElementById('demoPopup').style.display = 'none';
+    }
 </script>
 
 
@@ -607,6 +663,12 @@
         document.getElementById("total-price").innerText = total;
     }
 </script>
+
+<div id="demoPopup" class="popup">
+    <button class="popup-close" onclick="closeDemo()">Close</button>
+    <img src="{% static 'images/otto-removebg-preview.png' %}" alt="Demo Image">
+
+</div>
 
     </div>
 
