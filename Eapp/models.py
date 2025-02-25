@@ -9,3 +9,5 @@ class PhnUser(models.Model):
 
     def __str__(self):
         return self.username
+
+#class PhnContact(models.Model):
