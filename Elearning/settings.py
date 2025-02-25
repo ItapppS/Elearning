@@ -76,9 +76,21 @@ WSGI_APPLICATION = 'Elearning.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'phn',  # Your database name
+        'USER': 'root',  # Your MySQL username
+        'PASSWORD':'uttam',  # Your MySQL password
+=======
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'phn',  # Your database name
+        'USER': 'root',  # Your MySQL username
+        'PASSWORD': 'pratiksha',  # Your MySQL password
+>>>>>>> 0b287641e48f4376b0fcd6594b06c714903757e6
+        'HOST': 'localhost',  # The host where the MySQL server is running
+        'PORT': '3306',  # Default MySQL port
     }
 }
 
@@ -117,10 +129,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # or use the appropriate path to the static folder
-]
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

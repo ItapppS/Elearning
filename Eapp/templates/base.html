@@ -3,19 +3,19 @@
 <html lang="en">
 <head>
   {% load static %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Website{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Swiper CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Website{% endblock %}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Swiper CSS -->
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+
 <!-- Robotics section  -->
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,14 +31,14 @@
 <!-- End  -->
   <style>
     body {
-      background-color: #e3e3e3;
+      background-color: #e9e8e8;
     margin: 0;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:"Roboto";
     }
  
     .header {
       width: 100%;
-      background: #ffffff;
+      background: #222;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       position: relative;
       z-index: 100;
@@ -69,9 +69,9 @@
   padding: 6px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 5px 30px rgb(0, 0, 0); /* Adds a subtle shadow */
+  box-shadow: 0px 5px 30px rgb(0, 26, 255); /* Adds a subtle shadow */
 }
- 
+
     .right-nav {
       display: flex;
       align-items: center;
@@ -85,7 +85,7 @@
     }
     .nav-left a {
       text-decoration: none;
-      color: black;
+      color: #1900ff;
       font-weight: bold;
       margin-bottom: 2px;
     }
@@ -96,7 +96,7 @@
     }
     .cart-logo {
       font-size: 24px;
-      color: black;
+      color: #2600ff;
     }
     .nav-links {
       display: flex;
@@ -108,7 +108,7 @@
     }
     .nav-links a {
       text-decoration: none;
-      color:rgb(0, 0, 0);
+      color: #3700ff;
       font-weight: bold;
       margin: 0 15px;
       display: inline-flex;
@@ -129,7 +129,7 @@
   top: 100%;
   left: 0;
   background-color: #fff;
-  min-width: 230px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1000; /* Increase this value */
 }
@@ -137,7 +137,7 @@
       display: block;
       padding: 8px 12px;
       text-decoration: none;
-      color:rgb(0, 0, 0);
+      color: #2f6fed;
       font-weight: normal;
     }
     .dropdown-content a:hover {
@@ -147,19 +147,19 @@
       display: block;
     }
     .nested-dropdown {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  display: none;
-  background-color: #fff;
-  width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1000; /* Increase this value */
-}
+      position: absolute;
+      top: 0;
+      left: 100%;
+      display: none;
+      background-color: #fff;
+      width: 200px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000; /* Increase this value */
+    }
     .nested-dropdown a {
       padding: 8px 12px;
       text-decoration: none;
-      color:rgb(0, 0, 0);
+      color: #2f6eed;
       font-weight: normal;
     }
     .nested-dropdown a:hover {
@@ -186,7 +186,7 @@
 }
  
 .sidebar {
-  width: 220px;
+  width: 241px;
     background: #ffffff;
     padding: 20px;
     height: 70vh;
@@ -194,7 +194,7 @@
     border-radius: 10px;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 56px;
+    margin-left: 26px;
     border-color: black;
     border-right: 10px;
 }
@@ -207,6 +207,7 @@
   text-transform: uppercase;
   border-bottom: 2px solid rgb(0, 0, 0);
   padding-bottom: 5px;
+  font-weight: 500;
 }
  
 .sidebar ul {
@@ -220,15 +221,14 @@
  
 .sidebar ul li a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: rgb(68, 0, 255);
   font-size: 18px;
   display: block;
   transition: 0.3s;
 }
- 
- 
+
 .sidebar ul li a:hover {
-  color: #481d79;
+  color: #1100ff;
 }
  
 /* Hero Section */
@@ -238,7 +238,7 @@
     height: 70vh;
     overflow: hidden;
     background-color: black;
-    margin-right: 56px;
+    margin-right: 20px;
     border-radius: 10px;
 }
  
@@ -287,7 +287,7 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-family: 'Times New Roman';
-  color:rgb(0, 38, 255);
+  color: #314ffc;
   text-align: left;
 }
  
@@ -416,7 +416,7 @@
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     text-align: center;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
                 box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -425,7 +425,7 @@
  
 .product-card:hover {
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
  
 .product-card img {
@@ -473,14 +473,13 @@
     padding: 20px;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     flex: 1;
     margin: 10px;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .category-card h3{
   font-size: 22px;
-  font-family:'Times New Roman', Times, serif;
   margin-bottom: 5px;
   font-weight:600;
 }
@@ -490,7 +489,7 @@
 }
 .category-card:hover {
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
  
 .category-card img {
@@ -567,8 +566,8 @@
     justify-content: space-between;
     background: white;
     border-radius: 8px;
-    border-color: 0 2px 4px rgba(62, 74, 230, 0.466);;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    border-color: 0 2px 4px rgba(0, 0, 0, 0.466);;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     padding: 20px;
     width: 30%;
     margin-bottom: -17px;
@@ -584,7 +583,7 @@
 }
  
 .kit-text h3 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #000;
@@ -596,12 +595,12 @@
 }
  
 .kit-text li {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
     margin-bottom: 5px;
 }
-.kit-text :hover{
-  color: blueviolet;
+.kit-text li:hover{
+  color: rgb(46, 43, 226);
 }
 .kit-image img {
     width: 200px; /* Adjust based on your icons */
@@ -748,6 +747,12 @@ footer {
 .dark-mode .sidebar{
   background-color: #222;
 }
+.dark-mode .sidebar h2{
+  color: white;
+}
+.dark-mode .sidebar ul li a{
+  color: white;
+}
 .dark-mode .kit-card{
   background-color: #222;
 }
@@ -766,37 +771,15 @@ footer {
 .dark-mode .nested-dropdown{
   background-color: #222;
 }
- 
-.dark-mode .cart-logo {
-  color: white;
-}
- 
-.dark-mode .nav-left a {
-  color: white;
-}
- 
-.dark-mode .sidebar h2{
-  color: white
-}
- 
-.dark-mode .sidebar ul li a{
-  color: white
-}
-p {
-    color: black;
-  }
-  @media (prefers-color-scheme: dark) {
-    p {
-      color: white;
-    }
-  }
-
   </style>
   {% block css %}{% endblock %}
 </head>
 <body>
   <body>
   <header class="header">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <div class="top-nav">
       <div class="logo">
         <img src="{% static 'images/phnlogo.jpg' %}" alt="Health">
@@ -818,7 +801,6 @@ p {
     </div>
     <div class="nav-links">
       <!-- Products Dropdown -->
-      <a href="/home">Home</a>
       <div class="dropdown">
         <a href="#">Domains <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
@@ -966,7 +948,7 @@ p {
           </div>
           <div class="contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <p>Solitaire Business Hub E Wing 5010, F wing 5010 & 5020, 5th Floor, Viman Nagar, Pune, Maharashtra 411014</p>
+            <p>PHN Technology Pvt Ltd.,Tower A, Giga Platinum, Somnath Nagar Rd, near Akoya Skoda Showroom, Clover Park, Viman Nagar, Pune, Maharashtra 411014</p>
         </div>
             </div>
         </div>
