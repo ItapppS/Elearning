@@ -22,8 +22,8 @@ urlpatterns = [
     path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
     path('asterbot/', views.asterbot, name='asterbot'),
     path('register/', register, name='register'),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-]
+   
+   
+   ]
 
 
