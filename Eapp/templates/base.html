@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   {% load static %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Website{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Swiper CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Website{% endblock %}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Swiper CSS -->
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
-
 <!-- Robotics section  -->
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,14 +29,14 @@
 <!-- End  -->
   <style>
     body {
-      background-color: #e3e3e3;
+      background-color: #e9e8e8;
     margin: 0;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:"Roboto";
     }
 
     .header {
       width: 100%;
-      background: #ffffff;
+      background: #222;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       position: relative;
       z-index: 100;
@@ -64,13 +63,12 @@
       text-align: center;
     }
     .search-bar input {
-  width: 50%;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 5px 30px rgb(0, 26, 255); /* Adds a subtle shadow */
-}
-
+    width: 50%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 5px 30px #666666; /* Adds a subtle shadow */
+    }
     .right-nav {
       display: flex;
       align-items: center;
@@ -84,7 +82,7 @@
     }
     .nav-left a {
       text-decoration: none;
-      color: #1900ff;
+      color: #ffffff;
       font-weight: bold;
       margin-bottom: 2px;
     } 
@@ -95,7 +93,7 @@
     }
     .cart-logo {
       font-size: 24px;
-      color: #2600ff;
+      color: #ffffff;
     }
     .nav-links {
       display: flex;
@@ -107,7 +105,7 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #3700ff;
+      color: #ffffff;
       font-weight: bold;
       margin: 0 15px;
       display: inline-flex;
@@ -127,7 +125,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: #ffffff;
   min-width: 200px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1000; /* Increase this value */
@@ -136,7 +134,7 @@
       display: block;
       padding: 8px 12px;
       text-decoration: none;
-      color: #2f6fed;
+      color: #000000;
       font-weight: normal;
     }
     .dropdown-content a:hover {
@@ -146,19 +144,19 @@
       display: block;
     }
     .nested-dropdown {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  display: none;
-  background-color: #fff;
-  width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1000; /* Increase this value */
-}
+      position: absolute;
+      top: 0;
+      left: 100%;
+      display: none;
+      background-color: #fff;
+      width: 200px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000; /* Increase this value */
+    }
     .nested-dropdown a {
       padding: 8px 12px;
       text-decoration: none;
-      color: #2f6eed;
+      color: #000000;
       font-weight: normal;
     }
     .nested-dropdown a:hover {
@@ -185,7 +183,7 @@
 }
 
 .sidebar {
-  width: 220px;
+  width: 241px;
     background: #ffffff;
     padding: 20px;
     height: 70vh;
@@ -193,19 +191,20 @@
     border-radius: 10px;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 26px;
+    margin-left: 76px;
     border-color: black;
     border-right: 10px;
 }
 
 
 .sidebar h2 {
-  color: rgb(0, 17, 255);
+  color: rgb(0, 0, 0);
   font-size: 22px;
   margin-bottom: 15px;
   text-transform: uppercase;
   border-bottom: 2px solid #2f6fed;
   padding-bottom: 5px;
+  font-weight: 500;
 }
 
 .sidebar ul {
@@ -219,14 +218,15 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: rgb(68, 0, 255);
-  font-size: 18px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
   display: block;
   transition: 0.3s;
-}
+  font-weight:500
+} 
 
 .sidebar ul li a:hover {
-  color: #481d79;
+  color: #1100ff;
 }
 
 /* Hero Section */
@@ -236,7 +236,7 @@
     height: 70vh;
     overflow: hidden;
     background-color: black;
-    margin-right: 20px;
+    margin-right: 78px;
     border-radius: 10px;
 }
 
@@ -285,7 +285,7 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-family: 'Times New Roman';
-  color: #314ffc;
+  color: #000000;
   text-align: left;
 }
 
@@ -414,7 +414,7 @@
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     text-align: center;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
                 box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -423,7 +423,7 @@
 
 .product-card:hover {
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .product-card img {
@@ -471,14 +471,13 @@
     padding: 20px;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     flex: 1;
     margin: 10px;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .category-card h3{
   font-size: 22px;
-  font-family:'Times New Roman', Times, serif;
   margin-bottom: 5px;
   font-weight:600;
 }
@@ -488,7 +487,7 @@
 }
 .category-card:hover {
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(62, 74, 230, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .category-card img {
@@ -565,8 +564,8 @@
     justify-content: space-between;
     background: white;
     border-radius: 8px;
-    border-color: 0 2px 4px rgba(62, 74, 230, 0.466);;
-    box-shadow: 0 2px 4px rgba(62, 74, 230, 0.466);
+    border-color: 0 2px 4px rgba(0, 0, 0, 0.466);;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466);
     padding: 20px;
     width: 30%;
     margin-bottom: -17px;
@@ -582,7 +581,7 @@
 }
 
 .kit-text h3 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #000;
@@ -594,12 +593,12 @@
 }
 
 .kit-text li {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
     margin-bottom: 5px;
 }
-.kit-text :hover{
-  color: blueviolet;
+.kit-text li:hover{
+  color: rgb(46, 43, 226);
 }
 .kit-image img {
     width: 200px; /* Adjust based on your icons */
@@ -744,6 +743,12 @@ footer {
 .dark-mode .sidebar{
   background-color: #222;
 }
+.dark-mode .sidebar h2{
+  color: white;
+}
+.dark-mode .sidebar ul li a{
+  color: white;
+}
 .dark-mode .kit-card{
   background-color: #222;
 }
@@ -762,12 +767,24 @@ footer {
 .dark-mode .nested-dropdown{
   background-color: #222;
 }
+
+.roboto-Roboto {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
   </style>
   {% block css %}{% endblock %}
 </head>
 <body>
   <body>
   <header class="header">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <div class="top-nav">
       <div class="logo">
         <img src="{% static 'images/phnlogo.jpg' %}" alt="Health">
@@ -792,19 +809,19 @@ footer {
       <div class="dropdown">
         <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-          <a href="#" style="background-color: blue; color: white;">Products</a>
+          <a href="#" style="background-color: #000000; color: white;">Products</a>
           <div class="product">
             <a href="#">Microcontroller <strong>></strong></a>
             <div class="nested-dropdown">
-              <a href="#" style="background-color: blue; color: white;">Arduino</a>
+              <a href="#" style="background-color: #000000; color: white;">Arduino</a>
               <a href="#">Arduino Uno</a>
               <a href="#">Arduino Nano</a>
               <a href="#">Arduino Mega</a>
-              <a href="#" style="background-color: blue; color: white;">Raspberry Pi</a>
+              <a href="#" style="background-color: #000000; color: white;">Raspberry Pi</a>
               <a href="#">Raspberry Pi 4</a>
               <a href="#">Raspberry Pi 3B+</a>
               <a href="#">Raspberry Pi Pico</a>
-              <a href="#" style="background-color: blue; color: white;">ESP32/ESP8266</a>
+              <a href="#" style="background-color: #000000; color: white;">ESP32/ESP8266</a>
               <a href="#">ESP32 DevKit V1</a>
               <a href="#">ESP8266 NodeMCU</a>
             </div>
@@ -821,15 +838,15 @@ footer {
           <div class="product">
             <a href="#">Motors <strong>></strong></a>
             <div class="nested-dropdown">
-              <a href="#" style="background-color: blue; color: white;">DC Motors</a>
+              <a href="#" style="background-color: #000000; color: white;">DC Motors</a>
               <a href="#">5V DC Motor</a>
               <a href="#">12V DC Motor</a>
               <a href="#">High Torque DC Motor</a>
-              <a href="#" style="background-color: blue; color: white;">Servo Motors</a>
+              <a href="#" style="background-color: #000000; color: white;">Servo Motors</a>
               <a href="#">SG90 (9g Servo Motor)</a>
               <a href="#">MG996R (High Torque Servo)</a>
               <a href="#">MG90S (Micro Servo)</a>
-              <a href="#" style="background-color: blue; color: white;">Stepper Motors</a>
+              <a href="#" style="background-color: #000000; color: white;">Stepper Motors</a>
               <a href="#">NEMA 17 Stepper Motor</a>
               <a href="#">28BYJ-48 Stepper Motor (with Driver)</a>
             </div>
@@ -880,7 +897,7 @@ footer {
       <div class="dropdown">
         <a href="#">Projects <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown-content">
-          <a href="#" style="background-color: blue; color: white;">Projects</a>
+          <a href="#" style="background-color: #000000; color: white;">Projects</a>
           <!-- Project links with nested dropdowns -->
           <div class="project">
             <a href="#">Bionic Hand <strong>></strong></a>
