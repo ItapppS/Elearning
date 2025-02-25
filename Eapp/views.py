@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -49,7 +49,7 @@ def asterbot(request):
 
 
 
-from django.shortcuts import render, redirect
+
 from .forms import PhnUserForm
 
 def register(request):
@@ -61,4 +61,4 @@ def register(request):
     else:
         form = PhnUserForm()
     
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
