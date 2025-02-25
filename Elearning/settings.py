@@ -76,19 +76,11 @@ WSGI_APPLICATION = 'Elearning.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
-   'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'phn',  # Your database name
-        'USER': 'root',  # Your MySQL username
-        'PASSWORD':'uttam',  # Your MySQL password
-=======
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'phn',  # Your database name
         'USER': 'root',  # Your MySQL username
-        'PASSWORD': 'pratiksha',  # Your MySQL password
->>>>>>> 0b287641e48f4376b0fcd6594b06c714903757e6
+        'PASSWORD': 'aiza@123',  # Your MySQL password
         'HOST': 'localhost',  # The host where the MySQL server is running
         'PORT': '3306',  # Default MySQL port
     }
