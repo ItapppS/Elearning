@@ -23,7 +23,6 @@ urlpatterns = [
     path('asterbot/', views.asterbot, name='asterbot'),
     path('register/', register, name='register'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
 ]
 
 

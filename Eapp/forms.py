@@ -6,7 +6,7 @@ class PhnUserForm(forms.ModelForm):
     confirm_password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
-        model = PhnUse
+        model = PhnUser
         fields = ['username', 'gmail', 'create_password', 'confirm_password', 'age', 'mobile_no']
 
     def clean(self):
