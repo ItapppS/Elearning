@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import register
+from django.urls import path, include
 
 urlpatterns = [
     path('', views.home),
@@ -19,4 +21,9 @@ urlpatterns = [
     path('bionic_hand/', views.bionic_hand, name='bionic_hand'),
     path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
     path('asterbot/', views.asterbot, name='asterbot'),
+    path('register/', register, name='register'),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
 ]
+
+

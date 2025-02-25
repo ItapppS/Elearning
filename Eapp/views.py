@@ -46,3 +46,19 @@ def bionic_hand(request):
 
 def asterbot(request):
     return render(request, 'asterbot.html')
+
+
+
+from django.shortcuts import render, redirect
+from .forms import PhnUserForm
+
+def register(request):
+    if request.method == "POST":
+        form = PhnUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  # Redirect to success page after registration
+    else:
+        form = PhnUserForm()
+    
+    return render(request, 'accounts/register.html', {'form': form})
