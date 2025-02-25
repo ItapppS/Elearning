@@ -1,28 +1,28 @@
 {% extends "base.html" %}
- 
-{% block title %}Otto's Page{% endblock %}
- 
+
+{% block title %}Solar Tracking{% endblock %}
+
 {% block content %}
- 
- 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
- 
+    
+
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
     <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
- 
+
    <style> /* General Styles */
 
     body {
-        font-family: sans-serif; /* Changed to a simple sans-serif font */
+        font-family: 'Space Grotesk', sans-serif;
         background-color: #fff;
         color: #333;
         margin: 0;
@@ -41,19 +41,19 @@
         font-size: 28px;
         margin: 0;
     }
- 
+
     .page-wrapper {
         display: flex;
         justify-content: flex-end;
         width: 100%; /* Make sure it takes the whole width */
     }
-   
+    
     .container {
         max-width: 1200px;
         margin: 20px 0; /* Remove auto margins to prevent centering */
         padding: 20px;
     }
- 
+
     .content-box {
         background-color: #f0f0f0;
         border-radius: 8px;
@@ -61,7 +61,7 @@
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
- 
+
     .section-title {
         font-size: 24px;
         margin-bottom: 15px;
@@ -69,25 +69,25 @@
         padding-bottom: 10px;
         color: #000;
     }
- 
+
     .otto-info {
         display: flex;
         align-items: flex-start;
     }
- 
+
     .otto-info img {
         max-width: 250px;
         height: auto;
         margin-right: 20px;
         border-radius: 6px;
     }
- 
+
     .otto-info ul {
         list-style-type: disc;
         margin-left: 20px;
         color: #000;
     }
- 
+
     .video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
         background-color: #333;
         color: #fff;
@@ -101,16 +101,16 @@
         margin: 10px auto;
         width: fit-content;
     }
- 
+
     .video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
         background-color: #555;
     }
- 
+
     .image-container {
         text-align: center;
         margin-top: 20px;
     }
- 
+
     #ottoImage {
         max-width: 90%;
         height: auto;
@@ -119,7 +119,7 @@
         border-radius: 6px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
- 
+
     .model-buttons {
         display: flex;
         flex-wrap: wrap;
@@ -127,35 +127,35 @@
         gap: 10px;
         margin-top: 20px;
     }
- 
+
     .store-container {
         overflow-x: auto;
         margin-top: 20px;
     }
- 
+
     .store-container table {
         width: 100%;
         border-collapse: collapse;
         margin-bottom: 20px;
         border: 1px solid #ddd;
     }
- 
+
     .store-container th, .store-container td {
         padding: 10px;
         text-align: left;
         border-bottom: 1px solid #ddd;
         border-right: 1px solid #ddd;
     }
- 
+
     .store-container th:last-child, .store-container td:last-child {
         border-right: none;
     }
- 
+
     .store-container th {
         background-color: #eee;
         font-weight: bold;
     }
- 
+
     .color-select {
         padding: 6px;
         border: 1px solid #ccc;
@@ -169,14 +169,14 @@
         background-position: right 5px center;
         padding-right: 25px;
     }
- 
+
     .quantity-column {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 5px;
     }
- 
+
     .quantity-column button {
         background-color: #555;
         color: #fff;
@@ -186,25 +186,25 @@
         cursor: pointer;
         font-size: 14px;
     }
- 
+
     .quantity-column span {
         padding: 0 8px;
         font-size: 16px;
     }
- 
+
     .price-column {
         text-align: right;
     }
- 
+
     .total {
         text-align: right;
         margin-top: 20px;
     }
- 
+
     .total h3 {
         color: #333;
     }
- 
+
     .buy-button {
         display: block;
         padding: 12px 20px;
@@ -219,84 +219,39 @@
         width: fit-content;
         text-align: center;
     }
- 
+
     .buy-button:hover {
         background-color: #555;
     }
- 
+
     .slider-container {
         overflow-x: auto;
         white-space: nowrap;
         margin-top: 20px;
     }
- 
+
     .project-slider {
         display: flex;
     }
- 
+
     .project {
         width: 250px;
         margin-right: 20px;
         text-align: center;
     }
- 
+
     .project img {
         width: 100%;
         height: auto;
         border-radius: 6px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
- 
+
     .project-title {
         margin-top: 10px;
         color: #000;
     }
- 
-    .demo-button, .ok-button {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background-color 0.3s ease;
-        display: inline-block;
-        margin: 5px;
-    }
- 
-    .demo-button:hover, .ok-button:hover {
-        background-color: #555;
-    }
- 
-    .popup {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
- 
-    .popup img {
-        max-width: 100%;
-        height: auto;
-    }
- 
-    .popup-close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        padding: 5px 10px;
-    }
+
     .video-button-container,
 .ppt-button-container,
 .pdf-button-container {
@@ -305,241 +260,81 @@
     align-items: center; /* Vertically center (optional) */
     margin-left: 20px; /* Add left margin to shift the buttons */
 }
- 
+
 .video-view-button,
 .ppt-view-button,
 .pdf-view-button {
     text-align: left; /* Align text within the button to the left */
 }
- 
-.dark-mode body {
-        background-color: black;
-        color: #eee; /* Light text on dark background */
-}
- 
-.dark-mode header {
-    background-color: #333;
-    border-bottom: 1px solid #555;
-}
- 
-.dark-mode .content-box {
-    background-color: #333;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
- 
-.dark-mode .section-title {
-    color: #eee;
-    border-bottom: 1px solid #555;
-}
-.dark-mode .video-button-container a button,
-.dark-mode .ppt-button-container a button,
-.dark-mode .pdf-button-container a button,
-.dark-mode .model-buttons a button {
-    background-color: #444; /* Darker button background */
-    color: #eee; /* Light text on button */
-    border: 1px solid #555; /* White border for buttons */
-}
- 
-.dark-mode .model-buttons p {
-    color: #eee; /* Light text for paragraph */
-}
- 
-.dark-mode .model-buttons a button:hover {
-    background-color: #555;
-}
- 
-.dark-mode .model-buttons h2 {
-    color: #eee;
-}
- 
-.dark-mode .model-buttons p {
-    color: #eee;
-}
- 
-.dark-mode .otto-info ul li {
-    color: #eee; /* White text for list items in dark mode */
-}
- 
-.dark-mode .otto-info strong {
-    color: #fff; /* White text for strong elements in dark mode */
-}
- 
-.dark-mode .ppt-button-container p {
-    color: #eee; /* White text for the paragraph */
-}
- 
-.dark-mode .store-container th {
-    background-color: #444;
-}
- 
-.dark-mode .store-container th,
-.dark-mode .store-container td {
-    border-bottom: 1px solid #555;
-    border-right: 1px solid #555;
-}
- 
-.dark-mode .color-select {
-    background-color: #444;
-    color: #eee;
-    border: 1px solid #555;
-}
- 
-.dark-mode .quantity-column button {
-    background-color: #444;
-}
- 
-.dark-mode .buy-button {
-    background-color: #444;
-}
- 
-.dark-mode .buy-button:hover {
-    background-color: #555;
-}
- 
-.dark-mode a {
-    color: lightblue;
-}
- 
-.dark-mode a:hover {
-    color: skyblue;
-}
- 
-.dark-mode .ppt-button-container a button,
-.dark-mode .model-buttons a button {
-    background-color: #444;
-    color: #eee;
-    border: 1px solid #555;
-}
- 
-.dark-mode .ppt-button-container a button:hover,
-.dark-mode .model-buttons a button:hover {
-    background-color: #555;
-}
- 
-.dark-mode .model-buttons h2 {
-    color: #eee;
-}
- 
-.dark-mode .image-container img {
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* add a white shadow in dark mode */
-}
- 
-.dark-mode .project-title {
-    color: #eee;
-}
- 
+
+
 </style>
 </head>
-<body class="bg-white;">
+<body>
     <header style="background-color: black; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
-        <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Otto - DIY Robot</h1>
+        <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Solar Tracking</h1>
     </header>
-   
-    <div class="circuit-bg">
-        <div class="container">
-       
+    
+    <body class="bg-white">
+        <div class="circuit-bg">
+    <div class="container">
+        
         <!-- Otto Introduction Section -->
         <section class="content-box">
-            <h2 class="section-title">Meet Otto - Your DIY Robot</h2>
+            <h2 class="section-title">Solar Tracking </h2>
             <div class="otto-info">
-                <img src="{% static 'images/Otto.png' %}" alt="Otto Robot">
+                <img src="{% static 'images/solar tracking.png' %}" alt="Solar Tracking">
                 <ul style="color: black; padding-left: 20px;">
-                    <li>🤖  <strong>Build It Yourself:</strong> Otto is a DIY (Do-It-Yourself) robot that you can assemble step by step.</li>
-                    <li>🤖  <strong>Customizable Design:</strong> You can 3D print Otto’s parts in different colors and shapes.</li>
-                    <li>🤖  <strong>Easy to Code:</strong> Otto can be programmed using simple block-based coding (Scratch) or text-based coding (Arduino).</li>
-                    <li>🤖 <strong>Moves Like a Human:</strong> Otto can walk, turn, dance, and even shake!</li>
-                    <li>🤖  <strong>Makes Sounds & Shows Emotions:</strong> It has a speaker to play sounds and express feelings.</li>
-                    <li>🤖  <strong>Wireless Control:</strong> You can control Otto with an app using Bluetooth.</li>
-                    <li>🤖  <strong>Great for Learning:</strong> Perfect for kids, beginners, and students to explore STEM (Science, Technology, Engineering, and Math) in a fun way!</li>
+                    <li>🌞 <strong>Automatic Sun Tracking:</strong> Uses LDR sensors to detect the direction of maximum sunlight. 
+                    <ul>
+                        <li>Utilizes a light-dependent resistor (LDR) sensor array to detect the direction of maximum sunlight.</li>
+                        <li>The Arduino Nano processes sensor data to determine the optimal position for the solar panel.</li>
+                    </ul>
+                    </li>
+                    <li>⚙️ <strong>Servo Motor Control:</strong> Adjusts the panel angle for optimal sunlight exposure.
+                        <ul>
+                        <li>A servo motor is used to adjust the angle of the solar panel, ensuring it is always facing the sun. </li>
+                        <li>Provides precise and smooth movement for accurate sun tracking throughout the day.</li>
+                    </ul>
+                    </li>
+                    <li>🖥️ <strong>Arduino Nano Integration:</strong> Controls sensor input and motor output efficiently.
+                        <ul>
+                            <li>The Arduino Nano serves as the main control unit, managing sensor input and motor output.</li>
+                            <li>Compact and efficient, ideal for small-scale solar tracking applications.</li>
+                        </ul>
+                    </li>
+                    <li>🔌 <strong>Power Efficient:</strong> Increases energy generation compared to fixed panels.</li>
+                    <li>🏡 <strong>Versatile Applications:</strong> Useful for residential, agricultural, and public infrastructure projects.</li>
                 </ul>
                 </div>
                 <div class="tab-container">
-   
-   
+    
+    
 </div>
 <title>Creative Buy Now Button</title>
- 
- 
+
+
         </section>
- 
+
         <!-- Right Ad Placement -->
-        <div class="ad-container">
-            <div class="ad-placement ad-right">Ad Placement</div>
-        </div>
-         <style>
-   .ad-container {
-    position: absolute;
-    right: 20px;
-    top: 198px; /* Ad ko title ke neeche lane ke liye */
-    width: 300px; /* 🔥 Width ko increase kar diya */
-    max-height: calc(100vh - 150px);
-    overflow-y: auto;
-}
-
-.sticky-ad {
-    position: fixed !important;
-    top: 198px !important;
-    right: -28px;
-    width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
-}
-
-.ad-placement {
-    position: sticky;
-    top: 80px;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
-}
-
- </style>
+        <div class="ad-placement ad-right" style="border: 1px solid #ccc; padding: 10px; text-align: center; margin-top: 20px;">Ad Placement</div>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let adContainer = document.querySelector(".ad-container");
-        let footer = document.querySelector("footer");
-
-        function updateAdPosition() {
-            let adHeight = adContainer.offsetHeight;
-            let footerTop = footer.getBoundingClientRect().top;
-            let windowHeight = window.innerHeight;
-
-            if (footerTop <= adHeight + 20) {
-                adContainer.classList.remove("sticky-ad");
-                adContainer.style.position = "absolute";
-                adContainer.style.top = (window.scrollY + footerTop - adHeight - 20) + "px";
-            } else {
-                adContainer.classList.add("sticky-ad");
-                adContainer.style.position = "fixed";
-                adContainer.style.top = "120px"; /* Ad ko title se neeche laane ke liye */
-            }
-        }
-
-        window.addEventListener("scroll", updateAdPosition);
-        updateAdPosition(); // Initial position set karega
-    });
-</script>
-
-
-
-
-
- 
-<div class="container">
+<div class="container"> 
      <section class="content-box">
-        <h2 class="section-title">Otto Video Lecture</h2>
+        <h2 class="section-title">Solar Tracking Video Lecture</h2>
         <div class="video-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
                 <button class="video-view-button" style="text-align: left;">Click here</button>
             </a>
         </div>
     </section>
- 
+
     <section class="content-box">
         <h2 class="section-title">Comprehensive Guide</h2>
-        <p>
-            This guide covers the step-by-step process to build, assemble, and program Otto.
-            It includes schematics, 3D printing details, and coding instructions to bring your Otto robot to life.
+        <p style="color: black;">
+            This guide covers the step-by-step process to build, assemble, and program Solar Tracking.
+            It includes schematics, 3D printing details, and coding instructions to bring your Solar Tracking to life.
         </p>
         <div class="ppt-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
@@ -547,37 +342,37 @@
             </a>
         </div>
     </section>
- 
+
     <section class="content-box">
-        <h2 class="section-title">Otto Robot Report</h2>
+        <h2 class="section-title">Solar Tracking Report</h2>
         <div class="pdf-button-container">
             <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
                 <button class="pdf-view-button" style="text-align: left;">Click here</button>
             </a>
         </div>
     </section>
- 
+
     <section class="content-box">
-        <h2 class="section-title">Otto Interfacing Diagram</h2>
+        <h2 class="section-title">Solar Tracking Interfacing Diagram</h2>
         <div class="image-container">
-            <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="ottoImage"
+            <img src="{% static 'images/Solar Tracking System.png' %}" id="ottoImage"
                  style="max-width: 100%; height: auto; align-items: center;">
         </div>
     </section>
- 
+
 </div>
-       
- 
+        
+
         <!-- 3D Model Viewer Section -->
 <section class="content-box">
     <h2 class="section-title">3D Model Viewer</h2>
-    <p>Explore the 3D printable components of Otto Robot.</p>
+    <p style="color: black;">Explore the 3D printable components of Solar Tracking.</p>
     <div class="model-buttons">
         <a href="https://drive.google.com/file/d/1bVrAiP7W5oJ2_WA8KgbkxzhxjEunxegG/view?usp=drive_link" target="_blank">
-            <button class="view-button">Click here to view Head</button>
+            <button class="view-button">Click here to view base holder 1</button>
         </a>
         <a href="https://drive.google.com/file/d/1ic-pnyAI9pVF-sFc03ZsawCdxtjqRA5Q/view?usp=drive_link" target="_blank">
-            <button class="view-button">Click here to view Body</button>
+            <button class="view-button">Click here to view base holder 2</button>
         </a>
         <a href="https://drive.google.com/file/d/18cACp8Tf_q2WFVfO1AQL7OHjyTL47qv0/view?usp=drive_link" target="_blank">
             <button class="view-button">Click here to view Left Foot</button>
@@ -585,16 +380,16 @@
         <a href="https://drive.google.com/file/d/1AFLRL-0K0hknXsDuJ7ta8J9k4kdfanC4/view?usp=sharing" target="_blank">
             <button class="view-button">Click here to view Right Foot</button>
         </a>
-        <a href="https://drive.google.com/file/d/1pPjsx62rzg7f9DZYlij0XhUFK3YmRX5w/view?usp=drive_link" target="_blank">
+        <!-- <a href="https://drive.google.com/file/d/1pPjsx62rzg7f9DZYlij0XhUFK3YmRX5w/view?usp=drive_link" target="_blank">
             <button class="view-button">Click here to view Leg</button>
-        </a>
+        </a> -->
     </div>
 </section>
- 
+
 <!-- Mini E-Commerce Store Section -->
 <section class="content-box">
-    <h2 class="section-title">Otto Robot Components Store</h2>
- 
+    <h2 class="section-title">Solar Tracking Robot Components Store</h2>
+
     <div class="store-container">
         <table>
             <thead>
@@ -618,8 +413,6 @@
                             <option value="Blue">Blue</option>
                             <option value="Green">Green</option>
                         </select>
-                        <button class="demo-button" onclick="showDemo()">DEMO</button>
-                        <button class="ok-button">OK</button>
                     </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('printed', -1)">-</button>
@@ -628,10 +421,10 @@
                     </td>
                     <td class="price-column">$<span id="printed-price">10</span></td>
                 </tr>
- 
+
                 <!-- Ultrasonic Sensor -->
                 <tr>
-                    <td>Ultrasonic Sensor</td>
+                    <td>LDR</td>
                     <td>HC-SR04</td>
                     <td>
                         <select class="color-select">
@@ -645,7 +438,7 @@
                     </td>
                     <td class="price-column">$<span id="sensor-price">5</span></td>
                 </tr>
- 
+
                 <!-- Arduino Nano -->
                 <tr>
                     <td>Micro Controller</td>
@@ -666,12 +459,22 @@
                     </td>
                     <td class="price-column">$<span id="nano-price">15</span></td>
                 </tr>
- 
+
                 <!-- Expansion Board -->
                 <tr>
                     <td>Expansion Board</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>
+                        Arduino Nano Expansion Board 
+
+                    </td>
+                    <td>
+                        <select class="color-select">
+                            <option value="9V 1A">Arduino Nano Expansion Board</option>
+
+                        </select>
+
+
+                    </td>
                     <td class="quantity-column">
                         <button onclick="updateQuantity('expansion', -1)">-</button>
                         <span id="expansion-qty">1</span>
@@ -679,15 +482,15 @@
                     </td>
                     <td class="price-column">$<span id="expansion-price">8</span></td>
                 </tr>
- 
+
                 <!-- Servo Motors (Required 4) -->
                 <tr>
-                    <td>Servo Motors (4 Required)</td>
+                    <td>Servo Motors (1 Required)</td>
                     <td>SG90 (Plastic Gears)</td>
                     <td>
                         <select class="color-select">
-                            <option value="SG90 (Plastic Gears)">SG90 (Plastic Gears)</option>
-                            <option value="MG90S (Metal Gears)">MG90S (Metal Gears)</option>
+                            <option value="SG90 (Plastic Gears)">SG90 (Plastic Gears)</option> 
+                            <option value="MG90S (Metal Gears)">MG90S (Metal Gears)</option> 
                         </select>
                     </td>
                     <td class="quantity-column">
@@ -697,7 +500,7 @@
                     </td>
                     <td class="price-column">$<span id="servo-price">20</span></td>
                 </tr>
- 
+
                 <!-- Battery 9V -->
                 <tr>
                     <td>Power Supply</td>
@@ -717,21 +520,55 @@
                     </td>
                     <td class="price-column">$<span id="battery-price">3</span></td>
                 </tr>
+                <!-- Wires  -->
+                <tr>
+                    <td>Pins</td>
+                    <td>3 Pin JST </td>
+                    <td>
+                        <select class="color-select">
+                            <option value="9V 1A">3 Pin JST</option>
+       
+                        </select>
+                    </td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('battery', -1)">-</button>
+                        <span id="battery-qty">1</span>
+                        <button onclick="updateQuantity('battery', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="battery-price">3</span></td>
+                </tr>
+                <tr>
+                    <td>Pins</td>
+                    <td>2 Pin JST (1 male and 1 Female Required)</td>
+                    <td>
+                        <select class="color-select">
+                            <option value="9V 1A">2 Pin JST (1 male and 1 Female Required)</option>
+
+                        </select>
+                    </td>
+                    <td class="quantity-column">
+                        <button onclick="updateQuantity('battery', -1)">-</button>
+                        <span id="battery-qty">1</span>
+                        <button onclick="updateQuantity('battery', 1)">+</button>
+                    </td>
+                    <td class="price-column">$<span id="battery-price">3</span></td>
+                </tr>
+
             </tbody>
         </table>
- 
+
         <!-- Total Price -->
         <div class="total">
             <h3>Total: $<span id="total-price">121</span></h3>
         </div>
     </div>
- 
+
     <!-- Buy Now Button -->
     <a id="buy-button" href="https://www.phntechnology.com/" target="_blank" class="buy-button">
         Proceed to Buy  🚀
     </a>
 </section>
- 
+
 <!-- JavaScript to Update Button Text Dynamically -->
 <script>
     function updateQuantity(item, change) {
@@ -739,13 +576,13 @@
         let priceElement = document.getElementById(`${item}-price`);
         let totalPriceElement = document.getElementById("total-price");
         let buyButton = document.getElementById("buy-button");
- 
+
         let qty = parseInt(qtyElement.innerText);
-        let unitPrice = parseInt(priceElement.innerText) / qty;
- 
-        let newQty = Math.max(1, qty + change);
+        let unitPrice = parseInt(priceElement.innerText) / qty; 
+
+        let newQty = Math.max(1, qty + change); 
         qtyElement.innerText = newQty;
- 
+
         let newTotal = 0;
         document.querySelectorAll(".price-column span").forEach(priceSpan => {
             let rowQty = parseInt(priceSpan.parentElement.previousElementSibling.children[1].innerText);
@@ -753,72 +590,64 @@
             priceSpan.innerText = (rowPrice * rowQty).toFixed(2);
             newTotal += rowPrice * rowQty;
         });
- 
+
         totalPriceElement.innerText = newTotal.toFixed(2);
         buyButton.innerText = `Proceed to Buy - Total: $${newTotal.toFixed(2)} 🚀`;
     }
- 
-    function showDemo() {
-        document.getElementById('demoPopup').style.display = 'block';
-    }
- 
-    function closeDemo() {
-        document.getElementById('demoPopup').style.display = 'none';
-    }
 </script>
- 
- 
+
+
 <!-- Robotics Related Projects Section -->
 <section class="content-box">
     <h2 class="section-title">Related Robotics Projects</h2>
- 
+
     <div class="slider-container" onmouseover="pauseScroll()" onmouseout="startScroll()">
         <div class="project-slider" id="projectSlider">
- 
+
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('bionic-hand')">
                     <img src="{% static 'images/BionicHand.jpg' %}" alt="Bionic Hand">
-                   
+                    
                 </div>
                 <p class="project-title">Bionic Hand</p>
             </div>
- 
+
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('humanoid-robot')">
                     <img src="{% static 'images/Humanoid Robot.jpg' %}" alt="Humanoid Robot">
-                   
+                    
                 </div>
                 <p class="project-title">Humanoid Robot</p>
             </div>
- 
+
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('home-automation')">
                     <img src="{% static 'images/soil moisture detection.png' %}" alt="Home Automation">
-                   
+                    
                 </div>
                 <p class="project-title">Home Automation</p>
             </div>
- 
+
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('solar-tracking')">
                     <img src="{% static 'images/solar tracking.png' %}" alt="Solar Tracking">
-                   
+                    
                 </div>
                 <p class="project-title">Solar Tracking</p>
             </div>
- 
+
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('obstraction-avoiding-car')">
                     <img src="{% static 'images/Obstraction Avoiding Car.png' %}" alt="Obstraction Avoiding Car">
-                   
+                    
                 </div>
                 <p class="project-title">Obstraction Avoiding Car</p>
             </div>
- 
+
         </div>
     </div>
 </section>
- 
+
 <!-- CSS -->
 <style>
     .project-img-container {
@@ -829,17 +658,17 @@
         border-radius: 10px;
         transition: transform 0.3s ease;
     }
- 
+
     .project-img-container img {
         width: 100%;
         display: block;
         transition: transform 0.3s ease;
     }
- 
+
     .project-img-container:hover img {
         transform: scale(1.1);
     }
- 
+
     .overlay {
         position: absolute;
         top: 0;
@@ -856,45 +685,45 @@
         opacity: 0;
         transition: opacity 0.3s ease;
     }
- 
+
     .project-img-container:hover .overlay {
         opacity: 1;
     }
- 
+
     .project-title {
         text-align: center;
         margin-top: 10px;
         font-weight: bold;
     }
 </style>
- 
+
 <!-- JavaScript -->
 <script>
     function redirectTo(page) {
         window.location.href = '/' + page; // Adjust URL as needed
     }
 </script>
- 
- 
- 
+
+
+
 <script>
     let scrolling = true;
     const projectSlider = document.getElementById("projectSlider");
- 
+
     function pauseScroll() {
         scrolling = false;
         projectSlider.style.animationPlayState = "paused";
     }
- 
+
     function startScroll() {
         scrolling = true;
         projectSlider.style.animationPlayState = "running";
     }
- 
+
     function redirectTo(projectName) {
         window.location.href = "/" + projectName;
     }
- 
+
     let prices = {
         printed: 10,
         sensor: 5,
@@ -903,7 +732,7 @@
         servo: 20,
         battery: 3
     };
- 
+
     let quantities = {
         printed: 1,
         sensor: 1,
@@ -912,19 +741,19 @@
         servo: 4,
         battery: 1
     };
- 
+
     function updateQuantity(component, change) {
         if (quantities[component] + change >= 0) {
             quantities[component] += change;
             document.getElementById(`${component}-qty`).innerText = quantities[component];
- 
+
             let newPrice = quantities[component] * prices[component];
             document.getElementById(`${component}-price`).innerText = newPrice;
- 
+
             updateTotal();
         }
     }
- 
+
     function updateTotal() {
         let total = 0;
         for (let key in prices) {
@@ -932,19 +761,11 @@
         }
         document.getElementById("total-price").innerText = total;
     }
-   
 </script>
- 
-<div id="demoPopup" class="popup">
-    <button class="popup-close" onclick="closeDemo()">Close</button>
-    <img src="{% static 'images/otto-removebg-preview.png' %}" alt="Demo Image">
- 
-</div>
- 
+
     </div>
- 
- 
+
+
     {% endblock %}
 </body>
 </html>
- 
