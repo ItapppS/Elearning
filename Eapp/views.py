@@ -62,3 +62,13 @@ def register(request):
         form = PhnUserForm()
     
     return render(request, 'register.html', {'form': form})
+
+
+def login(request):
+    return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Logged out successfully!')
+    return redirect('login')  # Redirect back to login page
+

@@ -31,9 +31,12 @@
 <!-- End  -->
   <style>
     body {
-      background-color: #e9e8e8;
+    background-color: #e9e8e8;
     margin: 0;
     font-family:"Roboto";
+    justify-content: center;
+    align-items: center;
+    
     }
  
     .header {
@@ -771,6 +774,162 @@ footer {
 .dark-mode .nested-dropdown{
   background-color: #222;
 }
+
+
+/* LOGIN page*/
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-container {
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin-left: 500px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.logo img {
+  max-width: 120px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-form input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 15px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.divider {
+  margin: 20px 0;
+  color: #666;
+  font-size: 14px;
+  position: relative;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.divider:before {
+  content: "";
+  height: 1px;
+  background: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.social-btn img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.google-btn {
+  border-color: #db4437;
+  color: #db4437;
+}
+
+.apple-btn {
+  border-color: #000;
+  color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .login-container {
+      padding: 20px;
+      width: 100%;
+     /* max-width: none;*/
+  }
+
+  .logo img {
+      max-width: 100px;
+  }
+
+  h2 {
+      font-size: 16px;
+  }
+
+  .btn {
+      font-size: 14px;
+      padding: 10px 12px;
+  }
+
+  .social-btn {
+      padding: 10px;
+      font-size: 13px;
+  }
+
+  .social-btn img {
+      width: 18px;
+  }
+
+  .divider {
+      font-size: 13px;
+  }
+}
+
   </style>
   {% block css %}{% endblock %}
 </head>
