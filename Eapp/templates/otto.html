@@ -311,6 +311,31 @@
 .pdf-view-button {
     text-align: left; /* Align text within the button to the left */
 }
+
+.ad-container {
+    position: absolute;
+    right: 20px;
+    top: 240px; /* Ad ko title ke neeche lane ke liye */
+    width: 300px; /* 🔥 Width ko increase kar diya */
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.sticky-ad {
+    position: fixed !important;
+    top: 240px !important;
+    right: -28px;
+    width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
+}
+
+.ad-placement {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
+}
+
  
 .dark-mode body {
         background-color: black;
@@ -466,32 +491,6 @@
         <div class="ad-container">
             <div class="ad-placement ad-right">Ad Placement</div>
         </div>
-         <style>
-   .ad-container {
-    position: absolute;
-    right: 20px;
-    top: 198px; /* Ad ko title ke neeche lane ke liye */
-    width: 300px; /* 🔥 Width ko increase kar diya */
-    max-height: calc(100vh - 150px);
-    overflow-y: auto;
-}
-
-.sticky-ad {
-    position: fixed !important;
-    top: 198px !important;
-    right: -28px;
-    width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
-}
-
-.ad-placement {
-    position: sticky;
-    top: 80px;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
-}
-
- </style>
 
 
 <script>
