@@ -1,5 +1,9 @@
 from django.urls import path
 from . import views
+<<<<<<< HEAD
+
+=======
+>>>>>>> 32dab57ea010fab1f8543ea7ab17e653d2583fa6
 
 urlpatterns = [
     path('', views.home),
@@ -19,8 +23,19 @@ urlpatterns = [
     path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
     path('asterbot/', views.asterbot, name='asterbot'),
     path('register/', views.register, name='register'),
+<<<<<<< HEAD
    path('navbarr/', views.navbarr, name='navbarr'),
+=======
+<<<<<<< HEAD
+    path('login/', views.login, name='login'),
+   # path('logout/', logout, name='logout'),
+=======
+>>>>>>> 32dab57ea010fab1f8543ea7ab17e653d2583fa6
+   
+>>>>>>> 803ef843de3e6a04326db93860599042b2b08089
    
    ]
+
+
 
 
