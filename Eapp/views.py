@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import PhnUser  # Import the model
+from django.contrib.auth.hashers import make_password, check_password
 
 # Create your views here.
 
@@ -48,17 +51,36 @@ def asterbot(request):
     return render(request, 'asterbot.html')
 
 
-
-
-from .forms import PhnUserForm
-
 def register(request):
     if request.method == "POST":
-        form = PhnUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('success')  # Redirect to success page after registration
-    else:
-        form = PhnUserForm()
+        username = request.POST.get('username')
+        gmail = request.POST.get('gmail')
+        password = request.POST.get('password')
+        age = request.POST.get('age')
+        mobile_no = request.POST.get('mobile_no')
+
+        # ✅ Input Validation
+        if not username or not gmail or not password or not age or not mobile_no:
+            messages.error(request, "All fields are required.")
+            return redirect('register')
+
+        if PhnUser.objects.filter(gmail=gmail).exists():
+            messages.error(request, "Email already registered!")
+            return redirect('register')
+
+        # ✅ Hash the password before saving
+        hashed_password = make_password(password)
+
+        # ✅ Save user manually (instead of using ModelForm)
+        user = PhnUser(username=username, gmail=gmail, password=hashed_password, age=age, mobile_no=mobile_no)
+        user.save()
+
+        messages.success(request, "Registration successful! Now log in.")
+        return redirect('home')
+
+    return render(request, 'register.html')
+
+
+
     
-    return render(request, 'register.html', {'form': form})
+
