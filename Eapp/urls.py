@@ -19,6 +19,9 @@ urlpatterns = [
     path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
     path('asterbot/', views.asterbot, name='asterbot'),
     path('register/', views.register, name='register'),
-   
-   
+
+   path('navbarr/', views.navbarr, name='navbarr'),
+
    ]
+
+
