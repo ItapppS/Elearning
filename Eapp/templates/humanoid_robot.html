@@ -20,437 +20,437 @@
  
     <style> /* General Styles */
 
-        body {
-            font-family: sans-serif; /* Changed to a simple sans-serif font */
-            background-color: #fff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-    
-        header {
-            background-color: #222;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #444;
-        }
-    
-        h1 {
-            font-size: 28px;
-            margin: 0;
-        }
-     
-        .page-wrapper {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%; /* Make sure it takes the whole width */
-        }
-       
-        .container {
-            max-width: 1200px;
-            margin: 20px 0; /* Remove auto margins to prevent centering */
-            padding: 20px;
-        }
-     
-        .content-box {
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-     
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            color: #000;
-        }
-     
-        .otto-info {
-            display: flex;
-            align-items: flex-start;
-        }
-     
-        .otto-info img {
-            max-width: 250px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 6px;
-        }
-     
-        .otto-info ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            color: #000;
-        }
-     
-        .video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            display: block;
-            margin: 10px auto;
-            width: fit-content;
-        }
-     
-        .video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
-            background-color: #555;
-        }
-     
-        .image-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-     
-        #ottoImage {
-            max-width: 90%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-     
-        .model-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-     
-        .store-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-     
-        .store-container table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-        }
-     
-        .store-container th, .store-container td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-        }
-     
-        .store-container th:last-child, .store-container td:last-child {
-            border-right: none;
-        }
-     
-        .store-container th {
-            background-color: #eee;
-            font-weight: bold;
-        }
-     
-        .color-select {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 14l-4-4h8z' fill='rgba(51,51,51,1)'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 5px center;
-            padding-right: 25px;
-        }
-     
-        .quantity-column {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-     
-        .quantity-column button {
-            background-color: #555;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-     
-        .quantity-column span {
-            padding: 0 8px;
-            font-size: 16px;
-        }
-     
-        .price-column {
-            text-align: right;
-        }
-     
-        .total {
-            text-align: right;
-            margin-top: 20px;
-        }
-     
-        .total h3 {
-            color: #333;
-        }
-     
-        .buy-button {
-            display: block;
-            padding: 12px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            margin: 20px auto;
-            width: fit-content;
-            text-align: center;
-        }
-     
-        .buy-button:hover {
-            background-color: #555;
-        }
-     
-        .slider-container {
-            overflow-x: auto;
-            white-space: nowrap;
-            margin-top: 20px;
-        }
-     
-        .project-slider {
-            display: flex;
-        }
-     
-        .project {
-            width: 250px;
-            margin-right: 20px;
-            text-align: center;
-        }
-     
-        .project img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-     
-        .project-title {
-            margin-top: 10px;
-            color: #000;
-        }
-     
-        .demo-button, .ok-button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            margin: 5px;
-        }
-     
-        .demo-button:hover, .ok-button:hover {
-            background-color: #555;
-        }
-     
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-     
-        .popup img {
-            max-width: 100%;
-            height: auto;
-        }
-     
-        .popup-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        .video-button-container,
-    .ppt-button-container,
-    .pdf-button-container {
+body {
+        font-family: sans-serif; /* Changed to a simple sans-serif font */
+        background-color: #fff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin: 0;
+    }
+ 
+    .page-wrapper {
         display: flex;
-        justify-content: flex-start; /* Align to the left */
-        align-items: center; /* Vertically center (optional) */
-        margin-left: 20px; /* Add left margin to shift the buttons */
+        justify-content: flex-end;
+        width: 100%; /* Make sure it takes the whole width */
     }
-     
-    .video-view-button,
-    .ppt-view-button,
-    .pdf-view-button {
-        text-align: left; /* Align text within the button to the left */
+   
+    .container {
+        max-width: 1200px;
+        margin: 20px 0; /* Remove auto margins to prevent centering */
+        padding: 20px;
     }
-    
-    .ad-container {
+ 
+    .content-box {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        color: #000;
+    }
+ 
+    .otto-info {
+        display: flex;
+        align-items: flex-start;
+    }
+ 
+    .otto-info img {
+        max-width: 250px;
+        height: auto;
+        margin-right: 20px;
+        border-radius: 6px;
+    }
+ 
+    .otto-info ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: #000;
+    }
+ 
+    .video-view-button, .ppt-view-button, .pdf-view-button, .view-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+    }
+ 
+    .video-view-button:hover, .ppt-view-button:hover, .pdf-view-button:hover, .view-button:hover {
+        background-color: #555;
+    }
+ 
+    .image-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+ 
+    #ottoImage {
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .model-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+ 
+    .store-container {
+        overflow-x: auto;
+        margin-top: 20px;
+    }
+ 
+    .store-container table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
+ 
+    .store-container th, .store-container td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+ 
+    .store-container th:last-child, .store-container td:last-child {
+        border-right: none;
+    }
+ 
+    .store-container th {
+        background-color: #eee;
+        font-weight: bold;
+    }
+ 
+    .color-select {
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 14l-4-4h8z' fill='rgba(51,51,51,1)'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 5px center;
+        padding-right: 25px;
+    }
+ 
+    .quantity-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+ 
+    .quantity-column button {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+ 
+    .quantity-column span {
+        padding: 0 8px;
+        font-size: 16px;
+    }
+ 
+    .price-column {
+        text-align: right;
+    }
+ 
+    .total {
+        text-align: right;
+        margin-top: 20px;
+    }
+ 
+    .total h3 {
+        color: #333;
+    }
+ 
+    .buy-button {
+        display: block;
+        padding: 12px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin: 20px auto;
+        width: fit-content;
+        text-align: center;
+    }
+ 
+    .buy-button:hover {
+        background-color: #555;
+    }
+ 
+    .slider-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-top: 20px;
+    }
+ 
+    .project-slider {
+        display: flex;
+    }
+ 
+    .project {
+        width: 250px;
+        margin-right: 20px;
+        text-align: center;
+    }
+ 
+    .project img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .project-title {
+        margin-top: 10px;
+        color: #000;
+    }
+ 
+    .demo-button, .ok-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin: 5px;
+    }
+ 
+    .demo-button:hover, .ok-button:hover {
+        background-color: #555;
+    }
+ 
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+ 
+    .popup img {
+        max-width: 100%;
+        height: auto;
+    }
+ 
+    .popup-close {
         position: absolute;
-        right: 20px;
-        top: 240px; /* Ad ko title ke neeche lane ke liye */
-        width: 300px; /* 🔥 Width ko increase kar diya */
-        max-height: calc(100vh - 150px);
-        overflow-y: auto;
-    }
-    
-    .sticky-ad {
-        position: fixed !important;
-        top: 240px !important;
-        right: -28px;
-        width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
-    }
-    
-    .ad-placement {
-        position: sticky;
-        top: 80px;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
-    }
-    
-     
-    .dark-mode body {
-            background-color: black;
-            color: #eee; /* Light text on dark background */
-    }
-     
-    .dark-mode header {
+        top: 10px;
+        right: 10px;
         background-color: #333;
-        border-bottom: 1px solid #555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 5px 10px;
     }
-     
-    .dark-mode .content-box {
-        background-color: #333;
-        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    }
-     
-    .dark-mode .section-title {
-        color: #eee;
-        border-bottom: 1px solid #555;
-    }
-    .dark-mode .video-button-container a button,
-    .dark-mode .ppt-button-container a button,
-    .dark-mode .pdf-button-container a button,
-    .dark-mode .model-buttons a button {
-        background-color: #444; /* Darker button background */
-        color: #eee; /* Light text on button */
-        border: 1px solid #555; /* White border for buttons */
-    }
-     
-    .dark-mode .model-buttons p {
-        color: #eee; /* Light text for paragraph */
-    }
-     
-    .dark-mode .model-buttons a button:hover {
-        background-color: #555;
-    }
-     
-    .dark-mode .model-buttons h2 {
-        color: #eee;
-    }
-     
-    .dark-mode .model-buttons p {
-        color: #eee;
-    }
-     
-    .dark-mode .otto-info ul li {
-        color: #eee; /* White text for list items in dark mode */
-    }
-     
-    .dark-mode .otto-info strong {
-        color: #fff; /* White text for strong elements in dark mode */
-    }
-     
-    .dark-mode .ppt-button-container p {
-        color: #eee; /* White text for the paragraph */
-    }
-     
-    .dark-mode .store-container th {
-        background-color: #444;
-    }
-     
-    .dark-mode .store-container th,
-    .dark-mode .store-container td {
-        border-bottom: 1px solid #555;
-        border-right: 1px solid #555;
-    }
-     
-    .dark-mode .color-select {
-        background-color: #444;
-        color: #eee;
-        border: 1px solid #555;
-    }
-     
-    .dark-mode .quantity-column button {
-        background-color: #444;
-    }
-     
-    .dark-mode .buy-button {
-        background-color: #444;
-    }
-     
-    .dark-mode .buy-button:hover {
-        background-color: #555;
-    }
-     
-    .dark-mode a {
-        color: lightblue;
-    }
-     
-    .dark-mode a:hover {
-        color: skyblue;
-    }
-     
-    .dark-mode .ppt-button-container a button,
-    .dark-mode .model-buttons a button {
-        background-color: #444;
-        color: #eee;
-        border: 1px solid #555;
-    }
-     
-    .dark-mode .ppt-button-container a button:hover,
-    .dark-mode .model-buttons a button:hover {
-        background-color: #555;
-    }
-     
-    .dark-mode .model-buttons h2 {
-        color: #eee;
-    }
-     
-    .dark-mode .image-container img {
-      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* add a white shadow in dark mode */
-    }
-     
-    .dark-mode .project-title {
-        color: #eee;
-    }
+    .video-button-container,
+.ppt-button-container,
+.pdf-button-container {
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center; /* Vertically center (optional) */
+    margin-left: 20px; /* Add left margin to shift the buttons */
+}
+ 
+.video-view-button,
+.ppt-view-button,
+.pdf-view-button {
+    text-align: left; /* Align text within the button to the left */
+}
+
+.ad-container {
+    position: absolute;
+    right: 20px;
+    top: 240px; /* Ad ko title ke neeche lane ke liye */
+    width: 300px; /* 🔥 Width ko increase kar diya */
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.sticky-ad {
+    position: fixed !important;
+    top: 240px !important;
+    right: -28px;
+    width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
+}
+
+.ad-placement {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
+}
+
+ 
+.dark-mode body {
+        background-color: black;
+        color: #eee; /* Light text on dark background */
+}
+ 
+.dark-mode header {
+    background-color: #333;
+    border-bottom: 1px solid #555;
+}
+ 
+.dark-mode .content-box {
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+ 
+.dark-mode .section-title {
+    color: #eee;
+    border-bottom: 1px solid #555;
+}
+.dark-mode .video-button-container a button,
+.dark-mode .ppt-button-container a button,
+.dark-mode .pdf-button-container a button,
+.dark-mode .model-buttons a button {
+    background-color: #444; /* Darker button background */
+    color: #eee; /* Light text on button */
+    border: 1px solid #555; /* White border for buttons */
+}
+ 
+.dark-mode .model-buttons p {
+    color: #eee; /* Light text for paragraph */
+}
+ 
+.dark-mode .model-buttons a button:hover {
+    background-color: #555;
+}
+ 
+.dark-mode .model-buttons h2 {
+    color: #eee;
+}
+ 
+.dark-mode .model-buttons p {
+    color: #eee;
+}
+ 
+.dark-mode .otto-info ul li {
+    color: #eee; /* White text for list items in dark mode */
+}
+ 
+.dark-mode .otto-info strong {
+    color: #fff; /* White text for strong elements in dark mode */
+}
+ 
+.dark-mode .ppt-button-container p {
+    color: #eee; /* White text for the paragraph */
+}
+ 
+.dark-mode .store-container th {
+    background-color: #444;
+}
+ 
+.dark-mode .store-container th,
+.dark-mode .store-container td {
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+}
+ 
+.dark-mode .color-select {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #555;
+}
+ 
+.dark-mode .quantity-column button {
+    background-color: #444;
+}
+ 
+.dark-mode .buy-button {
+    background-color: #444;
+}
+ 
+.dark-mode .buy-button:hover {
+    background-color: #555;
+}
+ 
+.dark-mode a {
+    color: lightblue;
+}
+ 
+.dark-mode a:hover {
+    color: skyblue;
+}
+ 
+.dark-mode .ppt-button-container a button,
+.dark-mode .model-buttons a button {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #555;
+}
+ 
+.dark-mode .ppt-button-container a button:hover,
+.dark-mode .model-buttons a button:hover {
+    background-color: #555;
+}
+ 
+.dark-mode .model-buttons h2 {
+    color: #eee;
+}
+ 
+.dark-mode .image-container img {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* add a white shadow in dark mode */
+}
+ 
+.dark-mode .project-title {
+    color: #eee;
+}
      
     </style>
 </head>
@@ -801,7 +801,7 @@
  
 <!-- CSS -->
 <style>
-    .project-img-container {
+   .project-img-container {
         position: relative;
         cursor: pointer;
         display: inline-block;
