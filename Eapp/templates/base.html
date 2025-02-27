@@ -83,12 +83,14 @@
       align-items: center;
     }
     .nav-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      margin-right: 20px;
-      margin-top: 5px;
-    }
+    display: flex;
+    flex-direction: row;  /* Column se Row me change */
+    align-items: center;  /* Center me align hoga */
+    gap: 10px;  /* Button ke beech gap */
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
     .nav-left a {
       text-decoration: none;
       color: #ffffff;
@@ -802,8 +804,10 @@ footer {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 100px;
+    margin-top: 100px;  /* Yeh already tha */
+    margin-bottom: 150px;  /* Yeh badhaya */
 }
+
 
 /* Login Title */
 .login-title {
@@ -1083,8 +1087,8 @@ form {
       </div>
       <div class="right-nav">
         <div class="nav-left">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
         </div>
         <div class="cart-container">
           <i class="fa-solid fa-shopping-cart cart-logo"></i>
@@ -1106,10 +1110,9 @@ form {
             <div class="nested-dropdown">
               <a href="#">Autonomous Robotics</a>
               <a href="#">Industrial Robotics</a>
-              <a href="#">otto Robot </a>
-              <a href="#">Home Automation</a>
-              <a href="#">Obstacle Avoidance car</a>
-              <a href="#">Real time Clock</a>
+              <a href="#"> Assistive Robotics</a>
+              <a href="#">Biomechanical Roboticsn</a>
+              <a href="#">Remote-Controlled Robotics</a>
             </div>
           </div>
           <div class="product">
@@ -1162,15 +1165,7 @@ form {
               <a href="#">Underwater Technologies</a>
             </div>
           </div>
-          <div class="product">
-            <a href="#">AI&ML<strong>></strong></a>
-            <div class="nested-dropdown">
-              <a href="#">Details 1</a>
-              <a href="#">Details 2</a>
-              <a href="#">Details 3</a>
-              <a href="#">Details 3</a>
-            </div>
-          </div>
+          
         </div>
       </div>
  
