@@ -20,6 +20,7 @@ urlpatterns = [
     path('asterbot/', views.asterbot, name='asterbot'),
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
+    path('doghead/', views.doghead, name="doghead"),
    # path('logout/', logout, name='logout'),
    
    path('navbarr/', views.navbarr, name='navbarr'),
