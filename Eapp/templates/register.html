@@ -7,9 +7,9 @@
     <!-- Left Section: Registration Form -->
     <div class="register-box">
         <h1 style="text-align: center;"><b>Register</b></h1>
-        <h2>Start Purchasing with PHN</h2>
-        <p>Create your account to reach PHN Technology.</p>
+        <b><hr></b>
         
+    
         <form method="post">
             {% csrf_token %}
 
@@ -74,13 +74,10 @@
                         <input type="password" name="confirm_password" required>
                     </div>
                 </div>
-            </div>
+            </div><br>
+            <hr>
 
             <!-- Terms & Conditions Checkbox -->
-            <div class="terms">
-                <input type="checkbox" required>
-                <label>I agree to the <a href="#">Terms & Conditions</a>.</label>
-            </div>
 
             <!-- Submit Button -->
             <button type="submit" class="btn-register">Create Account</button>

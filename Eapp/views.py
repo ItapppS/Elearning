@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import PhnUser  # Import the model
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 
@@ -53,10 +53,14 @@ def asterbot(request):
 
 def register(request):
     if request.method == "POST":
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
         username = request.POST.get('username')
         gmail = request.POST.get('gmail')
         password = request.POST.get('password')
         age = request.POST.get('age')
+        gender=request.POST.get('gender',)
+        address=request.POST.get('address')
         mobile_no = request.POST.get('mobile_no')
 
         # ✅ Input Validation
