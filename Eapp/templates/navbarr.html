@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Website{% endblock %}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Swiper CSS -->
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+<!-- Robotics section  -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Courses - PHN Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+
+<!-- End  -->
+  <style>
+    body {
+      background-color: #e9e8e8;
+    margin: 0;
+    font-family:"Roboto";
+    }
+
+    .header {
+      width: 100%;
+      background: #222;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      height: 70px;
+    }
+    .logo {
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+    .logo img{
+      height: 150px;
+      width: auto;
+      margin-top: 33px;
+    }
+    .search-bar {
+      flex: 1;
+      text-align: center;
+    }
+    .search-bar input {
+    width: 50%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 5px 60px #666666; /* Adds a subtle shadow */
+    }
+    .right-nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 20px;
+      margin-top: 5px;
+    }
+    .nav-left a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      margin-bottom: 2px;
+    } 
+    .cart-container {
+      display: flex;
+      align-items: center;
+      margin-right:10px
+    }
+    .cart-logo {
+      font-size: 24px;
+      color: #ffffff;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      background: #ffffff00;
+      padding: 0;
+      position: relative;
+      z-index: 100;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      margin: 0 15px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 800px;
+    min-height: 500px;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+        .menu {
+            width: 150px;
+        }
+        .menu a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: black;
+        }
+        .menu a:hover {
+            background: #f0f0f0;
+        }
+    
+        .sub-menu {
+    display: none; /* ✅ Default hidden */
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    min-width: 600px; /* ✅ Proper width */
+}
+
+/* ✅ Ensure submenu shows when hovering */
+.dropdown:hover .sub-menu {
+    display: flex !important;
+}
+
+/* ✅ Submenu items default hidden */
+.submenu-item {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ✅ Bigger images */
+.submenu-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.submenu-item a {
+    display: block;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+
+
+    /* .nested-dropdown a {
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #000000;
+      font-weight: normal;
+    }
+    .nested-dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown-content .project:hover .nested-dropdown {
+      display: block;
+    }
+    .dropdown-content .product:hover .nested-dropdown {
+      display: block;
+    } */
+
+  </style>
+  {% block css %}{% endblock %}
+</head>
+<body>
+  <body>
+  <header class="header">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <div class="top-nav">
+      <div class="logo">
+        <img src="{% static 'images/phnlogo.jpg' %}" alt="Health">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="right-nav">
+        <div class="nav-left">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+        <div class="cart-container">
+          <i class="fa-solid fa-shopping-cart cart-logo"></i>
+        </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="theme-button">🌙</button>
+      </div>
+    </div>
+    <div class="nav-links">
+      <!-- Products Dropdown -->
+  <!-- Products Dropdown -->
+      <a href="/home">Home</a>
+
+
+      <div class="dropdown">
+        <a href="#">Domains</a>
+        <div class="dropdown-content">
+            <div class="menu">
+                <a href="#" onmouseover="showSubMenu('robotics', 'submenu-domains')">Robotics</a>
+                <a href="#" onmouseover="showSubMenu('agriculture', 'submenu-domains')">Agriculture</a>
+                <a href="#" onmouseover="showSubMenu('Electronics', 'submenu-domains')">Electronics</a>
+                <a href="#" onmouseover="showSubMenu('IoT', 'submenu-domains')"> IoT</a>
+                <a href="#" onmouseover="showSubMenu('Healthcare', 'submenu-domains')">Healthcare</a>
+                <a href="#" onmouseover="showSubMenu('DefenceSector', 'submenu-domains')">Defence Sector</a>
+            </div>
+            <div class="sub-menu" id="submenu-domains">
+                <!-- ✅ Robotics -->
+                <div class="submenu-item robotics">
+                    <img src="{% static 'images/autonomous.jpg' %}" alt="Autonomous Robotics">
+                    <a href="#">Autonomous Robotics</a>
+                </div>
+                <div class="submenu-item robotics">
+                    <img src="{% static 'images/industrial.webp' %}" alt="Industrial Robotics">
+                    <a href="#">Industrial Robotics</a>
+                </div>
+
+                <div class="submenu-item robotics">
+                    <img src="{% static 'images/medical.jpg' %}" alt="Medical Robotics">
+                    <a href="#">Medical Robotics</a>
+                </div>
+
+                <div class="submenu-item robotics">
+                    <img src="{% static 'images/biomechanical.jpg' %}" alt="Biomechanical Robotics">
+                    <a href="#">Biomechanical Robotics</a>
+                </div>
+                
+                <div class="submenu-item robotics">
+                    <img src="{% static 'images/teleoperated.webp' %}" alt="Teleoperated Robotics">
+                    <a href="#">Teleoperated Robotics</a>
+                </div>
+
+                <!-- ✅ Agriculture -->
+                <div class="submenu-item agriculture">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Agriculture Drone">
+                    <a href="#">Agri-Tech Automation</a>
+                </div>
+                <div class="submenu-item agriculture">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Smart Farming">
+                    <a href="#">Smart Greenhouses</a>
+                </div>
+                <div class="submenu-item agriculture">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Smart Farming">
+                    <a href="#">Agro-Sensing</a>
+                </div>
+                <div class="submenu-item agriculture">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Smart Farming">
+                    <a href="#">Livestock Technology</a>
+                </div>
+                <div class="submenu-item agriculture">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Smart Farming">
+                    <a href="#">Post-Harvest Automation</a>
+                </div>
+
+                <!-- ✅ Electronics -->
+                <div class="submenu-item Electronics">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="Digital Electronics">
+                    <a href="#">Digital Electronics</a>
+                </div>
+                <div class="submenu-item Electronics">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="PCB Design">
+                    <a href="#">Embedded Systems</a>
+                </div>
+                <div class="submenu-item Electronics">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="PCB Design">
+                    <a href="#">Consumer Electronics</a>
+                </div>
+                <div class="submenu-item Electronics">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="PCB Design">
+                    <a href="#">Automotive Electronics</a>
+                </div>
+                <div class="submenu-item Electronics">
+                    <img src="{% static 'images/BionicHand.jpg' %}" alt="PCB Design">
+                    <a href="#">Power & Energy Electronics</a>
+                </div>
+
+                <!-- ✅ IOT -->
+                <div class="submenu-item IoT">
+                    <img src="{% static 'images/autonomous.jpg' %}" alt="Autonomous Robotics">
+                    <a href="#">Autonomous Robotics</a>
+                </div>
+                <div class="submenu-item IoT">
+                    <img src="{% static 'images/industrial.webp' %}" alt="Industrial Robotics">
+                    <a href="#">Industrial Robotics</a>
+                </div>
+
+                <div class="submenu-item IoT">
+                    <img src="{% static 'images/medical.jpg' %}" alt="Medical Robotics">
+                    <a href="#">Medical Robotics</a>
+                </div>
+
+                <div class="submenu-item IoT">
+                    <img src="{% static 'images/biomechanical.jpg' %}" alt="Biomechanical Robotics">
+                    <a href="#">Biomechanical Robotics</a>
+                </div>
+                
+                <div class="submenu-item IoT">
+                    <img src="{% static 'images/teleoperated.webp' %}" alt="Teleoperated Robotics">
+                    <a href="#">Teleoperated Robotics</a>
+                </div>
+
+                <!-- ✅ Healthcare -->
+                <div class="submenu-item Healthcare">
+                    <img src="{% static 'images/autonomous.jpg' %}" alt="AutonomousRobotics">
+                    <a href="#">Autonomous Robotics</a>
+                </div>
+                <div class="submenu-item Healthcare">
+                    <img src="{% static 'images/industrial.webp' %}" alt="IndustrialRobotics">
+                    <a href="#">Industrial Robotics</a>
+                </div>
+
+                <div class="submenu-item Healthcare">
+                    <img src="{% static 'images/medical.jpg' %}" alt="MedicalRobotics">
+                    <a href="#">Medical Robotics</a>
+                </div>
+
+                <div class="submenu-item Healthcare">
+                    <img src="{% static 'images/biomechanical.jpg' %}" alt="BiomechanicalRobotics">
+                    <a href="#">Biomechanical Robotics</a>
+                </div>
+                
+                <div class="submenu-item Healthcare">
+                    <img src="{% static 'images/teleoperated.webp' %}" alt="TeleoperatedRobotics">
+                    <a href="#">Teleoperated Robotics</a>
+                </div>
+
+
+                <!-- ✅ Defence Sector -->
+                <div class="submenu-item DefenceSector">
+                    <img src="{% static 'images/autonomous.jpg' %}" alt="AutonomousRobotics">
+                    <a href="#">Autonomous Robotics</a>
+                </div>
+                <div class="submenu-item DefenceSector">
+                    <img src="{% static 'images/industrial.webp' %}" alt="IndustrialRobotics">
+                    <a href="#">Industrial Robotics</a>
+                </div>
+
+                <div class="submenu-item DefenceSector">
+                    <img src="{% static 'images/medical.jpg' %}" alt="MedicalRobotics">
+                    <a href="#">Medical Robotics</a>
+                </div>
+
+                <div class="submenu-item DefenceSector">
+                    <img src="{% static 'images/biomechanical.jpg' %}" alt="BiomechanicalRobotics">
+                    <a href="#">Biomechanical Robotics</a>
+                </div>
+                
+                <div class="submenu-item DefenceSector">
+                    <img src="{% static 'images/teleoperated.webp' %}" alt="TeleoperatedRobotics">
+                    <a href="#">Teleoperated Robotics</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div class="dropdown">
+        <a href="#">Programming Languages</a>
+        <div class="dropdown-content">
+            <div class="menu">
+                <a href="#" onmouseover="showSubMenu('c', 'submenu-languages')">C</a>
+                <a href="#" onmouseover="showSubMenu('cpp', 'submenu-languages')">C++</a>
+                <a href="#" onmouseover="showSubMenu('python', 'submenu-languages')">Python</a>
+            </div>
+            <div class="sub-menu" id="submenu-languages">
+                <!-- ✅ C -->
+                <div class="submenu-item c">
+                    <img src="{% static 'images/c.png' %}" alt="C Programming">
+                    <a href="#">C Programming</a>
+                </div>
+                <!-- ✅ C++ -->
+                <div class="submenu-item cpp">
+                    <img src="{% static 'images/c++.png' %}" alt="C++ Programming">
+                    <a href="#">C++ Programming</a>
+                </div>
+                <!-- ✅ Python -->
+                <div class="submenu-item python">
+                    <img src="{% static 'images/python.png' %}" alt="SparkFun">
+                    <a href="#">Python</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Platform Hubs</a>
+      <div class="dropdown-content">
+          <div class="menu">
+              <a href="#" onmouseover="showSubMenu('arduino', 'submenu-platform-hub')">Arduino</a>
+              <a href="#" onmouseover="showSubMenu('esp', 'submenu-platform-hub')">ESP</a>
+              <a href="#" onmouseover="showSubMenu('sparkfun', 'submenu-platform-hub')">Sparkfun</a>
+          </div>
+          <div class="sub-menu" id="submenu-platform-hub">
+              <!-- ✅ Ensure classes match JS function calls -->
+              <div class="submenu-item arduino">
+                  <img src="{% static 'images/arduino_uno.png' %}" alt="Arduino uno">
+                  <a href="#">Arduino Uno</a>
+              </div>
+              <div class="submenu-item arduino">
+                <img src="{% static 'images/arduino_nano.png' %}" alt="Arduino nano">
+                <a href="#">Arduino Nano</a>
+            </div>
+              <div class="submenu-item esp">
+                  <img src="{% static 'images/esp32.png' %}" alt="ESP">
+                  <a href="#">ESP 32</a>
+              </div>
+              <div class="submenu-item esp">
+                <img src="{% static 'images/esp32_module.png' %}" alt="ESP">
+                <a href="#">ESP 32 module</a>
+            </div>
+              <div class="submenu-item sparkfun">
+                  <img src="{% static 'images/sparkfun.png' %}" alt="SparkFun">
+                  <a href="#">SparkFun</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <a href = "#"> Events </a>
+    </div>
+
+    </div>
+  </header>
+</body>
+
+  {% block content %}{% endblock %}
+  
+
+<!-- Swiper JS -->
+<script>
+   function showSubMenu(category, submenuId) {
+    const submenu = document.getElementById(submenuId);
+    if (!submenu) return; // Agar submenu nahi mila toh return
+
+    const allItems = submenu.querySelectorAll('.submenu-item');
+
+    // Hide all submenu items pehle
+    allItems.forEach(item => {
+        item.style.display = "none";
+    });
+
+    // Sirf selected category ke items show karo
+    const categoryItems = submenu.querySelectorAll(`.${category}`);
+    if (categoryItems.length > 0) {
+        categoryItems.forEach(item => {
+            item.style.display = "flex"; // ✅ Image + text proper dikhega
+        });
+
+        // Submenu ko show karna
+        submenu.style.display = "flex";
+    }
+}
+
+// ✅ Jab kisi dropdown pe mouse jaye, toh uska pehla item auto-select ho
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    dropdown.addEventListener("mouseenter", function () {
+        const firstMenuItem = this.querySelector(".menu a"); // Pehla option lo
+        if (firstMenuItem) {
+            firstMenuItem.dispatchEvent(new Event("mouseover")); // Usko hover effect do
+        }
+    });
+});
+
+// 🔹 Submenu hide karne ka fix
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    dropdown.addEventListener("mouseleave", function () {
+        const submenu = dropdown.querySelector(".sub-menu");
+        if (submenu) submenu.style.display = "none";
+    });
+});
+
+  </script>
+</body>
+</html>

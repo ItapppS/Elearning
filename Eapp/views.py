@@ -50,6 +50,9 @@ def bionic_hand(request):
 def asterbot(request):
     return render(request, 'asterbot.html')
 
+def navbarr(request):
+    return render(request, 'navbarr.html')
+
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
