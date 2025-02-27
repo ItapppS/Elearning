@@ -113,22 +113,22 @@
       padding: 8px 0;
     }
     .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-    display: none;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-    background: white;
-    border: 1px solid #ccc;
-    min-width: 800px;
-    min-height: 500px;
-    padding: 15px;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-}
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid #ccc;
+      min-width: 1000px;
+      min-height: 500px;
+      padding: 15px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    }
 
 
         .dropdown:hover .dropdown-content {
@@ -317,6 +317,7 @@
               <a href="#" onmouseover="showSubMenu('arduino', 'submenu-platform-hub')">Arduino</a>
               <a href="#" onmouseover="showSubMenu('esp', 'submenu-platform-hub')">ESP</a>
               <a href="#" onmouseover="showSubMenu('sparkfun', 'submenu-platform-hub')">Sparkfun</a>
+              <a href="#" onmouseover="showSubMenu('Raspberry', 'submenu-platform-hub')">Raspberry Pi</a>
           </div>
           <div class="sub-menu" id="submenu-platform-hub">
               <!-- ✅ Ensure classes match JS function calls -->
@@ -328,18 +329,46 @@
                 <img src="{% static 'images/arduino_nano.png' %}" alt="Arduino nano">
                 <a href="#">Arduino Nano</a>
             </div>
+            <div class="submenu-item arduino">
+              <img src="{% static 'images/arduino_mega.png' %}" alt="Arduino Mega">
+              <a href="#">Arduino Mega 2560</a>
+          </div>
+          <div class="submenu-item arduino">
+            <img src="{% static 'images/arduino_micro.png' %}" alt="Arduino Micro">
+            <a href="#">Arduino Micro</a>
+        </div>
               <div class="submenu-item esp">
-                  <img src="{% static 'images/esp32.png' %}" alt="ESP">
-                  <a href="#">ESP 32</a>
+                  <img src="{% static 'images/esp32_wrrom.png' %}" alt="ESP">
+                  <a href="#">ESP 32 Wroom 32</a>
               </div>
               <div class="submenu-item esp">
-                <img src="{% static 'images/esp32_module.png' %}" alt="ESP">
-                <a href="#">ESP 32 module</a>
+                <img src="{% static 'images/esp32_S3.png' %}" alt="ESP">
+                <a href="#">ESP 32 C3</a>
             </div>
-              <div class="submenu-item sparkfun">
-                  <img src="{% static 'images/sparkfun.png' %}" alt="SparkFun">
-                  <a href="#">SparkFun</a>
-              </div>
+            <div class="submenu-item esp">
+              <img src="{% static 'images/esp32_cam.png' %}" alt="ESP">
+              <a href="#">ESP 32 CAM</a>
+          </div>
+          <div class="submenu-item esp">
+            <img src="{% static 'images/ESP32-C3.png' %}" alt="ESP">
+            <a href="#">ESP 32 C3</a>
+        </div>
+            <div class="submenu-item sparkfun">
+                <img src="{% static 'images/sparkfun.png' %}" alt="SparkFun">
+                <a href="#">SparkFun</a>
+           </div>
+            <div class="submenu-item Raspberry">
+                <img src="{% static 'images/Raspberry_pi_model_4B.png' %}" alt="Raspberry Pi">
+                <a href="#">Raspberry pi 4 Model B</a>
+            </div>
+            <div class="submenu-item Raspberry">
+              <img src="{% static 'images/raspberry_pi_model_3B.png' %}" alt="Raspberry Pi">
+              <a href="#">Raspberry pi 3 Model B+</a>
+          </div>
+          <div class="submenu-item Raspberry">
+            <img src="{% static 'images/Raspberry_pi_model_2B.png' %}" alt="Raspberry Pi">
+            <a href="#">Raspberry pi 2 Model B</a>
+        </div>
           </div>
       </div>
   </div>
