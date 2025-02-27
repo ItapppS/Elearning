@@ -83,7 +83,6 @@ def register(request):
 
 
     
-<<<<<<< HEAD
     return render(request, 'register.html', {'form': form})
 
 
@@ -94,6 +93,4 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('login')  # Redirect back to login page
-=======
->>>>>>> 32dab57ea010fab1f8543ea7ab17e653d2583fa6
 
