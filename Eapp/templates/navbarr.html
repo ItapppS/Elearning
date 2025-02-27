@@ -304,14 +304,46 @@
                 </div>
                 <!-- ✅ Python -->
                 <div class="submenu-item python">
-                    <img src="{% static 'images/python.png' %}" alt="Python Programming">
-                    <a href="#">Python Programming</a>
+                    <img src="{% static 'images/python.png' %}" alt="SparkFun">
+                    <a href="#">Python</a>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+    <div class="dropdown">
+      <a href="#">Platform Hubs</a>
+      <div class="dropdown-content">
+          <div class="menu">
+              <a href="#" onmouseover="showSubMenu('arduino', 'submenu-platform-hub')">Arduino</a>
+              <a href="#" onmouseover="showSubMenu('esp', 'submenu-platform-hub')">ESP</a>
+              <a href="#" onmouseover="showSubMenu('sparkfun', 'submenu-platform-hub')">Sparkfun</a>
+          </div>
+          <div class="sub-menu" id="submenu-platform-hub">
+              <!-- ✅ Ensure classes match JS function calls -->
+              <div class="submenu-item arduino">
+                  <img src="{% static 'images/arduino_uno.png' %}" alt="Arduino uno">
+                  <a href="#">Arduino Uno</a>
+              </div>
+              <div class="submenu-item arduino">
+                <img src="{% static 'images/arduino_nano.png' %}" alt="Arduino nano">
+                <a href="#">Arduino Nano</a>
+            </div>
+              <div class="submenu-item esp">
+                  <img src="{% static 'images/esp32.png' %}" alt="ESP">
+                  <a href="#">ESP 32</a>
+              </div>
+              <div class="submenu-item esp">
+                <img src="{% static 'images/esp32_module.png' %}" alt="ESP">
+                <a href="#">ESP 32 module</a>
+            </div>
+              <div class="submenu-item sparkfun">
+                  <img src="{% static 'images/sparkfun.png' %}" alt="SparkFun">
+                  <a href="#">SparkFun</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <a href = "#"> Events </a>
     </div>
 
     
