@@ -794,33 +794,23 @@ footer {
 
 /* LOGIN page*/
 
+/* ✅ Centering container */
+/* ✅ General Page Styles */
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.login-container {
-  background: #fff;
-  padding: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  margin-left: 500px;
-  margin-top: 40px;
-  margin-bottom: 100px;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    gap: 20px;
+    margin-left: 110px;
 }
 
-.logo img {
-  max-width: 120px;
-  margin-bottom: 20px;
+/* Left Section (Form) */
+.register-box {
+    flex: 1.5;
+    padding: 20px;
 }
 
 h2 {
@@ -945,7 +935,6 @@ h2 {
       font-size: 13px;
   }
 }
-
 .roboto-Roboto {
   font-family: "Roboto", serif;
   font-optical-sizing: auto;
@@ -954,7 +943,6 @@ h2 {
   font-variation-settings:
     "wdth" 100;
 }
-
   </style>
   {% block css %}{% endblock %}
 </head>
