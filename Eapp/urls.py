@@ -22,8 +22,6 @@ urlpatterns = [
     path('login/', views.login, name='login'),
    # path('logout/', logout, name='logout'),
    
-   
-
    path('navbarr/', views.navbarr, name='navbarr'),
 
    ]
