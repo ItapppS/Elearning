@@ -138,6 +138,9 @@ def register(request):
     return render(request, 'register.html')
 
 
+def doghead(request):
+    return render(request, 'dog.html')
+
 
 def login(request):
     return render(request, 'login.html')
