@@ -23,8 +23,9 @@ urlpatterns = [
    # path('logout/', logout, name='logout'),
    
    
+
+   path('navbarr/', views.navbarr, name='navbarr'),
+
    ]
-
-
 
 
