@@ -35,12 +35,9 @@
 
 
     body {
-    background-color: #e9e8e8;
+      background-color: #e9e8e8;
     margin: 0;
     font-family:"Roboto";
-    justify-content: center;
-    align-items: center;
-    
     }
 
     .header {
@@ -83,12 +80,14 @@
       align-items: center;
     }
     .nav-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      margin-right: 20px;
-      margin-top: 5px;
-    }
+    display: flex;
+    flex-direction: row;  /* Column se Row me change */
+    align-items: center;  /* Center me align hoga */
+    gap: 10px;  /* Button ke beech gap */
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
     .nav-left a {
       text-decoration: none;
       color: #ffffff;
@@ -339,6 +338,13 @@
   background-color: #2f6fed;
   opacity: 1;
 }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust min width here */
@@ -405,32 +411,11 @@
     right: 0; /* Stick to the right */
     top: 30%;
 }
-
 /* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-/* Product Cards */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ensures exactly 4 columns */
-    gap: 20px;
-    padding: 20px;
-    margin: auto;
-}
-
-@media (max-width: 1024px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-    }
-}
-
-@media (max-width: 600px) {
-    .product-grid {
-        grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
-    }
 }
 
 .product-card {
@@ -791,6 +776,281 @@ footer {
   background-color: #222;
 }
 
+/*Login page*/
+
+/* Main Login Container */
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 100px;  /* Yeh already tha */
+    margin-bottom: 150px;  /* Yeh badhaya */
+}
+
+
+/* Login Title */
+.login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit Button */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Divider */
+.divider {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #777;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.social-btn:hover {
+    background: #f0f0f0;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Register Link */
+.login-container p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-container {
+        max-width: 90%;
+    }
+}
+
+
+
+
+/* Register page*/
+
+/* Main Register Container */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* Left Section (Form) */
+.register-box {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-box h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.register-box hr {
+    margin: 10px 0;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Register Button */
+.btn-register {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-register:hover {
+    background-color: #0056b3;
+}
+
+/* Right Section (Benefits) */
+.benefits {
+    flex: 1;
+    max-width: 400px;
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.benefits h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .register-box, .benefits {
+        max-width: 100%;
+    }
+}
+
 
   </style>
   {% block css %}{% endblock %}
@@ -810,8 +1070,8 @@ footer {
       </div>
       <div class="right-nav">
         <div class="nav-left">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
         </div>
         <div class="cart-container">
           <i class="fa-solid fa-shopping-cart cart-logo"></i>
@@ -833,10 +1093,9 @@ footer {
             <div class="nested-dropdown">
               <a href="#">Autonomous Robotics</a>
               <a href="#">Industrial Robotics</a>
-              <a href="#">otto Robot </a>
-              <a href="#">Home Automation</a>
-              <a href="#">Obstacle Avoidance car</a>
-              <a href="#">Real time Clock</a>
+              <a href="#"> Assistive Robotics</a>
+              <a href="#">Biomechanical Roboticsn</a>
+              <a href="#">Remote-Controlled Robotics</a>
             </div>
           </div>
           <div class="product">
@@ -889,15 +1148,7 @@ footer {
               <a href="#">Underwater Technologies</a>
             </div>
           </div>
-          <div class="product">
-            <a href="#">AI&ML<strong>></strong></a>
-            <div class="nested-dropdown">
-              <a href="#">Details 1</a>
-              <a href="#">Details 2</a>
-              <a href="#">Details 3</a>
-              <a href="#">Details 3</a>
-            </div>
-          </div>
+          
         </div>
       </div>
  

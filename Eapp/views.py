@@ -30,7 +30,7 @@ def solar_tracking(request):
     return render(request, 'solar_tracking.html')
 
 def obstraction_avoiding_car(request):
-    return render(request, 'obstraction_avoiding_car.html')
+    return render(request, 'Obstacle_avoidance_car.html')
 
 def profile(request): 
     return render(request, 'profile.html')
