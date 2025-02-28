@@ -340,11 +340,24 @@
 }
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Ensures exactly 4 columns */
     gap: 20px;
     padding: 20px;
     margin: auto;
 }
+
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
+    }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust min width here */
@@ -777,7 +790,8 @@ footer {
 }
 
 /*Login page*/
-
+ 
+/* Main Login Container */
 /* Main Login Container */
 /* Main Login Container */
 .login-container {
@@ -791,11 +805,11 @@ footer {
     margin-top: 100px;  /* Yeh already tha */
     margin-bottom: 150px;  /* Yeh badhaya */
 }
-
+ 
 .dark-mode .login-container{
   color: black;
 }
-
+ 
 /* Login Title */
 .login-title {
     font-size: 24px;
@@ -803,14 +817,14 @@ footer {
     margin-bottom: 20px;
     color: #333;
 }
-
+ 
 /* Form Styling */
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
+ 
 .login-form input {
     padding: 12px;
     width: 100%;
@@ -818,12 +832,12 @@ footer {
     border-radius: 5px;
     font-size: 14px;
 }
-
+ 
 .login-form input:focus {
     border-color: #007bff;
     outline: none;
 }
-
+ 
 /* Submit Button */
 .btn {
     background-color: #007bff;
@@ -835,11 +849,11 @@ footer {
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
-
+ 
 .btn:hover {
     background-color: #0056b3;
 }
-
+ 
 /* Divider */
 .divider {
     margin: 15px 0;
@@ -847,7 +861,7 @@ footer {
     color: #777;
     position: relative;
 }
-
+ 
 .divider::before,
 .divider::after {
     content: "";
@@ -858,15 +872,15 @@ footer {
     position: absolute;
     top: 50%;
 }
-
+ 
 .divider::before {
     left: 0;
 }
-
+ 
 .divider::after {
     right: 0;
 }
-
+ 
 /* Social Login Buttons */
 .social-login {
     display: flex;
@@ -874,7 +888,7 @@ footer {
     gap: 10px;
     margin-top: 10px;
 }
-
+ 
 .social-btn {
     display: flex;
     align-items: center;
@@ -888,43 +902,44 @@ footer {
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
-
+ 
 .social-btn:hover {
     background: #f0f0f0;
 }
-
+ 
 .social-btn img {
     width: 20px;
     height: 20px;
 }
-
+ 
 /* Register Link */
 .login-container p {
     font-size: 14px;
     margin-top: 10px;
 }
-
+ 
 .login-container p a {
     color: #007bff;
     text-decoration: none;
 }
-
+ 
 .login-container p a:hover {
     text-decoration: underline;
 }
-
+ 
 /* Responsive Design */
 @media (max-width: 600px) {
     .login-container {
         max-width: 90%;
     }
 }
-
-
-
-
+ 
+ 
+ 
+ 
 /* Register page*/
-
+ 
+/* Main Register Container */
 /* Main Register Container */
 /* Main Register Container */
 .register-container {
@@ -935,7 +950,7 @@ footer {
     gap: 20px;
     padding: 50px;
 }
-
+ 
 /* Left Section (Form) */
 .register-box {
     flex: 1;
@@ -945,48 +960,48 @@ footer {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+ 
 .register-box h1 {
     text-align: center;
     font-size: 24px;
     color: #333;
 }
-
+ 
 .register-box hr {
     margin: 10px 0;
 }
-
+ 
 /* Form Styling */
 form {
     display: flex;
     flex-direction: column;
 }
-
+ 
 .form-row {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
-
+ 
 .form-column {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
+ 
 .input-group {
     display: flex;
     flex-direction: column;
 }
-
+ 
 .input-group label {
     font-size: 14px;
     font-weight: 600;
     color: #444;
     margin-bottom: 5px;
 }
-
+ 
 .input-group input,
 .input-group select {
     padding: 10px;
@@ -995,13 +1010,13 @@ form {
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-
+ 
 .input-group input:focus,
 .input-group select:focus {
     border-color: #0056b3;
     outline: none;
 }
-
+ 
 /* Register Button */
 .btn-register {
     background-color: #007bff;
@@ -1013,11 +1028,11 @@ form {
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
-
+ 
 .btn-register:hover {
     background-color: #0056b3;
 }
-
+ 
 /* Right Section (Benefits) */
 .benefits {
     flex: 1;
@@ -1028,34 +1043,33 @@ form {
     border-radius: 10px;
     text-align: center;
 }
-
+ 
 .benefits h3 {
     font-size: 18px;
     margin-bottom: 15px;
 }
-
+ 
 .benefits ul {
     list-style: none;
     padding: 0;
 }
-
+ 
 .benefits li {
     padding: 8px 0;
     font-size: 14px;
 }
-
+ 
 /* Responsive Design */
 @media (max-width: 768px) {
     .register-container {
         flex-direction: column;
         padding: 20px;
     }
-
+ 
     .register-box, .benefits {
         max-width: 100%;
     }
 }
-
 
   </style>
   {% block css %}{% endblock %}

@@ -54,6 +54,9 @@ def navbarr(request):
     return render(request, 'navbarr.html')
 
 
+def doghead(request):
+    return render(request, 'doghead.html')
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
