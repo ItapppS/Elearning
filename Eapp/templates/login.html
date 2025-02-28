@@ -1,9 +1,9 @@
- {% extends 'base.html' %}
-
+{% extends 'base.html' %}
+ 
 {% block title %}Login{% endblock %}
-
+ 
 {% block content %}
-
+ 
 <div class="login-container">
     <h2 class="login-title">Login</h2>
     <form class="login-form" id="loginForm" autocomplete="on">
@@ -12,7 +12,7 @@
       <button type="submit" class="btn">Continue</button>
     </form>
     <p id="response" style="color: red; font-weight: bold;"></p>
-    
+   
     <div class="divider">
       <span>or use</span>
     </div>
@@ -20,11 +20,24 @@
         <button class="social-btn google-btn" id="googleSignIn">
             <img src="https://static.vecteezy.com/system/resources/previews/013/948/549/original/google-logo-on-transparent-white-background-free-vector.jpg" alt="Google Icon"> Sign in with Google
           </button>
-      
+     
       <button class="social-btn apple-btn">
         <img src="https://relogoai.com/_next/image?url=%2Frender-intro%2Frelogo%2Fgallery-3-original.jpg&w=1080&q=75"> Sign in with Apple
       </button>
     </div>
     <p>Don't have an account? <a href="../Registration/Registration.html" style="color: blue; text-decoration: underline;">Register here</a></p>
-
+ 
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Login button clicked!');
+    });
+</script>
+  </div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Login button clicked!');
+    });
+</script>
 {% endblock %}
