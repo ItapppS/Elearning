@@ -1,6 +1,6 @@
 {% extends "base.html" %}
  
-{% block title %}Humanoid-Robot's Page{% endblock %}
+{% block title %}Real Time Clock{% endblock %}
  
 {% block content %}
  
@@ -79,19 +79,19 @@
         color: #000;
     }
  
-    .humanoid-info {
+    .real-info {
         display: flex;
         align-items: flex-start;
     }
  
-    .humanoid-info img {
+    .real-info img {
         max-width: 250px;
         height: auto;
         margin-right: 20px;
         border-radius: 6px;
     }
  
-    .humanoid-info ul {
+    .real-info ul {
         list-style-type: disc;
         margin-left: 20px;
         color: #000;
@@ -120,7 +120,7 @@
         margin-top: 20px;
     }
  
-    #humanoidImage {
+    #realImage {
         max-width: 90%;
         height: auto;
         display: block;
@@ -390,11 +390,11 @@
     color: #eee;
 }
  
-.dark-mode .humanoid-info ul li {
+.dark-mode .real-info ul li {
     color: #eee; /* White text for list items in dark mode */
 }
  
-.dark-mode .humanoid-info strong {
+.dark-mode .real-info strong {
     color: #fff; /* White text for strong elements in dark mode */
 }
  
@@ -466,26 +466,26 @@
 </head>
 <body class="bg-white;">
     <header style="background-color: black; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
-        <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Humanoid DIY Robot</h1>
+        <h1 style="font-weight: bold; font-size: 32px; margin: 0;color: white">Real Time Clock - DIY project</h1>
     </header>
    
     <div class="circuit-bg">
         <div class="container">
        
-        <!-- Humanoid Robot Introduction Section -->
+        <!-- Real Time Clock Introduction Section -->
         <section class="content-box">
-            <h2 class="section-title">Build your own DIY Humanoid Robot</h2>
-            <div class="humanoid-info">
-                <img src="{% static 'images/Humanoid Robot.png' %}" alt="Humanoid Robot">
+            <h2 class="section-title">Build Your Own DIY Real Time Clock</h2>
+            <div class="real-info">
+                <img src="{% static 'images/product7.png' %}" alt="Otto Robot">
                 <ul style="color: black; padding-left: 20px;">
-                    <li>🤖  <strong>Understands Your Voice:</strong> The robot listens when you talk! It can turn your words into text and follow commands using smart language technology.</li>
-                    <li>🤖  <strong>Gets Smarter Over Time:</strong> It has a special library of voice commands, and you can even teach it new ones to make it do more cool things!</li>
-                    <li>🤖  <strong>Hears You Clearly:</strong> With super ears (microphones), it can hear your voice even when there’s noise around, so it always knows what you’re saying.</li>
-                    <li>🤖 <strong>Moves Like a Real Robot:</strong> It can wave, nod, turn, and move its arms, head, and body smoothly—just like a human!</li>
-                    <li>🤖  <strong>Looks Like a Human:</strong> Designed with movable arms and legs, so it can walk, turn, and perform fun actions just like a little robot friend.</li>
-                    <li>🤖  <strong>Shows Feelings:</strong> It has a face that can show emotions, making it feel more like a real buddy when you interact with it!</li>
-                    <li>🤖  <strong>Great for Learning:</strong> Perfect for kids, beginners, and students to explore STEM (Science, Technology, Engineering, and Math) in a fun way!</li>
-                </ul>
+                    <li>⏰ <strong>Build It Yourself:</strong> Follow a step-by-step guide to assemble your own real-time clock from scratch.</li>
+                    <li>⏰ <strong>Customizable Design:</strong> Choose from different displays, casings, and modules to create a unique clock tailored to your needs.</li>
+                    <li>⏰ <strong>Easy to Program:</strong> Compatible with Arduino, ESP8266, ESP32, and other microcontrollers, making coding simple and accessible.</li>
+                    <li>⏰ <strong>Real-Time Precision:</strong> Uses an RTC module with battery backup to maintain accurate time even during power outages.</li>
+                    <li>⏰ <strong>Syncs Automatically:</strong> Connects to NTP servers, GPS, or other external sources to update and correct time automatically.</li>
+                    <li>⏰ <strong>Wireless Connectivity:</strong> Supports Wi-Fi and Bluetooth for remote monitoring, control, and integration with smart home systems.</li>
+                    <li>⏰ <strong>Great for Learning:</strong> A hands-on project for students, makers, and hobbyists to explore IoT, embedded systems, and electronics.</li>
+                </ul>         
                 </div>
                 <div class="tab-container">
    
@@ -535,7 +535,7 @@
  
 <div class="container">
      <section class="content-box">
-        <h2 class="section-title">Humanoid Robot's Video Lecture</h2>
+        <h2 class="section-title">Real Time Clock Video Lecture</h2>
         <div class="video-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:v:/g/personal/gaurav_waghmare_phntechnology_com/ERFq4DCz0zlDvwnOa7wRDlkBlEgPzD4kjx5U3zO10w_vjw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3FKutZ" target="_blank">
                 <button class="video-view-button" style="text-align: left;">Click here</button>
@@ -546,8 +546,7 @@
     <section class="content-box">
         <h2 class="section-title">Comprehensive Guide</h2>
         <p>
-            This guide covers the step-by-step process to build, assemble, and program Humanoid Robot.
-            It includes schematics, 3D printing details, and coding instructions to bring your Humanoid Robot to life.
+            This guide covers the step-by-step process to build, assemble, and program your real-time clock IoT project. It includes circuit schematics, hardware setup details, and coding instructions to bring your clock to life.
         </p>
         <div class="ppt-button-container">
             <a href="https://phntechnologypl-my.sharepoint.com/:p:/g/personal/gaurav_waghmare_phntechnology_com/EdF6E6dHWwZNom0BJo7wNusBV6mrgyB4b-nxTwWMaxoe-A?e=gcbm8z" target="_blank">
@@ -557,7 +556,7 @@
     </section>
  
     <section class="content-box">
-        <h2 class="section-title">Humanoid Robot Report</h2>
+        <h2 class="section-title">Real Time Clock Report</h2>
         <div class="pdf-button-container">
             <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
                 <button class="pdf-view-button" style="text-align: left;">Click here</button>
@@ -566,9 +565,9 @@
     </section>
  
     <section class="content-box">
-        <h2 class="section-title">Humanoid Robot Interfacing Diagram</h2>
+        <h2 class="section-title">Real Time Clock Interfacing Diagram</h2>
         <div class="image-container">
-            <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="humanoidImage"
+            <img src="{% static 'images/OTTO Interfacing Diagram.jpeg' %}" id="realImage"
                  style="max-width: 100%; height: auto; align-items: center;">
         </div>
     </section>
@@ -579,7 +578,7 @@
         <!-- 3D Model Viewer Section -->
 <section class="content-box">
     <h2 class="section-title">3D Model Viewer</h2>
-    <p>Explore the 3D printable components of Humanoid Robot.</p>
+    <p>Explore the 3D printable components of Real Time Clock.</p>
     <div class="model-buttons">
         <a href="https://drive.google.com/file/d/1bVrAiP7W5oJ2_WA8KgbkxzhxjEunxegG/view?usp=drive_link" target="_blank">
             <button class="view-button">Click here to view Head</button>
@@ -601,7 +600,7 @@
  
 <!-- Mini E-Commerce Store Section -->
 <section class="content-box">
-    <h2 class="section-title">Humanoid Robot Components Store</h2>
+    <h2 class="section-title">Otto Robot Components Store</h2>
  
     <div class="store-container">
         <table>
@@ -739,7 +738,6 @@
         Proceed to Buy  🚀
     </a>
 </section>
-
  
 <!-- JavaScript to Update Button Text Dynamically -->
 <script>
@@ -794,10 +792,10 @@
  
             <div class="project">
                 <div class="project-img-container" onclick="redirectTo('humanoid-robot')">
-                    <img src="{% static 'images/Otto.jpg' %}" alt="Humanoid Robot">
+                    <img src="{% static 'images/Humanoid Robot.jpg' %}" alt="Humanoid Robot">
                    
                 </div>
-                <p class="project-title">Otto-bot</p>
+                <p class="project-title">Humanoid Robot</p>
             </div>
  
             <div class="project">

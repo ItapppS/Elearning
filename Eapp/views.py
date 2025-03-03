@@ -57,6 +57,9 @@ def navbarr(request):
 def doghead(request):
     return render(request, 'doghead.html')
 
+def realtimeclock(request):
+    return render(request, 'Realtimeclock.html')
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
