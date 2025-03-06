@@ -175,113 +175,61 @@
 
 <!-- Featured Products -->
 <section class="featured-products">
-  <h2 style = "font-size: xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">&nbsp;&nbsp;&nbsp;Featured Guides</h2>
-  <div class="product-grid">
-    <div class="product-card">
-        <a href="/otto">
-            <img src="{% static 'images/product1.jpg' %}" alt="Ott Robot">
-        </a>
-        <h3>Ottobot</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/bionic_hand">
-            <img src="{% static 'images/product2.jpg' %}" alt="Bionic Hand">
-        </a>
-        <h3>Bionic Hand</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/solar_tracking">
-            <img src="{% static 'images/product3.jpg' %}" alt="Solar Tracking">
-        </a>
-        <h3>Solar Tracking</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/asterbot">
-            <img src="{% static 'images/product4.jpg' %}" alt="Asterbot">
-        </a>
-        <h3>Asterbot</h3>
-    </div>
-</div>
-
-</section>
+    <h2 style = "font-size: xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">&nbsp;&nbsp;&nbsp;Featured Guides</h2>
+    <div class="product-grid">
+      <div class="product-card">
+          <a href="/otto">
+              <img src="{% static 'images/product1.jpg' %}" alt="Otto Robot">
+          </a>
+          <h3>Ottobot</h3>
+      </div>
+  
+      <div class="product-card">
+          <a href="/bionic_hand">
+              <img src="{% static 'images/product2.jpg' %}" alt="Bionic Hand">
+          </a>
+          <h3>Bionic Hand</h3>
+      </div>
+  
+      <div class="product-card">
+          <a href="/solar_tracking">
+              <img src="{% static 'images/product3.jpg' %}" alt="Solar Tracking">
+          </a>
+          <h3>Solar Tracking</h3>
+      </div>
+  
+      <div class="product-card">
+          <a href="/asterbot">
+              <img src="{% static 'images/productaster4.jpg' %}" alt="Asterbot">
+          </a>
+          <h3>Asterbot</h3>
+      </div>
+      <div class="product-card">
+          <a href="/DogHead">
+              <img src="{% static 'images/product5.png' %}" alt="Dog Head">
+          </a>
+          <h3>DogHead</h3>
+      </div>
+      <div class="product-card">
+          <a href="/Obstacle_Avoidance_Car">
+              <img src="{% static 'images/product6.png' %}" alt="Obstacle_Avoidance_Car">
+          </a>
+          <h3>Obstacle Avoidance Car</h3>
+      </div>
+      <div class="product-card">
+          <a href="/RealtimeClock">
+              <img src="{% static 'images/product7.png' %}" alt="Real Time Clock">
+          </a>
+          <h3>Real time Clock</h3>
+      </div>
+      <div class="product-card">
+          <a href="/HumanoidRobot">
+              <img src="{% static 'images/Humanoid Robot.png' %}" alt="Humanoid Robot">
+          </a>
+          <h3>Humanoid Robot</h3>
+      </div>
+  </div>
+  </section>
 {% endblock %}
 
 
-
-URLS   
-from django.contrib import admin
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.home, name='home'),
-    path('otto/', views.otto, name='otto'),
-    path('bionic-hand/', views.bionic_hand, name='bionic-hand'),
-    path('humanoid-robot/', views.humanoid_robot, name='humanoid-robot'),
-    path('home-automation/', views.home_automation, name='home-automation'),
-    path('solar-tracking/', views.solar_tracking, name='solar-tracking'),
-    path('obstraction-avoiding-car/', views.obstraction_avoiding_car, name='obstraction-avoiding-car'),
-    path('robotics/', views.robotics, name='robotics'),
-    path('profile/', views.profile, name='profile'),
-    path('cart/', views.cart, name='cart'),
-    path('base/', views.base, name='base'),
-    path('demo/', views.demo, name='demo'),
-    path('bionic_hand/', views.bionic_hand, name='bionic_hand'),
-    path('solar_tracking/', views.solar_tracking, name='solar_tracking'),
-    path('asterbot/', views.asterbot, name='asterbot'),
-]
-
-
-VIEWS  
-
-from django.shortcuts import render
-
-# Create your views here.
-
-def demo(request):
-    return render(request, 'demo.html')
-
-def robotics(request): 
-    return render(request, 'robotics.html')
-
-def about(request): 
-    return render(request, 'about.html')
-
-def otto(request): 
-    return render(request, 'otto.html')
-
-def bionic_hand(request):
-    return render(request, 'bionic_hand.html')
-
-def humanoid_robot(request):
-    return render(request, 'humanoid_robot.html')
-
-def home_automation(request):
-    return render(request, 'home_automation.html')
-
-def solar_tracking(request):
-    return render(request, 'solar_tracking.html')
-
-def obstraction_avoiding_car(request):
-    return render(request, 'obstraction_avoiding_car.html')
-
-def profile(request): 
-    return render(request, 'profile.html')
-
-def cart(request): 
-    return render(request, 'cart.html')
-
-def base(request): 
-    return render(request, 'base.html')
-
-def home(request):
-    return render(request, 'home.html')
-
-def bionic_hand(request):
-    return render(request, 'bionic_hand.html')
-
-def asterbot(request):
-    return render(request, 'asterbot.html')
