@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'Elearning.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'phn',  # Your database name
-        'USER': 'root',  # Your MySQL username
-        'PASSWORD': 'aiza@123',  # Your MySQL p
-        'HOST': 'localhost',  # The host where the MySQL server is running
-        'PORT': '3306',  # Default MySQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
