@@ -1,4 +1,4 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}Login{% endblock %}
 
@@ -6,25 +6,34 @@
 
 <div class="login-container">
     <h2 class="login-title">Login</h2>
-    <form class="login-form" id="loginForm" autocomplete="on">
-      <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required>
-      <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+
+    <!-- ✅ Messages for Errors or Success -->
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form class="login-form" id="loginForm" method="POST" autocomplete="on">
+      {% csrf_token %}  <!-- ✅ CSRF token required -->
+      <input type="text" id="username" name="username" placeholder="Enter username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
       <button type="submit" class="btn">Continue</button>
     </form>
+
     <p id="response" style="color: red; font-weight: bold;"></p>
-    
+
     <div class="divider">
       <span>or use</span>
     </div>
-    <div class="social-login">
-        <button class="social-btn google-btn" id="googleSignIn">
-            <img src="https://static.vecteezy.com/system/resources/previews/013/948/549/original/google-logo-on-transparent-white-background-free-vector.jpg" alt="Google Icon"> Sign in with Google
-          </button>
-      
-      <button class="social-btn apple-btn">
-        <img src="https://relogoai.com/_next/image?url=%2Frender-intro%2Frelogo%2Fgallery-3-original.jpg&w=1080&q=75"> Sign in with Apple
-      </button>
-    </div>
-    <p>Don't have an account? <a href="../Registration/Registration.html" style="color: blue; text-decoration: underline;">Register here</a></p>
+
+    <p>Don't have an account? 
+      <a href="{% url 'register' %}" style="color: blue; text-decoration: underline;">
+        Register here
+      </a>
+    </p>
+</div>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 from .models import PhnUser  # Import the model
@@ -54,6 +54,12 @@ def navbarr(request):
     return render(request, 'navbarr.html')
 
 
+def doghead(request):
+    return render(request, 'doghead.html')
+
+def realtimeclock(request):
+    return render(request, 'Realtimeclock.html')
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
@@ -61,91 +67,162 @@ from .models import PhnUser
 
 def register(request):
     if request.method == "POST":
-        first_name = request.POST.get('first_name', '').strip()
-        last_name = request.POST.get('last_name', '').strip()
-        username = request.POST.get('username', '').strip()
-        email = request.POST.get('email', '').strip()
-        password = request.POST.get('password', '').strip()
-        confirm_password = request.POST.get('confirm_password', '').strip()
-        age = request.POST.get('age', '').strip()
-        gender = request.POST.get('gender', '').strip()
-        address = request.POST.get('address', '').strip()
-        phone = request.POST.get('phone', '').strip()
-
-        # ✅ Check for empty fields
-        if not all([first_name, last_name, username, email, password, confirm_password, age, gender, address, phone]):
+        user_data = {
+            "first_name": request.POST.get("first_name", "").strip(),
+            "last_name": request.POST.get("last_name", "").strip(),
+            "username": request.POST.get("username", "").strip(),
+            "email": request.POST.get("email", "").strip(),
+            "password": request.POST.get("password", "").strip(),
+            "confirm_password": request.POST.get("confirm_password", "").strip(),
+            "age": request.POST.get("age", "").strip(),
+            "address": request.POST.get("address", "").strip(),
+           "mobile_no": request.POST.get("mobile_no", "").strip(),
+ 
+        }
+ 
+        print("Received Data:", user_data)  # Debugging
+ 
+        if not all(user_data.values()):
             messages.error(request, "All fields are required.")
-            return redirect('register')
-
-        # ✅ Validate email format
-        if '@' not in email or '.' not in email:
+            return redirect("register")
+ 
+        if "@" not in user_data["email"] or "." not in user_data["email"]:
             messages.error(request, "Invalid email format.")
-            return redirect('register')
-
-        # ✅ Check password match
-        if password != confirm_password:
+            return redirect("register")
+ 
+        if user_data["password"] != user_data["confirm_password"]:
             messages.error(request, "Passwords do not match!")
-            return redirect('register')
-
-        # ✅ Check if email already exists
-        if PhnUser.objects.filter(gmail=email).exists():
+            return redirect("register")
+ 
+        if PhnUser.objects.filter(email=user_data["email"]).exists():
             messages.error(request, "Email already registered!")
-            return redirect('register')
-
-        # ✅ Check if username already exists
-        if PhnUser.objects.filter(username=username).exists():
+            return redirect("register")
+ 
+        if PhnUser.objects.filter(username=user_data["username"]).exists():
             messages.error(request, "Username already taken!")
-            return redirect('register')
-
-        # ✅ Check if mobile number already exists
-        if PhnUser.objects.filter(mobile_no=phone).exists():
+            return redirect("register")
+ 
+        if PhnUser.objects.filter(mobile_no=user_data["mobile_no"]).exists():
             messages.error(request, "Mobile number already registered!")
-            return redirect('register')
-
-        # ✅ Convert age to integer
+            return redirect("register")
+ 
         try:
-            age = int(age)
-            if age < 10 or age > 100:
+            user_data["age"] = int(user_data["age"])
+            if not (10 <= user_data["age"] <= 100):
                 messages.error(request, "Age must be between 10 and 100.")
-                return redirect('register')
+                return redirect("register")
         except ValueError:
             messages.error(request, "Age must be a valid number.")
-            return redirect('register')
-
-        # ✅ Hash the password before saving
-        hashed_password = make_password(password)
-
-        # ✅ Save user data
+            return redirect("register")
+ 
+        user_data["password"] = make_password(user_data["password"])
+ 
         try:
             user = PhnUser(
-                first_name=first_name,
-                last_name=last_name,
-                username=username,
-                gmail=email,
-                password=hashed_password,
-                age=age,
-                gender=gender,
-                address=address,
-                mobile_no=phone
+                first_name=user_data["first_name"],
+                last_name=user_data["last_name"],
+                username=user_data["username"],
+                email=user_data["email"],
+                password=user_data["password"],
+                age=user_data["age"],
+                address=user_data["address"],
+                mobile_no=user_data["mobile_no"],
             )
             user.save()
+ 
             messages.success(request, "Registration successful! You can now log in.")
-            return redirect('home')
+            return redirect("verify_email")
         except Exception as e:
             messages.error(request, f"An error occurred: {str(e)}")
-            return redirect('register')
+            return redirect("register")
+ 
+    return render(request, "register.html")
 
-    return render(request, 'register.html')
+
+
 
 
 def doghead(request):
     return render(request, 'dog.html')
 
 
+from django.contrib.auth.hashers import check_password
+
 def login(request):
-    return render(request, 'login.html')
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
 
-def logout_view(request):
-    messages.success(request, 'Logged out successfully!')
-    return redirect('login')  # Redirect back to login page
+        try:
+            user = PhnUser.objects.get(username=username)  # Sirf username check kar
 
+            # Password hash check karne ke liye `check_password()` use kar
+            if check_password(password, user.password):
+                request.session["user_id"] = user.username  # Session set kar diya
+                messages.success(request, "Login Successful!")
+                return redirect("home")  # Yahan 'home' page ka naam hai, tu change kar sakta hai
+            else:
+                messages.error(request, "Invalid Credentials")
+        except PhnUser.DoesNotExist:
+            messages.error(request, "Invalid Credentials")
+
+    return render(request, "login.html")  # Login page render karna
+
+
+def logout(request):
+    request.session.flush()  # Session delete karna
+    messages.success(request, "Logged out successfully!")
+    return redirect("login")  # Redirect to login page
+
+
+import requests
+
+def verify_email(request):
+    if request.method == "POST":
+        email = request.POST.get("email").strip()
+
+        # ✅ Check if email exists in the database
+        if PhnUser.objects.filter(email=email).exists():
+            messages.success(request, "Email Verified Successfully!")
+
+            # ✅ Step 1: Web3Forms API request
+            web3forms_url = "https://api.web3forms.com/submit"
+            data = {
+                "access_key": "4eb3e0df-598e-49e8-84bf-efe9c73fa04d",
+                "email": email,
+                "subject": "Email Verified",
+                "message": f"The email {email} has been verified successfully!"
+            }
+
+            try:
+                response = requests.post(web3forms_url, data=data, timeout=10)
+                response.raise_for_status()
+            except requests.RequestException as e:
+                messages.error(request, f"Email verification failed: {str(e)}")
+                return redirect("verify_email")
+
+            # ✅ Step 2: Redirect to login page after successful verification
+            return redirect("login")  
+        else:
+            messages.error(request, "Email not found. Please register first.")
+            return redirect("verify_email")
+
+    return render(request, "verification.html")
+
+
+# def NA(request):
+#     return render(request, 'NA.html')
+
+from .models import TechnologyDomain
+
+def NA(request):
+    domains = TechnologyDomain.objects.all()
+    return render(request, 'NA.html', {'domains': domains})
+
+def technology_detail(request, slug):
+    domain = get_object_or_404(TechnologyDomain, slug=slug)
+    return render(request, 'technology_detail.html', {'domain': domain})
+
+# def technology_detail(request, slug):
+#     domain = get_object_or_404(TechnologyDomain, slug=slug)
+#     return render(request, 'technology_detail.html', {'domain': domain})
