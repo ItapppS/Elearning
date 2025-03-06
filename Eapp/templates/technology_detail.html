@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ domain.title }}{% endblock %}
+
+{% block css %}
+<style>
+    .title {
+        background-color: #F0F8FF;
+        padding: 10px;
+        margin: 20px auto;
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        justify-content: center;
+    }
+    .grid a {
+        background-color: #F0F8FF;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #2C3E50;
+        border: 2px solid #2C3E50;
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    .grid a:hover {
+        transform: scale(1.05);
+    }
+    .grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="title">{{ domain.title }}</div>
+
+<div class="container">
+    <div class="main-content">
+        <div class="grid">
+            {% for project in domain.projects.all %}
+                <a href="#" class="project-hover">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <span>{{ project.title }}</span>
+                </a>
+            {% empty %}
+                <p>No projects available for this domain.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

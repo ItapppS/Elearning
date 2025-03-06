@@ -107,57 +107,27 @@
 </section>
   <!-- Technology Domains-->
   <section class="categories" id="categories">
-    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Technology Domains</h2>
+    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
+        Technology Domains
+    </h2>
     <div class="slider-wrapper">
         <button class="prev-btn">&#10094;</button>
         <div class="slider">
             <div class="slide">
+                {% for domain in domains %}
                 <div class="category-card">
-                    <h3>Robotics</h3>
-                    <img src="{% static 'images/Robotics.png' %}" alt="Electronics">
-                    <p>Robotics projects involve creating robots with sensors, actuators, and controllers.</p>
+                    <a href="{% url 'technology_detail' domain.slug %}">  <!-- Click hone pe detail page open hoga -->
+                        <h3>{{ domain.title }}</h3>
+                        <img src="{{ domain.image.url }}" alt="{{ domain.title }}">
+                        <p>{{ domain.description }}</p>
+                    </a>
                 </div>
-                <div class="category-card">
-                    <h3>Biotech</h3>
-                    <img src="{% static 'images/health.png' %}" alt="Health">
-                    <p>Biotechnology applies biological systems to develop innovations in health and industry.</p>
-                </div>
-                <div class="category-card">
-                    <h3>Home Automation</h3>
-                    <img src="{% static 'images/home_auto.png' %}" alt="Home">
-                    <p>Home automation projects create systems to control lighting, temperature, and security.</p>
-                </div>
-                <div class="category-card">
-                    <h3>Drones</h3>
-                    <img src="{% static 'images/drones.png' %}" alt="Drones">
-                    <p>Drone projects involve designing UAVs for surveillance, delivery, or mapping.</p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="category-card">
-                    <h3>IoT</h3>
-                    <img src="{% static 'images/iot.png' %}" alt="IoT">
-                    <p>IoT projects involve connecting devices to the internet for automation and monitoring.</p>
-                </div>
-                <div class="category-card">
-                    <h3>AI & ML</h3>
-                    <img src="{% static 'images/ai_ml.png' %}" alt="AI & ML">
-                    <p>AI & ML projects focus on developing intelligent systems using machine learning models.</p>
-                </div>
-                <div class="category-card">
-                    <h3>Embedded Systems</h3>
-                    <img src="{% static 'images/embedded.png' %}" alt="Embedded Systems">
-                    <p>Embedded systems projects involve programming microcontrollers for specific applications.</p>
-                </div>
-                <div class="category-card">
-                    <h3>Renewable Energy</h3>
-                    <img src="{% static 'images/Renewable.png' %}" alt="Renewable">
-                    <p>Renewable energy projects involve developing and implementing sustainable technologies that harness natural resources for power generation.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <button class="next-btn">&#10095;</button>
     </div>
+
     <script>
       window.onload = function() {
           let index = 0;
