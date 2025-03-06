@@ -41,6 +41,12 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='project_images/')
     domain = models.ForeignKey(TechnologyDomain, on_delete=models.CASCADE, related_name='projects')
+    slug = models.SlugField(unique=True, blank=True)  # Slug field add kiya
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)  # Slug auto-generate karega
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

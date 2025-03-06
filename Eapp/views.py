@@ -42,7 +42,8 @@ def base(request):
     return render(request, 'base.html')
 
 def home(request):
-    return render(request, 'home.html')
+    domains = TechnologyDomain.objects.all()
+    return render(request, 'home.html', {'domains': domains})
 
 def bionic_hand(request):
     return render(request, 'bionic_hand.html')
@@ -213,7 +214,7 @@ def verify_email(request):
 # def NA(request):
 #     return render(request, 'NA.html')
 
-from .models import TechnologyDomain
+from .models import TechnologyDomain, Project
 
 def NA(request):
     domains = TechnologyDomain.objects.all()
@@ -223,6 +224,7 @@ def technology_detail(request, slug):
     domain = get_object_or_404(TechnologyDomain, slug=slug)
     return render(request, 'technology_detail.html', {'domain': domain})
 
-# def technology_detail(request, slug):
-#     domain = get_object_or_404(TechnologyDomain, slug=slug)
-#     return render(request, 'technology_detail.html', {'domain': domain})
+
+def project_detail(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+    return render(request, 'project_detail.html', {'project': project})

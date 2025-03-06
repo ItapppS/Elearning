@@ -69,7 +69,7 @@
     <div class="main-content">
         <div class="grid">
             {% for project in domain.projects.all %}
-                <a href="#" class="project-hover">
+                <a href="{% url 'project_detail' project.slug %}" class="project-hover">
                     <img src="{{ project.image.url }}" alt="{{ project.title }}">
                     <span>{{ project.title }}</span>
                 </a>
