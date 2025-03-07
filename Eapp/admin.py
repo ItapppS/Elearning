@@ -1,12 +1,19 @@
 from django.contrib import admin
-from .models import TechnologyDomain, Project  # Project import kiya
+from .models import TechnologyDomain, SubDomain, Project
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'subdomain')  # domain ki jagah subdomain
+    list_filter = ('subdomain',)  # domain ki jagah subdomain
+    search_fields = ('title', 'subdomain__title')  # Subdomain ka title bhi searchable
 
 @admin.register(TechnologyDomain)
 class TechnologyDomainAdmin(admin.ModelAdmin):
     list_display = ('title', 'order')
-    ordering = ('order',)
+    search_fields = ('title',)
 
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'domain')  # Projects ke title aur domain dikhayenge
-    list_filter = ('domain',)  # Filter projects by domain
+@admin.register(SubDomain)
+class SubDomainAdmin(admin.ModelAdmin):
+    list_display = ('title', 'domain')
+    list_filter = ('domain',)
+    search_fields = ('title', 'domain__title')

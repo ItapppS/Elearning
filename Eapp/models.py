@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class PhnUser(models.Model):
     first_name = models.CharField(max_length=50)
@@ -13,44 +14,48 @@ class PhnUser(models.Model):
     def __str__(self):
         return self.username
 
-
-
-
-from django.utils.text import slugify
-
 class TechnologyDomain(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='domain_images/')
     description = models.TextField()
     order = models.PositiveIntegerField(default=0)
-    slug = models.SlugField(unique=True, blank=True)  # Slug field add kiya
+    slug = models.SlugField(unique=True, blank=True)
 
     class Meta:
         ordering = ['order']
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)  # Automatically slug generate karega
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
 
+class SubDomain(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='subdomain_images/', default=True)
+    domain = models.ForeignKey(TechnologyDomain, on_delete=models.CASCADE, related_name='subdomains')
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='project_images/')
-    domain = models.ForeignKey(TechnologyDomain, on_delete=models.CASCADE, related_name='projects')
-    slug = models.SlugField(unique=True, blank=True)  # Slug field add kiya
+    subdomain = models.ForeignKey(SubDomain, on_delete=models.CASCADE, related_name='projects')
+    slug = models.SlugField(unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)  # Slug auto-generate karega
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-    
-
-
-

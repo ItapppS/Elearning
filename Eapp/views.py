@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
-from .models import PhnUser  # Import the model
+from .models import PhnUser, SubDomain  # Import the model
 
 # Create your views here.
 
