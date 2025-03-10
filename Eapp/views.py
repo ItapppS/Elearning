@@ -228,3 +228,11 @@ def technology_detail(request, slug):
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
     return render(request, 'project_detail.html', {'project': project})
+
+
+def subdomain_detail(request, slug):
+    subdomain = get_object_or_404(SubDomain, slug=slug)
+    return render(request, 'subdomain_detail.html', {'subdomain': subdomain})
+
+
+

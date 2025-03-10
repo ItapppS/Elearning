@@ -9,6 +9,6 @@
 <body>
     <h1>{{ project.title }}</h1>
     <img src="{{ project.image.url }}" alt="{{ project.title }}" width="400">
-    <p><a href="{% url 'technology_detail' project.domain.slug %}">Back to {{ project.domain.title }}</a></p>
+    <p><a href="{% url 'subdomain_detail' project.subdomain.slug %}">Back to {{ project.subdomain.title }}</a></p>
 </body>
 </html>

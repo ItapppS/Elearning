@@ -26,6 +26,7 @@ urlpatterns = [
    path('verify_email/', views.verify_email, name='verify_email'),
    path('NA/', views.NA, name='NA'),
     path('technology/<slug:slug>/', views.technology_detail, name='technology_detail'),
+    path('subdomain/<slug:slug>/', views.subdomain_detail, name='subdomain_detail'),
     path('project/<slug:slug>/', views.project_detail, name='project_detail'),
    ]
 

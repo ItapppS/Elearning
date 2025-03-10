@@ -94,14 +94,14 @@
 <div class="container">
     <div class="main-content">
         <div class="grid">
-            {% for project in domain.projects.all %}
-                <a href="{% url 'project_detail' project.slug %}" class="project-hover">
-                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
-                    <span>{{ project.title }}</span>
-                </a>
-            {% empty %}
-                <p>No projects available for this domain.</p>
-            {% endfor %}
+            {% for subdomain in domain.subdomains.all %}
+            <a href="{% url 'subdomain_detail' subdomain.slug %}">
+                <img src="{{ subdomain.image.url }}" alt="{{ subdomain.title }}">
+                <span>{{ subdomain.title }}</span>
+            </a>
+        {% empty %}
+            <p>No subdomains available for this domain.</p>
+        {% endfor %}
         </div>
     </div>
 </div>
