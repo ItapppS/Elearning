@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 from .models import PhnUser, SubDomain  # Import the model
+from itertools import zip_longest
 
 # Create your views here.
 
@@ -41,9 +42,14 @@ def cart(request):
 def base(request): 
     return render(request, 'base.html')
 
+def chunked(iterable, size):
+    args = [iter(iterable)] * size
+    return list(zip_longest(*args, fillvalue=None))
+
 def home(request):
     domains = TechnologyDomain.objects.all()
-    return render(request, 'home.html', {'domains': domains})
+    grouped_domains = chunked(domains, 4)  # 4-4 ke groups me divide karna
+    return render(request, 'home.html', {'grouped_domains': grouped_domains})
 
 def bionic_hand(request):
     return render(request, 'bionic_hand.html')
@@ -227,7 +233,9 @@ def technology_detail(request, slug):
 
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
-    return render(request, 'project_detail.html', {'project': project})
+    # Introduction ko bullet points me convert karna
+    introduction_points = [point.strip() for point in project.introduction.split('.') if point.strip()]
+    return render(request, 'project_detail.html', {'project': project, 'introduction_points': introduction_points})
 
 
 def subdomain_detail(request, slug):

@@ -49,8 +49,18 @@ class SubDomain(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='project_images/')
-    subdomain = models.ForeignKey(SubDomain, on_delete=models.CASCADE, related_name='projects')
+    subdomain = models.ForeignKey(SubDomain, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
+
+     # Naye fields
+    introduction = models.TextField(blank=True, null=True)
+    video_link = models.URLField(blank=True, null=True)  # Video ki link
+    video_description = models.TextField(blank=True, null=True)  # Video ka description
+    guide_description = models.TextField(blank=True, null=True)  # Comprehensive guide ka description
+    guide_link = models.URLField(blank=True, null=True)  # Guide ki link
+    report_description = models.TextField(blank=True, null=True)  # Report ka description
+    report_link = models.URLField(blank=True, null=True)  # Report ki link
+    interface_diagram = models.ImageField(upload_to='interface_diagrams/', blank=True, null=True)  # Interface diagram image
 
     def save(self, *args, **kwargs):
         if not self.slug:
