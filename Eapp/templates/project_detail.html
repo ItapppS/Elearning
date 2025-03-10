@@ -1,14 +1,220 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ project.title }}</title>
-</head>
-<body>
-    <h1>{{ project.title }}</h1>
-    <img src="{{ project.image.url }}" alt="{{ project.title }}" width="400">
-    <p><a href="{% url 'subdomain_detail' project.subdomain.slug %}">Back to {{ project.subdomain.title }}</a></p>
-</body>
-</html>
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<style>
+   .project-header {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    background-clip: text;
+    -webkit-background-clip: text; /* Webkit browsers ke liye */
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    padding: 10px;
+    display: block; /* Ensures full width */
+    width: 100%; /* Full width taaki center align ho */
+}
+h1.project-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        margin-left: 100px;
+        padding-bottom: 35px;
+    }
+    .container h2{
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    .project-header {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .project-content {
+        width: 1043px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        text-align: left;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #f9f9f9;
+    }
+    .project-image img {
+        width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .project-intro {
+        flex: 1;
+    }
+    .project-intro ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    .video-section, .guide-section, .report-section, .diagram-section {
+        width: 1043px;
+        margin-top: 30px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+    .section a, .video-section a, .guide-section a, .report-section a, .diagram-section a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.section a:hover, .video-section a:hover, .guide-section a:hover, .report-section a:hover, .diagram-section a:hover {
+    background: linear-gradient(90deg, #0056b3, #003d80);
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+    .diagram-section img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ad-container {
+    position: absolute;
+    right: 20px;
+    top: 240px; /* Ad ko title ke neeche lane ke liye */
+    width: 300px; /* 🔥 Width ko increase kar diya */
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.sticky-ad {
+    position: fixed !important;
+    top: 240px !important;
+    right: -28px;
+    width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
+}
+
+.ad-placement {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
+}
+</style>
+<h1 class="project-header">{{ project.title }}</h1>
+
+<div class="container">
+    <div class="project-content">
+        <div class="project-image">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        </div>
+        <div class="project-intro">
+            <h2>Introduction</h2>
+            <ul>
+                {% for point in introduction_points %}
+                    {% if point.strip %}
+                        <li>{{ point.strip }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+<!-- Right Ad Placement -->
+<div class="ad-container">
+    <div class="ad-placement ad-right">Ad Placement</div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+let adContainer = document.querySelector(".ad-container");
+let footer = document.querySelector("footer");
+
+function updateAdPosition() {
+    let adHeight = adContainer.offsetHeight;
+    let footerTop = footer.getBoundingClientRect().top;
+    let windowHeight = window.innerHeight;
+
+    if (footerTop <= adHeight + 20) {
+        adContainer.classList.remove("sticky-ad");
+        adContainer.style.position = "absolute";
+        adContainer.style.top = (window.scrollY + footerTop - adHeight - 20) + "px";
+    } else {
+        adContainer.classList.add("sticky-ad");
+        adContainer.style.position = "fixed";
+        adContainer.style.top = "120px"; /* Ad ko title se neeche laane ke liye */
+    }
+}
+
+window.addEventListener("scroll", updateAdPosition);
+updateAdPosition(); // Initial position set karega
+});
+</script>
+    <div class="video-section">
+        <h2>Video</h2>
+        {% if project.video_link %}
+            <p>{{ project.video_description }}</p>
+            <a href="{{ project.video_link }}" target="_blank">Watch Video</a>
+        {% else %}
+            <p>No video available.</p>
+        {% endif %}
+    </div>
+
+    <div class="guide-section">
+        <h2>Comprehensive Guide</h2>
+        {% if project.guide_link %}
+            <p>{{ project.guide_description }}</p>
+            <a href="{{ project.guide_link }}" target="_blank">View Guide</a>
+        {% else %}
+            <p>No guide available.</p>
+        {% endif %}
+    </div>
+
+    <div class="report-section">
+        <h2>Report</h2>
+        {% if project.report_link %}
+            <p>{{ project.report_description }}</p>
+            <a href="{{ project.report_link }}" target="_blank">View Report</a>
+        {% else %}
+            <p>No report available.</p>
+        {% endif %}
+    </div>
+
+    <div class="diagram-section">
+        <h2>Interface Diagram</h2>
+        {% if project.interface_diagram %}
+            <img src="{{ project.interface_diagram.url }}" alt="Interface Diagram" width="600">
+        {% else %}
+            <p>No interface diagram available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

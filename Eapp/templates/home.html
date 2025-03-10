@@ -113,9 +113,10 @@
     <div class="slider-wrapper">
         <button class="prev-btn">&#10094;</button>
         <div class="slider">
-            {% for i in domains|slice:"::" %}
+            {% for group in grouped_domains %}
             <div class="slide">
-                {% for domain in domains|slice:i|slice:":4" %}
+                {% for domain in group %}
+                {% if domain %}
                 <div class="category-card">
                     <a href="{% url 'technology_detail' domain.slug %}">
                         <h3>{{ domain.title }}</h3>
@@ -123,54 +124,56 @@
                         <p>{{ domain.description }}</p>
                     </a>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
             {% endfor %}
         </div>
         <button class="next-btn">&#10095;</button>
     </div>
-
-    <script>
-        window.onload = function() {
-            let index = 0;
-            const slides = document.querySelectorAll(".slide");
-            const totalSlides = slides.length;
-            const slider = document.querySelector(".slider");
-            const nextBtn = document.querySelector(".next-btn");
-            const prevBtn = document.querySelector(".prev-btn");
-            let autoSlide = setInterval(nextSlide, 5000);
-
-            function nextSlide() {
-                index = (index + 1) % totalSlides;
-                updateSlide();
-            }
-
-            function prevSlide() {
-                index = (index - 1 + totalSlides) % totalSlides;
-                updateSlide();
-            }
-
-            function updateSlide() {
-                slider.style.transform = `translateX(${-index * 100}%)`;
-            }
-
-            nextBtn.addEventListener("click", () => {
-                clearInterval(autoSlide);
-                nextSlide();
-                autoSlide = setInterval(nextSlide, 5000);
-            });
-
-            prevBtn.addEventListener("click", () => {
-                clearInterval(autoSlide);
-                prevSlide();
-                autoSlide = setInterval(nextSlide, 5000);
-            });
-
-            slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
-            slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
-        };
-    </script>
 </section>
+
+<script>
+    window.onload = function() {
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+        const slider = document.querySelector(".slider");
+        const nextBtn = document.querySelector(".next-btn");
+        const prevBtn = document.querySelector(".prev-btn");
+        let autoSlide = setInterval(nextSlide, 5000);
+
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+
+        function updateSlide() {
+            slider.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+            clearInterval(autoSlide);
+            nextSlide();
+            autoSlide = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            clearInterval(autoSlide);
+            prevSlide();
+            autoSlide = setInterval(nextSlide, 5000);
+        });
+
+        slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+        slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
+    };
+</script>
+
 
 
 <!-- Featured Products -->
