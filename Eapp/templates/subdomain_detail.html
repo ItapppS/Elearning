@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ domain.title }}{% endblock %}
+
+{% block css %}
+    <style>
+       
+    .title {
+        background-color: black;
+        color: white;
+        padding: 12px 20px;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: fit-content;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        margin-left:300px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+    .grid a {
+        background-color: white;
+        width: 350px;
+        height: auto;
+        text-align: center;
+        text-decoration: none;
+        color: #2C3E50;
+        border-radius: 12px;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border: 2px solid transparent;
+    }
+    .grid a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        border: 2px solid #007BFF;
+    }
+    .grid img {
+        width: 100%;
+        height: 160px;
+        border-radius: 8px;
+        object-fit:contain;
+        transition: transform 0.3s ease-in-out;
+    }
+    .grid a:hover img {
+        transform: scale(1.05);
+    }
+    .grid span {
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .ad-container {
+    position: absolute;
+    right: 20px;
+    top: 240px; /* Ad ko title ke neeche lane ke liye */
+    width: 300px; /* 🔥 Width ko increase kar diya */
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    }
+
+    .sticky-ad {
+        position: fixed !important;
+        top: 240px !important;
+        right: -28px;
+        width: 300px; /* 🔥 Same width yahan bhi apply karna hoga */
+    }
+
+    .ad-placement {
+        position: sticky;
+        top: 80px;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
+    }
+
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="title">{{ subdomain.title }}</div>
+
+
+    <div class="container">
+        <div class="main-content">
+            <div class="grid">
+                {% for project in subdomain.projects.all %}
+                <a href="{% url 'project_detail' project.slug %}">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <span>{{ project.title }}</span>
+                </a>
+            {% empty %}
+                <p>No projects available for this subdomain.</p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="ad-container">
+        <div class="ad-placement ad-right">Ad Placement</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        let adContainer = document.querySelector(".ad-container");
+        let footer = document.querySelector("footer");
+        
+        function updateAdPosition() {
+            let adHeight = adContainer.offsetHeight;
+            let footerTop = footer.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
+        
+            if (footerTop <= adHeight + 20) {
+                adContainer.classList.remove("sticky-ad");
+                adContainer.style.position = "absolute";
+                adContainer.style.top = (window.scrollY + footerTop - adHeight - 20) + "px";
+            } else {
+                adContainer.classList.add("sticky-ad");
+                adContainer.style.position = "fixed";
+                adContainer.style.top = "120px"; /* Ad ko title se neeche laane ke liye */
+            }
+        }
+        
+        window.addEventListener("scroll", updateAdPosition);
+        updateAdPosition(); // Initial position set karega
+        });
+        </script>
+
+{% endblock %}
