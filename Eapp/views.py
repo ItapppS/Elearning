@@ -231,11 +231,29 @@ def technology_detail(request, slug):
     return render(request, 'technology_detail.html', {'domain': domain})
 
 
+# def project_detail(request, slug):
+#     project = get_object_or_404(Project, slug=slug)
+#     # Introduction ko bullet points me convert karna
+#     introduction_points = [point.strip() for point in project.introduction.split('.') if point.strip()]
+#     return render(request, 'project_detail.html', {'project': project, 'introduction_points': introduction_points})
+
+
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
-    # Introduction ko bullet points me convert karna
     introduction_points = [point.strip() for point in project.introduction.split('.') if point.strip()]
-    return render(request, 'project_detail.html', {'project': project, 'introduction_points': introduction_points})
+
+    # 🔥 Related projects filter => same domain ke projects dikhayenge
+    related_projects = Project.objects.filter(
+        subdomain__domain=project.subdomain.domain  # ✅ Same domain ke projects
+    ).exclude(id=project.id)[:5]  # ✅ Current project ko exclude karna hai
+
+    return render(request, 'project_detail.html', {
+        'project': project, 
+        'introduction_points': introduction_points, 
+        'related_projects': related_projects
+    })
+
+
 
 
 def subdomain_detail(request, slug):

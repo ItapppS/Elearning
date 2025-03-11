@@ -68,10 +68,11 @@ h1.project-header {
         flex: 1;
     }
     .project-intro ul {
-        list-style-type: disc;
-        padding-left: 20px;
+        /* list-style-type: disc; */
+        /* padding-left: 20px; */
+        padding-left: 0;
     }
-    .video-section, .guide-section, .report-section, .diagram-section {
+    .video-section, .guide-section, .report-section, .diagram-section, .related-projects {
         width: 1043px;
         margin-top: 30px;
         padding: 15px;
@@ -79,7 +80,7 @@ h1.project-header {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         background-color: #f9f9f9;
     }
-    .section a, .video-section a, .guide-section a, .report-section a, .diagram-section a {
+    .section a, .video-section a, .guide-section a, .report-section a, .diagram-section a{
     display: inline-block;
     margin-top: 10px;
     padding: 12px 20px;
@@ -129,6 +130,70 @@ h1.project-header {
     overflow-y: auto;
     width: 100%; /* 🔥 Yeh ensure karega ki ad-placement full width le */
 }
+
+
+.related-projects {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.related-projects h2 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.related-projects ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0;
+}
+
+.related-projects li {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    width: 180px;  /* Fixed width for uniform size */
+    text-align: center;
+}
+
+.related-projects li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.related-projects img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.related-projects img:hover {
+    transform: scale(1.04);
+}
+
+.related-projects a {
+    display: block;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 6px;
+    transition: color 0.3s ease-in-out;
+}
+
+.related-projects a:hover {
+    color: #0056b3;
+}
 </style>
 <h1 class="project-header">{{ project.title }}</h1>
 
@@ -142,43 +207,44 @@ h1.project-header {
             <ul>
                 {% for point in introduction_points %}
                     {% if point.strip %}
-                        <li>{{ point.strip }}</li>
+                        <li>🤖 {{ point.strip }}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
         </div>
+        
     </div>
 <!-- Right Ad Placement -->
-<div class="ad-container">
-    <div class="ad-placement ad-right">Ad Placement</div>
-</div>
+    <div class="ad-container">
+        <div class="ad-placement ad-right">Ad Placement</div>
+    </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-let adContainer = document.querySelector(".ad-container");
-let footer = document.querySelector("footer");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        let adContainer = document.querySelector(".ad-container");
+        let footer = document.querySelector("footer");
 
-function updateAdPosition() {
-    let adHeight = adContainer.offsetHeight;
-    let footerTop = footer.getBoundingClientRect().top;
-    let windowHeight = window.innerHeight;
+        function updateAdPosition() {
+            let adHeight = adContainer.offsetHeight;
+            let footerTop = footer.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
 
-    if (footerTop <= adHeight + 20) {
-        adContainer.classList.remove("sticky-ad");
-        adContainer.style.position = "absolute";
-        adContainer.style.top = (window.scrollY + footerTop - adHeight - 20) + "px";
-    } else {
-        adContainer.classList.add("sticky-ad");
-        adContainer.style.position = "fixed";
-        adContainer.style.top = "120px"; /* Ad ko title se neeche laane ke liye */
-    }
-}
+            if (footerTop <= adHeight + 20) {
+                adContainer.classList.remove("sticky-ad");
+                adContainer.style.position = "absolute";
+                adContainer.style.top = (window.scrollY + footerTop - adHeight - 20) + "px";
+            } else {
+                adContainer.classList.add("sticky-ad");
+                adContainer.style.position = "fixed";
+                adContainer.style.top = "120px"; /* Ad ko title se neeche laane ke liye */
+            }
+        }
 
-window.addEventListener("scroll", updateAdPosition);
-updateAdPosition(); // Initial position set karega
-});
-</script>
+        window.addEventListener("scroll", updateAdPosition);
+        updateAdPosition(); // Initial position set karega
+        });
+    </script>
     <div class="video-section">
         <h2>Video</h2>
         {% if project.video_link %}
@@ -217,5 +283,26 @@ updateAdPosition(); // Initial position set karega
             <p>No interface diagram available.</p>
         {% endif %}
     </div>
+
+    
+    <div class="related-projects">
+        <h2>Related Projects</h2>
+        {% if related_projects %}
+            <ul>
+                {% for related_project in related_projects %}
+                    <li>
+                        <a href="{% url 'project_detail' slug=related_project.slug %}">
+                            <img src="{{ related_project.image.url }}" alt="{{ related_project.title }}">
+                            <span>{{ related_project.title }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No related projects available.</p>
+        {% endif %}
+    </div>
+    
+
 </div>
 {% endblock %}
