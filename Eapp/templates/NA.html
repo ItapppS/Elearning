@@ -107,15 +107,16 @@
 </section>
   <!-- Technology Domains-->
   <section class="categories" id="categories">
-    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
+    <h2 style="font-size: xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
         Technology Domains
     </h2>
+
     <div class="slider-wrapper">
         <button class="prev-btn">&#10094;</button>
         <div class="slider">
-            {% for i in domains|slice:"::" %}
+            {% for i in domains|slice:"0::4" %}
             <div class="slide">
-                {% for domain in domains|slice:i|slice:":4" %}
+                {% for domain in domains|slice:"{{ forloop.counter0|add:0 }}:{{ forloop.counter0|add:4 }}" %}
                 <div class="category-card">
                     <a href="{% url 'technology_detail' domain.slug %}">
                         <h3>{{ domain.title }}</h3>
@@ -129,48 +130,52 @@
         </div>
         <button class="next-btn">&#10095;</button>
     </div>
-
     <script>
-        window.onload = function() {
-            let index = 0;
-            const slides = document.querySelectorAll(".slide");
-            const totalSlides = slides.length;
-            const slider = document.querySelector(".slider");
-            const nextBtn = document.querySelector(".next-btn");
-            const prevBtn = document.querySelector(".prev-btn");
-            let autoSlide = setInterval(nextSlide, 5000);
+document.addEventListener("DOMContentLoaded", function () {
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const slider = document.querySelector(".slider");
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
 
-            function nextSlide() {
-                index = (index + 1) % totalSlides;
-                updateSlide();
-            }
+    if (totalSlides <= 1) return; // Prevent sliding issues if only one slide exists
 
-            function prevSlide() {
-                index = (index - 1 + totalSlides) % totalSlides;
-                updateSlide();
-            }
+    let autoSlide = setInterval(nextSlide, 5000);
 
-            function updateSlide() {
-                slider.style.transform = `translateX(${-index * 100}%)`;
-            }
+    function nextSlide() {
+        index = (index + 1) % totalSlides;
+        updateSlide();
+    }
 
-            nextBtn.addEventListener("click", () => {
-                clearInterval(autoSlide);
-                nextSlide();
-                autoSlide = setInterval(nextSlide, 5000);
-            });
+    function prevSlide() {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    }
 
-            prevBtn.addEventListener("click", () => {
-                clearInterval(autoSlide);
-                prevSlide();
-                autoSlide = setInterval(nextSlide, 5000);
-            });
+    function updateSlide() {
+        slider.style.transform = `translateX(${-index * 100}%)`;
+    }
 
-            slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
-            slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
-        };
+    nextBtn.addEventListener("click", () => {
+        clearInterval(autoSlide);
+        nextSlide();
+        autoSlide = setInterval(nextSlide, 5000);
+    });
+
+    prevBtn.addEventListener("click", () => {
+        clearInterval(autoSlide);
+        prevSlide();
+        autoSlide = setInterval(nextSlide, 5000);
+    });
+
+    slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    slider.addEventListener("mouseleave", () => autoSlide = setInterval(nextSlide, 5000));
+});
+
     </script>
 </section>
+
 
 
 <!-- Featured Products -->
