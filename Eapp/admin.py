@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TechnologyDomain, SubDomain, Project
+from .models import TechnologyDomain, SubDomain, Project, Component
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -17,3 +17,9 @@ class SubDomainAdmin(admin.ModelAdmin):
     list_display = ('title', 'domain')
     list_filter = ('domain',)
     search_fields = ('title', 'domain__title')
+
+
+@admin.register(Component)
+class ComponentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'recommended', 'price')
+    search_fields = ('name',)
