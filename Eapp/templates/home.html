@@ -2,71 +2,39 @@
 {% load static %}
 
 {% block content %}
+<div class="main-container">
   <!-- Hero Section Wrapper -->
   <div class="hero-wrapper">
-    
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Projects</h2>
-        <ul>
-          <li><a href="/bionic_hand">Bionic Hand</a></li>
-          <li><a href="/asterbot">Aster Robot</a></li>
-          <li><a href="/otto">Otto Robot</a></li>
-          <li><a href="/home_automation">Home Automation</a></li>
-          <li><a href="/doghead">Dog Head</a></li>
-          <li><a href="/humanoid_robot">Humonoid Robot</a></li>
-          <li><a href="/obstraction_avoiding_car">Obstacle Avoidance Car</a></li>
-          <li><a href="/realtimeclock">Real Time Clock</a></li>
-        </ul>
-      </div>
-
-    <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="{% static 'images/phnhero1.png' %}" alt="Robotics Kit 1">
-        <!-- <div class="shadow-box"></div>
-        <div class="overlay">
-          <h2>Seamless Connectivity, Anytime, Anywhere</h2>
-          <p>Extend your reach with our selection of</p>
-          <p>long-range wireless solutions</p>
-        </div> -->
-      </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/hero2.webp' %}" alt="Robotics Kit 2">
-        <!--<div class="overlay">
-          <h2>Its all in the timing</h2>
-          <p>Experience the future!</p>
+    <section class="hero-section">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="{% static 'images/phnhero1.png' %}" alt="Robotics Kit 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/hero2.webp' %}" alt="Robotics Kit 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/hero3.webp' %}" alt="Robotics Kit 3">
+                    <div class="shadow-box"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
-      -->
-      </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/hero3.webp' %}" alt="Robotics Kit 3">
-        <div class="shadow-box"></div>
-        <!--<div class="overlay">
-          <h2>DIY Robot Kit</h2>
-          <p>Build & code your robot!</p>
-        </div>-->
-      </div>
-    </div>
-    <!-- Pagination Bullets -->
-    <div class="swiper-pagination"></div>
+    </section>
   </div>
-</section>
-  </div>
-  <!-- Kit, Services and content cards-->
+
+  <!-- Kit, Services and content cards -->
   <section class="kit-section">
     <div class="kit-container">
         <div class="kit-card">
             <div class="kit-text">
                 <h3>KITS</h3>
                 <ul>
-                    <li><a href = "#">Starter Kits</a></li>
-                    <li><a href = "#">Development Boards</a></li>
-                    <li><a href = "#">Sensor Modules</a></li>
-                    <li><a href = "#">DIY Projects</a></li>
+                    <li><a href="#">Starter Kits</a></li>
+                    <li><a href="#">Development Boards</a></li>
+                    <li><a href="#">Sensor Modules</a></li>
+                    <li><a href="#">DIY Projects</a></li>
                 </ul>
             </div>
             <div class="kit-image">
@@ -78,10 +46,10 @@
             <div class="kit-text">
                 <h3>SERVICES</h3>
                 <ul>
-                    <li><a href = "#">Custom PCB Design</a></li>
-                    <li><a href = "#">Prototyping Kits</a></li>
-                    <li><a href = "#">Consulting Services</a></li>
-                    <li><a href = "#">Technical Support</a></li>
+                    <li><a href="#">Custom PCB Design</a></li>
+                    <li><a href="#">Prototyping Kits</a></li>
+                    <li><a href="#">Consulting Services</a></li>
+                    <li><a href="#">Technical Support</a></li>
                 </ul>
             </div>
             <div class="kit-image">
@@ -93,10 +61,10 @@
             <div class="kit-text">
                 <h3>CONTENT</h3>
                 <ul>
-                    <li><a href = "#">Documentation</a></li>
-                    <li><a href = "#">Video Tutorials</a></li>
-                    <li><a href = "#">Tech Articles</a></li>
-                    <li><a href = "#">Community Forum</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Video Tutorials</a></li>
+                    <li><a href="#">Tech Articles</a></li>
+                    <li><a href="#">Community Forum</a></li>
                 </ul>
             </div>
             <div class="kit-image">
@@ -104,12 +72,11 @@
             </div>
         </div>
     </div>
-</section>
-  <!-- Technology Domains-->
+  </section>
+
+  <!-- Technology Domains -->
   <section class="categories" id="categories">
-    <h2 style="font-size: xx-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
-        Technology Domains
-    </h2>
+    <h2>Technology Domains</h2>
     <div class="slider-wrapper">
         <button class="prev-btn">&#10094;</button>
         <div class="slider">
@@ -131,7 +98,66 @@
         </div>
         <button class="next-btn">&#10095;</button>
     </div>
-</section>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h2>Featured Guides</h2>
+    <div class="product-grid">
+      <div class="product-card">
+          <a href="/otto">
+              <img src="{% static 'images/product1.jpg' %}" alt="Otto Robot">
+          </a>
+          <h3>Ottobot</h3>
+      </div>
+
+      <div class="product-card">
+          <a href="/bionic_hand">
+              <img src="{% static 'images/product2.jpg' %}" alt="Bionic Hand">
+          </a>
+          <h3>Bionic Hand</h3>
+      </div>
+
+      <div class="product-card">
+          <a href="/solar_tracking">
+              <img src="{% static 'images/product3.jpg' %}" alt="Solar Tracking">
+          </a>
+          <h3>Solar Tracking</h3>
+      </div>
+
+      <div class="product-card">
+          <a href="/asterbot">
+              <img src="{% static 'images/productaster4.jpg' %}" alt="Asterbot">
+          </a>
+          <h3>Asterbot</h3>
+      </div>
+      <div class="product-card">
+          <a href="/DogHead">
+              <img src="{% static 'images/product5.png' %}" alt="Dog Head">
+          </a>
+          <h3>DogHead</h3>
+      </div>
+      <div class="product-card">
+          <a href="/Obstacle_Avoidance_Car">
+              <img src="{% static 'images/product6.png' %}" alt="Obstacle_Avoidance_Car">
+          </a>
+          <h3>Obstacle Avoidance Car</h3>
+      </div>
+      <div class="product-card">
+          <a href="/RealtimeClock">
+              <img src="{% static 'images/product7.png' %}" alt="Real Time Clock">
+          </a>
+          <h3>Real time Clock</h3>
+      </div>
+      <div class="product-card">
+          <a href="/HumanoidRobot">
+              <img src="{% static 'images/Humanoid Robot.png' %}" alt="Humanoid Robot">
+          </a>
+          <h3>Humanoid Robot</h3>
+      </div>
+    </div>
+  </section>
+</div>
 
 <script>
     window.onload = function() {
@@ -174,63 +200,4 @@
     };
 </script>
 
-
-
-<!-- Featured Products -->
-<section class="featured-products">
-  <h2 style = "font-size: xx-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">&nbsp;&nbsp;&nbsp;Featured Guides</h2>
-  <div class="product-grid">
-    <div class="product-card">
-        <a href="/otto">
-            <img src="{% static 'images/product1.jpg' %}" alt="Otto Robot">
-        </a>
-        <h3>Ottobot</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/bionic_hand">
-            <img src="{% static 'images/product2.jpg' %}" alt="Bionic Hand">
-        </a>
-        <h3>Bionic Hand</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/solar_tracking">
-            <img src="{% static 'images/product3.jpg' %}" alt="Solar Tracking">
-        </a>
-        <h3>Solar Tracking</h3>
-    </div>
-
-    <div class="product-card">
-        <a href="/asterbot">
-            <img src="{% static 'images/productaster4.jpg' %}" alt="Asterbot">
-        </a>
-        <h3>Asterbot</h3>
-    </div>
-    <div class="product-card">
-        <a href="/DogHead">
-            <img src="{% static 'images/product5.png' %}" alt="Dog Head">
-        </a>
-        <h3>DogHead</h3>
-    </div>
-    <div class="product-card">
-        <a href="/Obstacle_Avoidance_Car">
-            <img src="{% static 'images/product6.png' %}" alt="Obstacle_Avoidance_Car">
-        </a>
-        <h3>Obstacle Avoidance Car</h3>
-    </div>
-    <div class="product-card">
-        <a href="/RealtimeClock">
-            <img src="{% static 'images/product7.png' %}" alt="Real Time Clock">
-        </a>
-        <h3>Real time Clock</h3>
-    </div>
-    <div class="product-card">
-        <a href="/HumanoidRobot">
-            <img src="{% static 'images/Humanoid Robot.png' %}" alt="Humanoid Robot">
-        </a>
-        <h3>Humanoid Robot</h3>
-    </div>
-</div>
-</section>
 {% endblock %}
