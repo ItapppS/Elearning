@@ -4,6 +4,12 @@
 {% block title %}{{ project.title }}{% endblock %}
 
 {% block content %}
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <style>
    .project-header {
     font-size: 32px;
@@ -76,6 +82,9 @@
         border-radius: 8px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         background-color: #f9f9f9;
+    }
+    .related-projects span{
+        color: black;
     }
     .section a, .video-section a, .guide-section a, .report-section a, .diagram-section a{
     display: inline-block;
@@ -192,6 +201,70 @@
 .related-projects a:hover {
     color: #0056b3;
 }
+.related-projects-slider {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.05);
+}
+
+.project-card {
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+    display: block;
+    width: 100%;
+}
+
+.project-card img {
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.project-card:hover img {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-title {
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #555;
+    transition: 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #000;
+}
+
+/* Pagination */
+.swiper-pagination-bullet {
+    background-color: #999;
+    transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #333;
+}
 </style>
 <h1 class="project-header">{{ project.title }}</h1>
 
@@ -282,24 +355,63 @@
         {% endif %}
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper(".related-projects-slider", {
+                loop: true, // Infinite loop
+                slidesPerView: 3, // Default: 3 slides visible
+                spaceBetween: 20, // Spacing between slides
+                lazy: true, // Lazy load images
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true, // Fancy bullet animations
+                },
+                autoplay: {
+                    delay: 3000, // Auto-slide every 3s
+                    disableOnInteraction: false, // Continue autoplay after user interaction
+                },
+                breakpoints: {
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                    768: { slidesPerView: 2, spaceBetween: 20 },
+                    480: { slidesPerView: 1, spaceBetween: 10 },
+                },
+            });
+        });
+        </script>
+        
+        
+        <div class="related-projects">
+            <h2>Related Projects</h2>
+            {% if related_projects %}
+                <div class="swiper related-projects-slider">
+                    <div class="swiper-wrapper">
+                        {% for related_project in related_projects %}
+                            <div class="swiper-slide">
+                                <a href="{% url 'project_detail' slug=related_project.slug %}" class="project-card">
+                                    <img src="{{ related_project.image.url }}" alt="{{ related_project.title }}" class="swiper-lazy">
+                                    <div class="swiper-lazy-preloader"></div>
+                                    <span class="project-title">{{ related_project.title }}</span>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Pagination & Navigation -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            {% else %}
+                <p>No related projects available.</p>
+            {% endif %}
+        </div>
+        
     
-    <div class="related-projects">
-        <h2>Related Projects</h2>
-        {% if related_projects %}
-            <ul>
-                {% for related_project in related_projects %}
-                    <li>
-                        <a href="{% url 'project_detail' slug=related_project.slug %}">
-                            <img src="{{ related_project.image.url }}" alt="{{ related_project.title }}">
-                            <span>{{ related_project.title }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No related projects available.</p>
-        {% endif %}
-    </div>
     
 
 </div>
