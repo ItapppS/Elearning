@@ -238,20 +238,43 @@ def technology_detail(request, slug):
 #     return render(request, 'project_detail.html', {'project': project, 'introduction_points': introduction_points})
 
 
+from django.shortcuts import render, get_object_or_404
+from .models import Project
+
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
-    introduction_points = [point.strip() for point in project.introduction.split('.') if point.strip()]
 
-    # 🔥 Related projects filter => same domain ke projects dikhayenge
+    # ✅ Introduction ko safely split karna
+    introduction_points = []
+    if project.introduction:
+        introduction_points = [point.strip() for point in project.introduction.split('.') if point.strip()]
+
+    # ✅ Related projects filter (same domain ke projects dikhayenge)
     related_projects = Project.objects.filter(
-        subdomain__domain=project.subdomain.domain  # ✅ Same domain ke projects
-    ).exclude(id=project.id)[:5]  # ✅ Current project ko exclude karna hai
+        subdomain__domain=project.subdomain.domain if project.subdomain else None
+    ).exclude(id=project.id)[:5]  
+
+    # ✅ Total price calculate karne ka logic (Fix)
+    total_price = 0
+    if project.components:
+        try:
+            total_price = sum(
+                int(item.get("quantity", 1)) * float(item.get("price", 0))
+                for item in project.components.values()
+                if isinstance(item, dict) and "quantity" in item and "price" in item
+            )
+        except Exception as e:
+            print("Error in total price calculation:", e)
+    
+    print("Total Price Calculated:", total_price)  # Debugging
 
     return render(request, 'project_detail.html', {
-        'project': project, 
-        'introduction_points': introduction_points, 
-        'related_projects': related_projects
+        'project': project,
+        'introduction_points': introduction_points,
+        'related_projects': related_projects,
+        'total_price': total_price,  # ✅ Template me use kar sakte ho
     })
+
 
 
 

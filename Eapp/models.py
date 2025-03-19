@@ -62,9 +62,23 @@ class Project(models.Model):
     report_link = models.URLField(blank=True, null=True)  # Report ki link
     interface_diagram = models.ImageField(upload_to='interface_diagrams/', blank=True, null=True)  # Interface diagram image
 
+     # 🔹 JSON Field to store multiple components with specifications and price
+    components = models.JSONField(default=dict, blank=True, null=True)  
+
+    # 🔹 Project-level total price (Auto Calculated)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  
+
     def save(self, *args, **kwargs):
+        """ Auto-calculate total price from component prices & quantities before saving """
+        if self.components:
+            self.price = sum(
+                item.get("price", 0) * item.get("quantity", 1) for item in self.components.values()
+            )
+
+        # 🔹 Slug generation
         if not self.slug:
             self.slug = slugify(self.title)
+            
         super().save(*args, **kwargs)
 
     def __str__(self):
