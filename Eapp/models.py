@@ -46,43 +46,69 @@ class SubDomain(models.Model):
     def __str__(self):
         return self.title
 
+from django.db import models
+from django.utils.text import slugify
+import json
+
 class Project(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='project_images/')
     subdomain = models.ForeignKey(SubDomain, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
 
-     # Naye fields
+    # 🔹 Additional fields
     introduction = models.TextField(blank=True, null=True)
-    video_link = models.URLField(blank=True, null=True)  # Video ki link
-    video_description = models.TextField(blank=True, null=True)  # Video ka description
-    guide_description = models.TextField(blank=True, null=True)  # Comprehensive guide ka description
-    guide_link = models.URLField(blank=True, null=True)  # Guide ki link
-    report_description = models.TextField(blank=True, null=True)  # Report ka description
-    report_link = models.URLField(blank=True, null=True)  # Report ki link
-    interface_diagram = models.ImageField(upload_to='interface_diagrams/', blank=True, null=True)  # Interface diagram image
+    video_link = models.URLField(blank=True, null=True)
+    video_description = models.TextField(blank=True, null=True)
+    guide_description = models.TextField(blank=True, null=True)
+    guide_link = models.URLField(blank=True, null=True)
+    report_description = models.TextField(blank=True, null=True)
+    report_link = models.URLField(blank=True, null=True)
+    interface_diagram = models.ImageField(upload_to='interface_diagrams/', blank=True, null=True)
 
-     # 🔹 JSON Field to store multiple components with specifications and price
+    # 🔹 JSON Field to store multiple components with specifications and price
     components = models.JSONField(default=dict, blank=True, null=True)  
 
     # 🔹 Project-level total price (Auto Calculated)
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def save(self, *args, **kwargs):
-        """ Auto-calculate total price from component prices & quantities before saving """
-        if self.components:
-            self.price = sum(
-                item.get("price", 0) * item.get("quantity", 1) for item in self.components.values()
-            )
+        """ 
+        🔹 Auto-calculate total price from component prices & quantities before saving 
+        """
+        if self.components and isinstance(self.components, dict):
+            total_cost = 0
+            updated_components = {}
 
+            for key, item in self.components.items():
+                name = item.get("name", "").strip()
+                quantity = max(int(item.get("quantity", 1)), 1)  # ✅ Quantity must be at least 1
+                price = float(item.get("price", 0))
+                specification = item.get("specification", "No specification available").strip()
+
+                # 🔥 Auto-calculate total cost
+                total_cost += price * quantity
+
+                # ✅ Ensure cleaned and structured data is stored
+                updated_components[key] = {
+                    "name": name,
+                    "quantity": quantity,
+                    "price": price,
+                    "specification": specification
+                }
+
+            self.components = updated_components
+            self.price = total_cost  # ✅ Store total price
+        
         # 🔹 Slug generation
         if not self.slug:
             self.slug = slugify(self.title)
-            
+
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
+
 
 
 class Component(models.Model):
