@@ -52,7 +52,7 @@ import json
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='project_images/')
+    image = models.ImageField(upload_to='project_images/',null=True)
     subdomain = models.ForeignKey(SubDomain, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
 
